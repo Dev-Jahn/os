@@ -1,0 +1,14 @@
+#directory to ignore
+.ignore/
+
+# Generated files
+bin/
+
+# Build files
+build/
+
+# Binaries
+*.bin
+
+# etc
+etc/
