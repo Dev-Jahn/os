@@ -220,7 +220,7 @@ void kbd_handler(struct intr_frame *iframe)
 					break;
 				case 108:	// Ctrl+L
 					clearScreen();
-					printk("clear\n");
+					/*printk("clear\n");*/
 					break;
 				default:
 					break;

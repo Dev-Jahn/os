@@ -1,4 +1,4 @@
-cscope 15 /media/jahn/External1/os/p3/ssuos/src/kernel               0000222004
+cscope 15 /media/jahn/External1/os/p3/ssuos/src/kernel               0000224786
 	@arch/Main.c
 
 1 
@@ -490,6 +490,202 @@ pid
 51 
 	}
 }
+
+	@arch/i386/crset.asm
+
+1 [
+SECTION
+ .
+ãxt
+]
+
+3 [
+GLOBAL
+ 
+ªad_¸0
+]
+
+4 
+	gªad_¸0
+:
+
+5 
+push
+ 
+ebp
+
+
+6 
+mov
+ 
+ebp
+, 
+e•
+
+
+7 
+mov
+ 
+	góx
+, 
+¸0
+
+
+8 
+p›
+ 
+ebp
+
+
+9 
+	gªä
+
+
+11 [
+GLOBAL
+ 
+wrôe_¸0
+]
+
+12 
+	gwrôe_¸0
+:
+
+13 
+push
+ 
+ebp
+
+
+14 
+mov
+ 
+ebp
+, 
+e•
+
+
+15 
+mov
+ 
+	góx
+, 
+	gdw‹d
+[
+ebp
++8]
+
+16 
+mov
+ 
+	g¸0
+, 
+óx
+
+
+17 
+p›
+ 
+ebp
+
+
+18 
+	gªä
+
+
+20 [
+GLOBAL
+ 
+ªad_¸3
+]
+
+21 
+	gªad_¸3
+:
+
+22 
+push
+ 
+ebp
+
+
+23 
+mov
+ 
+ebp
+, 
+e•
+
+
+24 
+mov
+ 
+	góx
+, 
+¸3
+
+
+25 
+p›
+ 
+ebp
+
+
+26 
+	gªä
+
+
+28 [
+GLOBAL
+ 
+wrôe_¸3
+]
+
+29 
+	gwrôe_¸3
+:
+
+30 
+push
+ 
+ebp
+
+
+31 
+mov
+ 
+ebp
+, 
+e•
+
+
+32 
+mov
+ 
+	góx
+, 
+	gdw‹d
+[
+ebp
++8]
+
+33 
+mov
+ 
+	g¸3
+, 
+óx
+
+
+34 
+p›
+ 
+ebp
+
+
+35 
+	gªä
+
 
 	@arch/i386/intr-stubs.S
 
@@ -1328,6 +1524,616 @@ zîo
 Ë
 	`STUB
 (7f, zero)
+
+	@arch/i386/io.asm
+
+1 [
+SECTION
+ .
+ãxt
+]
+
+2 [
+GLOBAL
+ 
+öb
+]
+
+3 
+	göb
+:
+
+4 
+push
+ 
+ebp
+
+
+5 
+mov
+ 
+ebp
+, 
+e•
+
+
+7 
+x‹
+ 
+	góx
+, 
+óx
+
+
+8 
+mov
+ 
+	gdx
+, 
+	gw‹d
+[
+ebp
++8]
+
+9 
+ö
+ 
+	gÆ
+, 
+dx
+
+
+11 
+p›
+ 
+ebp
+
+
+12 
+	gªt
+
+
+14 [
+GLOBAL
+ 
+outb
+]
+
+15 
+	goutb
+:
+
+16 
+push
+ 
+ebp
+
+
+17 
+mov
+ 
+ebp
+, 
+e•
+
+
+19 
+mov
+ 
+	gÆ
+, 
+	gbyã
+ [
+ebp
++12]
+
+20 
+mov
+ 
+	gdx
+, 
+	gw‹d
+ [
+ebp
++8]
+
+21 
+out
+ 
+	gdx
+, 
+Æ
+
+
+23 
+p›
+ 
+ebp
+
+
+24 
+	gªt
+
+
+26 [
+GLOBAL
+ 
+öl
+]
+
+27 
+	göl
+:
+
+28 
+push
+ 
+ebp
+
+
+29 
+mov
+ 
+ebp
+, 
+e•
+
+
+30 
+push
+ 
+edx
+
+
+32 
+mov
+ 
+	gdx
+, 
+	gw‹d
+ [
+ebp
++8]
+
+33 
+x‹
+ 
+	góx
+, 
+óx
+
+
+35 
+ö
+ 
+	góx
+, 
+dx
+
+
+36 
+p›
+ 
+edx
+
+
+37 
+mov
+ 
+	ge•
+, 
+ebp
+
+
+38 
+p›
+ 
+ebp
+
+
+39 
+	gªt
+
+
+41 [
+GLOBAL
+ 
+oué
+]
+
+42 
+	goué
+:
+
+43 
+push
+ 
+ebp
+
+
+44 
+mov
+ 
+ebp
+, 
+e•
+
+
+45 
+push
+ 
+edx
+
+
+46 
+push
+ 
+óx
+
+
+48 
+mov
+ 
+	gdx
+, 
+	gw‹d
+ [
+ebp
++8]
+
+49 
+mov
+ 
+	góx
+, 
+	gdw‹d
+ [
+ebp
++12]
+
+50 
+out
+ 
+	gdx
+, 
+óx
+
+
+52 
+p›
+ 
+óx
+
+
+53 
+p›
+ 
+edx
+
+
+54 
+mov
+ 
+	ge•
+, 
+ebp
+
+
+55 
+p›
+ 
+ebp
+
+
+56 
+	gªt
+
+
+58 [
+GLOBAL
+ 
+iowaô
+]
+
+59 
+	giowaô
+:
+
+60 
+push
+ 
+ax
+
+
+62 
+x‹
+ 
+ax
+,áx
+
+63 
+	gout
+ 0x80, 
+Æ
+
+
+65 
+p›
+ 
+ax
+
+
+66 
+	gªt
+
+
+	@arch/i386/mem.asm
+
+1 [
+SECTION
+ .
+ãxt
+]
+
+3 [
+GLOBAL
+ 
+gëMemSize
+]
+
+4 
+	ggëMemSize
+:
+
+5 
+push
+ 
+ecx
+
+
+6 
+push
+ 
+edx
+
+
+7 
+x‹
+ 
+ecx
+, 
+	gecx
+ ;
+˛ór
+ 
+Æl
+ 
+	gªgi°îs
+. 
+This
+ 
+is
+ 
+√eded
+ 
+ã°ög
+ 
+œãr
+
+
+8 
+x‹
+ 
+	gedx
+, 
+edx
+
+
+9 
+mov
+ 
+	gax
+, 0xe801
+
+11 
+	gjc
+ .
+îr‹
+
+
+12 
+cmp
+ 
+	gah
+, 0x86 ;
+unsuµ‹ãd
+ 
+fun˘i⁄
+
+
+13 
+	gje
+ .
+îr‹
+
+
+14 
+cmp
+ 
+	gah
+, 0x80 ;
+övÆid
+ 
+comm™d
+
+
+15 
+	gje
+ .
+îr‹
+
+
+16 
+	gjcxz
+ .
+	gu£_ax
+ ;
+bios
+ 
+may
+ 
+have
+ 
+°‹ed
+ 
+ô
+ 
+ö
+ 
+	gax
+,
+bx
+ 
+‹
+ 
+	gcx
+,
+	gdx
+. 
+ã°
+ 
+cx
+ 
+	gis
+ 0
+
+17 
+p›
+ 
+edx
+
+
+18 
+p›
+ 
+ecx
+
+
+19 
+ªt
+
+
+21 
+mov
+ 
+	gax
+, 
+	gcx
+ ;
+ôs
+ 
+	gnŸ
+, 
+so
+ 
+ô
+ 
+should
+ 
+c⁄èö
+ 
+mem
+ 
+	gsize
+; 
+°‹e
+ it
+
+22 
+mov
+ 
+	gbx
+, 
+	gdx
+
+
+24 .
+	gu£_ax
+:
+
+25 
+mov
+ 
+ax
+, 
+bx
+
+
+26 
+p›
+ 
+	gedx
+ ;
+mem
+ 
+size
+ 
+is
+ 
+ö
+ 
+ax
+ 
+™d
+ 
+bx
+ 
+	gÆªady
+,  
+ô
+
+
+27 
+p›
+ 
+ecx
+
+
+28 
+	gªt
+
+
+30 .
+	gîr‹
+:
+
+31 
+mov
+ 
+ax
+, -1
+
+32 
+mov
+ 
+	gbx
+, 0
+
+33 
+p›
+ 
+edx
+
+
+34 
+p›
+ 
+ecx
+
+
+35 
+	gªt
+
 
 	@arch/i386/switch.S
 
@@ -7262,68 +8068,68 @@ LASF19
  "Glob_y"
 
 675 .
-LASF24
+LASF25
 :
 
 676 .
 °rög
- "arch/Main.c"
+ "/media/jahn/External1/os/p3/ssuos/src/kernel"
 
 677 .
-LASF13
+LASF24
 :
 
 678 .
 °rög
- "SYS_SHUTDOWN"
+ "arch/Main.c"
 
 679 .
-LASF12
+LASF13
 :
 
 680 .
 °rög
- "SYS_SSUREAD"
+ "SYS_SHUTDOWN"
 
 681 .
-LASF20
+LASF12
 :
 
 682 .
 °rög
- "VERSION"
+ "SYS_SSUREAD"
 
 683 .
-LASF1
+LASF20
 :
 
 684 .
 °rög
- "char"
+ "VERSION"
 
 685 .
-LASF21
+LASF1
 :
 
 686 .
 °rög
- "AUTHOR"
+ "char"
 
 687 .
-LASF16
+LASF21
 :
 
 688 .
 °rög
- "main_init"
+ "AUTHOR"
 
 689 .
-LASF25
+LASF16
 :
 
 690 .
 °rög
- "/home/kym/os/#3_KEYBOARD_INTERRUPT_SOL/src-\352\263\274\354\240\234/kernel"
+ "main_init"
 
 691 .
 LASF26
@@ -8701,15 +9507,15 @@ BYTE
 Sˇncode
 )
 
-70 if(
+71 if(
 Sˇncode
  & 0x80)
 
-72 if(
+74 if(
 Sˇncode
  == 0xB6 || Scancode == 0xAA)
 
-74 
+76 
 KSèt
 .
 Shi·Fœg
@@ -8719,13 +9525,25 @@ FALSE
 
 79 if(
 Sˇncode
+ == 0x9D)
+
+81 
+KSèt
+.
+CålFœg
+ = 
+FALSE
+;
+
+87 if(
+Sˇncode
  =0x3A && 
 KSèt
 .
 C≠¶ockFœg
 )
 
-81 
+89 
 KSèt
 .
 C≠¶ockFœg
@@ -8733,11 +9551,11 @@ C≠¶ockFœg
 FALSE
 ;
 
-83 if(
+91 if(
 Sˇncode
  == 0x3A)
 
-84 
+92 
 KSèt
 .
 C≠¶ockFœg
@@ -8745,11 +9563,11 @@ C≠¶ockFœg
 TRUE
 ;
 
-85 if(
+94 if(
 Sˇncode
  == 0x36 || Scancode == 0x2A)
 
-87 
+96 
 KSèt
 .
 Shi·Fœg
@@ -8757,11 +9575,23 @@ Shi·Fœg
 TRUE
 ;
 
-91 if(
+98 if(
+Sˇncode
+ == 0x1D)
+
+100 
+KSèt
+.
+CålFœg
+ = 
+TRUE
+;
+
+105 if(
 Sˇncode
  == 0xE0)
 
-93 
+107 
 KSèt
 .
 Exã¡edFœg
@@ -8769,7 +9599,7 @@ Exã¡edFœg
 TRUE
 ;
 
-95 if(
+109 if(
 KSèt
 .
 Exã¡edFœg
@@ -8779,7 +9609,7 @@ TRUE
 Sˇncode
  != 0xE0)
 
-97 
+111 
 KSèt
 .
 Exã¡edFœg
@@ -8787,11 +9617,11 @@ Exã¡edFœg
 FALSE
 ;
 
-99 
+113 
 	}
 }
 
-101 
+115 
 BOOL
  
 	$C⁄vîtSˇncodeToASCII
@@ -8803,23 +9633,23 @@ Sˇncode
 Asciicode
 )
 
-103 if(
+117 if(
 KSèt
 .
 Pau£Fœg
  > 0)
 
-105 
+119 
 KSèt
 .
 Pau£Fœg
 --;
 
-106  
+120  
 FALSE
 ;
 
-109 if(
+123 if(
 KSèt
 .
 Exã¡edFœg
@@ -8827,59 +9657,59 @@ Exã¡edFœg
 TRUE
 )
 
-111 if(
+125 if(
 Sˇncode
  & 0x80)
-
-112  
-FALSE
-;
-
-113 *
-Asciicode
- = 
-Sˇncode
-;
-
-114  
-TRUE
-;
-
-117 if(
-Sˇncode
- == 0xE1)
-
-119 *
-Asciicode
- = 0x00;
-
-120 
-KSèt
-.
-Pau£Fœg
- = 2;
-
-121  
-FALSE
-;
-
-123 if(
-Sˇncode
- == 0xE0)
-
-125 *
-Asciicode
- = 0x00;
 
 126  
 FALSE
 ;
 
-129 if(!(
+127 *
+Asciicode
+ = 
+Sˇncode
+;
+
+128  
+TRUE
+;
+
+131 if(
+Sˇncode
+ == 0xE1)
+
+133 *
+Asciicode
+ = 0x00;
+
+134 
+KSèt
+.
+Pau£Fœg
+ = 2;
+
+135  
+FALSE
+;
+
+137 if(
+Sˇncode
+ == 0xE0)
+
+139 *
+Asciicode
+ = 0x00;
+
+140  
+FALSE
+;
+
+143 if(!(
 Sˇncode
  & 0x80))
 
-131 if(
+145 if(
 KSèt
 .
 Shi·Fœg
@@ -8887,7 +9717,7 @@ Shi·Fœg
 C≠¶ockFœg
 )
 
-133 *
+147 *
 Asciicode
  = 
 Kbd_M≠
@@ -8895,13 +9725,13 @@ Kbd_M≠
 Sˇncode
  & 0x7F];
 
-135 if(
+149 if(
 KSèt
 .
 Shi·Fœg
 )
 
-137 *
+151 *
 Asciicode
  = 
 Kbd_M≠
@@ -8909,13 +9739,13 @@ Kbd_M≠
 Sˇncode
  & 0x7F];
 
-139 if(
+153 if(
 KSèt
 .
 C≠¶ockFœg
 )
 
-141 *
+155 *
 Asciicode
  = 
 Kbd_M≠
@@ -8923,7 +9753,7 @@ Kbd_M≠
 Sˇncode
  & 0x7F];
 
-145 *
+159 *
 Asciicode
  = 
 Kbd_M≠
@@ -8931,25 +9761,25 @@ Kbd_M≠
 Sˇncode
 ];
 
-148  
+162  
 TRUE
 ;
 
-150  
+164  
 FALSE
 ;
 
-151 
+165 
 	}
 }
 
-153 
+167 
 boﬁ
  
 	$isFuŒ
 ()
 
-155  (
+169  (
 buf_hód
 -1Ë% 
 BUFSIZ
@@ -8957,27 +9787,27 @@ BUFSIZ
 buf_èû
 ;
 
-156 
+170 
 	}
 }
 
-158 
+172 
 boﬁ
  
 	$isEm±y
 ()
 
-160  
+174  
 buf_hód
  =
 buf_èû
 ;
 
-161 
+175 
 	}
 }
 
-163 
+177 
 	$kbd_h™dÀr
 (
 öå_‰ame
@@ -8985,13 +9815,13 @@ buf_èû
 i‰ame
 )
 
-165 
+179 
 BYTE
  
 asciicode
 ;
 
-166 
+180 
 BYTE
  
 d©a
@@ -8999,7 +9829,7 @@ d©a
 	`öb
 (0x60);
 
-168 if(
+182 if(
 	`C⁄vîtSˇncodeToASCII
 (
 d©a
@@ -9007,11 +9837,11 @@ d©a
 asciicode
 ))
 
-171 #ifde‡
+185 #ifde‡
 SCREEN_SCROLL
 
 
-172 if–
+188 if–
 KSèt
 .
 Exã¡edFœg
@@ -9019,29 +9849,53 @@ Exã¡edFœg
 TRUE
 )
 
-174 
+190 
 asciicode
 )
 
-185 
+201 
 	`s¸ﬁl_s¸ìn
 (-1);
 
-188 
+204 
 	`s¸ﬁl_s¸ìn
 (+1);
 
-191 
+207 
 	`£t_ÁŒow
 ();
 
-197 if–!
+214 if–
+KSèt
+.
+CålFœg
+ =
+TRUE
+)
+
+216 
+asciicode
+)
+
+219 
+	`¥ötk
+("tab\n");
+
+222 
+	`˛órS¸ìn
+();
+
+223 
+	`¥ötk
+("clear\n");
+
+229 if–!
 	`isFuŒ
 (Ë&& 
 asciicode
  != 0)
 
-199 
+231 
 kbd_buf
 [
 buf_èû
@@ -9049,35 +9903,35 @@ buf_èû
 asciicode
 ;
 
-200 
+232 
 buf_èû
  = (buf_èû + 1Ë% 
 BUFSIZ
 ;
 
-206 
+238 
 	`Upd©eKeySèt
 (
 d©a
 );
 
-207 
+239 
 	}
 }
 
-209 
+241 
 	$kbd_ªad_ch¨
 ()
 
-211 if–
+243 if–
 	`isEm±y
 ())
 
-214 
+246 
 ªt
 ;
 
-215 
+247 
 ªt
  = 
 kbd_buf
@@ -9085,37 +9939,37 @@ kbd_buf
 buf_hód
 ];
 
-216 
+248 
 buf_hód
  = (buf_hód + 1)%
 BUFSIZ
 ;
 
-217  
+249  
 ªt
 ;
 
-218 
+250 
 	}
 }
 
-221 
+253 
 Kbd_buf„r
  *
 	$gë_kbd_buf„r
 (){
 
-222 
+254 
 i
 ;
 
-224 
+256 
 i
  = 0; i < 
 MAX_KBD_BUFFER
 ; i++){
 
-225 if(
+257 if(
 kbd_buf„r
 [
 i
@@ -9125,7 +9979,7 @@ u£d
 Ál£
 ){
 
-226 
+258 
 kbd_buf„r
 [
 i
@@ -9135,17 +9989,17 @@ u£d
 åue
 ;
 
-227  &
+259  &
 kbd_buf„r
 [
 i
 ];
 
-231  
+263  
 NULL
 ;
 
-232 
+264 
 	}
 }
 
@@ -10548,202 +11402,208 @@ __KDB_H__
 	)
 
 13 
+	#KEY_CTRL
+ 0x1D
+
+	)
+
+14 
 	#KEY_RSHIFT
  0x02
 
 	)
 
-14 
+15 
 	#KEY_PRTSCN
  0x03
 
 	)
 
-15 
+16 
 	#KEY_LALT
  0x04
 
 	)
 
-16 
+17 
 	#KEY_SPACE
  0x05
 
 	)
 
-17 
+18 
 	#KEY_CAPS
  0x06
 
 	)
 
-18 
+19 
 	#KEY_F1
  0X07
 
 	)
 
-19 
+20 
 	#KEY_F2
  0x08
 
 	)
 
-20 
+21 
 	#KEY_F3
  0x09
 
 	)
 
-21 
+22 
 	#KEY_F4
  0x0A
 
 	)
 
-22 
+23 
 	#KEY_F5
  0x0B
 
 	)
 
-23 
+24 
 	#KEY_F6
  0x0C
 
 	)
 
-24 
+25 
 	#KEY_F7
  0x0D
 
 	)
 
-25 
+26 
 	#KEY_F8
  0x0E
 
 	)
 
-26 
+27 
 	#KEY_F9
  0x0F
 
 	)
 
-27 
+28 
 	#KEY_F10
  0x10
 
 	)
 
-28 
+29 
 	#KEY_F11
  0x11
 
 	)
 
-29 
+30 
 	#KEY_F12
  0x12
 
 	)
 
-30 
+31 
 	#KEY_BSPACE
  0x13
 
 	)
 
-31 
+32 
 	#KEY_TAB
  0x14
 
 	)
 
-33 
+34 
 	sKey_Sètus_Såu˘
  {
 
-34 
+35 
 BOOL
  
 	mShi·Fœg
 ;
 
-35 
+36 
 BOOL
  
 	mCålFœg
 ;
 
-36 
+37 
 BOOL
  
 	mC≠¶ockFœg
 ;
 
-37 
+38 
 BOOL
  
 	mNumlockFLag
 ;
 
-38 
+39 
 BOOL
  
 	mS¸ﬁŒockFœg
 ;
 
-40 
+41 
 BOOL
  
 	mExã¡edFœg
 ;
 
-41 
+42 
 	mPau£Fœg
 ;
 
-42 } 
+43 } 
 	tKey_Sètus
 ;
 
-44 
+45 
 	sKbd_buf„r
  {
 
-45 
+46 
 	mbuf
 [
 KBD_BUFFER_SIZE
 ];
 
-46 
+47 
 	mhód
 ;
 
-47 
+48 
 	mèû
 ;
 
-48 
+49 
 BOOL
  
 	mu£d
 ;
 
-49 } 
+50 } 
 	tKbd_buf„r
 ;
 
-51 
+52 
 Upd©eKeySèt
 (
 BYTE
 );
 
-52 
+53 
 BOOL
  
 C⁄vîtSˇncodeToASCII
@@ -10751,11 +11611,11 @@ C⁄vîtSˇncodeToASCII
 BYTE
 , BYTE *);
 
-53 
+54 
 öô_kbd
 ();
 
-54 
+55 
 kbd_h™dÀr
 (
 öå_‰ame
@@ -10763,7 +11623,7 @@ kbd_h™dÀr
 i‰ame
 );
 
-56 
+57 
 kbd_ªad_ch¨
 ();
 
@@ -43446,11 +44306,14 @@ __END_DECLS
 .
 1
 /usr/include
-79
-1418
+82
+1473
 arch/Main.c
 arch/do_syscall.c
+arch/i386/crset.asm
 arch/i386/intr-stubs.S
+arch/i386/io.asm
+arch/i386/mem.asm
 arch/i386/switch.S
 arch/interrupt.c
 arch/syscall.c

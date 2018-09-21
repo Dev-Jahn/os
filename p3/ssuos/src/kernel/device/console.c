@@ -44,16 +44,20 @@ void init_console(void)
 
 void set_cursor(void)
 {
+	//setting low cursor byte
     outb(0x3D4, 0x0F);
+	//sending low cursor byte
     outb(0x3D5, (Glob_y*HSCREEN+Glob_x)&0xFF);
+	//setting high cursor byte
     outb(0x3D4, 0x0E);
+	//sending high cursor byte
     outb(0x3D5, (((Glob_y*HSCREEN+Glob_x)>>8)&0xFF));
 }
 
 void PrintCharToScreen(int x, int y, const char *pString) 
 {
-	Glob_x = x;
-	Glob_y = y;
+	Glob_x = x;	//location x
+	Glob_y = y; //location y
 	int i = 0;
 	while(pString[i] != 0)
 	{
@@ -147,8 +151,7 @@ void clrScreen(void)
 //Ctrl+l 화면 클리어 구현
 void clearScreen(void)
 {
-	clrScreen();
-	refreshScreen();
+	scroll_screen(-5);
 }
 
 void scroll(void) 

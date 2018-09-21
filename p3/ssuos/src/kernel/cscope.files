@@ -1,5 +1,8 @@
 ./arch/do_syscall.c
+./arch/i386/crset.asm
 ./arch/i386/intr-stubs.S
+./arch/i386/io.asm
+./arch/i386/mem.asm
 ./arch/i386/switch.S
 ./arch/interrupt.c
 ./arch/Main.c
