@@ -1,0 +1,1786 @@
+cscope 15 $HOME/os/p3/src/kernel/device               0000008908
+	@console.c
+
+1 
+	~<öãºu±.h
+>
+
+2 
+	~<devi˚/c⁄sﬁe.h
+>
+
+3 
+	~<ty≥.h
+>
+
+4 
+	~<devi˚/kbd.h
+>
+
+5 
+	~<devi˚/io.h
+>
+
+6 
+	~<devi˚/pô.h
+>
+
+7 
+	~<°d¨g.h
+>
+
+9 
+	g√xt_löe
+[2];
+
+11 #ifde‡
+SCREEN_SCROLL
+
+
+13 
+	gbuf_s
+[
+SIZE_SCROLL
+];
+
+14 *
+	gbuf_w
+;
+
+15 *
+	gbuf_p
+;
+
+17 
+	gsum_y
+;
+
+19 
+boﬁ
+ 
+	ga_s
+ = 
+TRUE
+;
+
+23 
+C⁄sﬁe
+ 
+	gc⁄sﬁe
+[
+MAX_CONSOLE_NUM
+];
+
+24 
+¥o˚ss
+ *
+cur_¥o˚ss
+;
+
+25 
+C⁄sﬁe
+ *
+	gcur_c⁄sﬁe
+;
+
+27 
+	$öô_c⁄sﬁe
+()
+
+29 
+Glob_x
+ = 0;
+
+30 
+Glob_y
+ = 2;
+
+32 
+√xt_löe
+[0] = '\r';
+
+33 
+√xt_löe
+[1] = '\r';
+
+35 #ifde‡
+SCREEN_SCROLL
+
+
+36 
+buf_w
+ = 
+buf_s
+;
+
+37 
+buf_p
+ = 
+buf_s
+;
+
+38 
+a_s
+ = 
+TRUE
+;
+
+40 
+sum_y
+ = 0;
+
+43 
+	}
+}
+
+45 
+	$£t_curs‹
+()
+
+47 
+	`outb
+(0x3D4, 0x0F);
+
+48 
+	`outb
+(0x3D5, (
+Glob_y
+*
+HSCREEN
++
+Glob_x
+)&0xFF);
+
+49 
+	`outb
+(0x3D4, 0x0E);
+
+50 
+	`outb
+(0x3D5, (((
+Glob_y
+*
+HSCREEN
++
+Glob_x
+)>>8)&0xFF));
+
+51 
+	}
+}
+
+53 
+	$PrötCh¨ToS¸ìn
+(
+x
+, 
+y
+, c⁄° *
+pSåög
+)
+
+55 
+Glob_x
+ = 
+x
+;
+
+56 
+Glob_y
+ = 
+y
+;
+
+57 
+i
+ = 0;
+
+58 
+pSåög
+[
+i
+] != 0)
+
+60 
+	`PrötCh¨
+(
+Glob_x
+++, 
+Glob_y
+, 
+pSåög
+[
+i
+++]);
+
+62 
+a_s
+ = 
+TRUE
+;
+
+63 
+	}
+}
+
+65 
+	$PrötCh¨
+(
+x
+, 
+y
+, c⁄° 
+Såög
+)
+
+67 #ifde‡
+SCREEN_SCROLL
+
+
+68 i‡(
+Såög
+ == '\n') {
+
+69 if((
+y
++1Ë> 
+VSCREEN
+) {
+
+70 
+	`s¸ﬁl
+();
+
+71 
+y
+--;
+
+73 
+Glob_x
+ = 0;
+
+74 
+Glob_y
+ = 
+y
++1;
+
+75 
+sum_y
+++;
+
+78 i‡(
+Såög
+ == '\b') {
+
+79 if(
+Glob_x
+ == 0) ;
+
+80 
+Glob_x
+-=2;
+
+81 
+buf_w
+[
+y
+ * 
+HSCREEN
+ + 
+x
+ - 1] = 0;
+
+84 i‡((
+y
+ >
+VSCREEN
+Ë&& (
+x
+ >= 0)) {
+
+85 
+	`s¸ﬁl
+();
+
+86 
+x
+ = 0;
+
+87 
+y
+--;
+
+90 * 
+b
+ = &
+buf_w
+[
+y
+ * 
+HSCREEN
+ + 
+x
+];
+
+91 if(
+b
+ >
+SCROLL_END
+)
+
+92 
+b
+-
+SIZE_SCROLL
+;
+
+93 *
+b
+ = 
+Såög
+;
+
+95 if(
+Glob_x
+ >
+HSCREEN
+)
+
+97 
+Glob_x
+ = 0;
+
+98 
+Glob_y
+++;
+
+99 
+sum_y
+++;
+
+103 
+CHAR
+ *
+pS¸ìn
+ = (CHAR *)
+VIDIO_MEMORY
+;
+
+105 i‡(
+Såög
+ == '\n') {
+
+106 if((
+y
++1) > 24) {
+
+107 
+	`s¸ﬁl
+();
+
+108 
+y
+--;
+
+110 
+pS¸ìn
+ +((
+y
++1) * 80);
+
+111 
+Glob_x
+ = 0;
+
+112 
+Glob_y
+ = 
+y
++1;
+
+116 i‡((
+y
+ > 24Ë&& (
+x
+ >= 0)) {
+
+117 
+	`s¸ﬁl
+();
+
+118 
+x
+ = 0; 
+y
+--;
+
+121 
+pS¸ìn
+ +–
+y
+ * 80Ë+ 
+x
+;
+
+122 
+pS¸ìn
+[0].
+bAâ
+ = 0x07;
+
+123 
+pS¸ìn
+[0].
+bCh
+ = 
+Såög
+;
+
+125 if(
+Glob_x
+ > 79)
+
+127 
+Glob_x
+ = 0;
+
+128 
+Glob_y
+++;
+
+132 
+	}
+}
+
+134 
+	$˛rS¸ìn
+()
+
+136 
+CHAR
+ *
+pS¸ìn
+ = (CHAR *Ë
+VIDIO_MEMORY
+;
+
+137 
+i
+;
+
+139 
+i
+ = 0; i < 80*25; i++) {
+
+140 (*
+pS¸ìn
+).
+bAâ
+ = 0x07;
+
+141 (*
+pS¸ìn
+++).
+bCh
+ = ' ';
+
+143 
+Glob_x
+ = 0;
+
+144 
+Glob_y
+ = 0;
+
+145 
+	}
+}
+
+148 
+	$˛órS¸ìn
+()
+
+151 
+	}
+}
+
+153 
+	$s¸ﬁl
+()
+
+155 #ifde‡
+SCREEN_SCROLL
+
+
+156 
+buf_w
+ +
+HSCREEN
+;
+
+157 
+buf_p
+ +
+HSCREEN
+;
+
+159 
+buf_w
+ > 
+SCROLL_END
+)
+
+160 
+buf_w
+ -
+SIZE_SCROLL
+;
+
+164 
+i
+;
+
+165 *
+buf_±r
+ = 
+buf_w
+ + 
+SIZE_SCREEN
+;
+
+166 
+i
+ = 0; i < 
+HSCREEN
+; i++)
+
+168 if(
+buf_±r
+ > 
+SCROLL_END
+)
+
+169 
+buf_±r
+ -
+SIZE_SCROLL
+;
+
+170 *(
+buf_±r
+++) = 0;
+
+175 
+CHAR
+ *
+pS¸ìn
+ = (CHAR *Ë
+VIDIO_MEMORY
+;
+
+176 
+CHAR
+ *
+pS¸Buf
+ = (CHAR *Ë(
+VIDIO_MEMORY
+ + 2*80);
+
+177 
+i
+;
+
+178 
+i
+ = 0; i < 80*24; i++) {
+
+179 (*
+pS¸ìn
+).
+bAâ
+ = (*
+pS¸Buf
+).bAtt;
+
+180 (*
+pS¸ìn
+++).
+bCh
+ = (*
+pS¸Buf
+++).bCh;
+
+182 
+i
+ = 0; i < 80; i++) {
+
+183 (*
+pS¸ìn
+).
+bAâ
+ = 0x07;
+
+184 (*
+pS¸ìn
+++).
+bCh
+ = ' ';
+
+187 
+Glob_y
+--;
+
+189 
+	}
+}
+
+191 #ifde‡
+SERIAL_STDOUT
+
+
+192 
+	$¥ötCh¨ToSîül
+(c⁄° *
+pSåög
+)
+
+194 
+i
+;
+
+195 
+öå_Àvñ
+ 
+ﬁd_Àvñ
+ = 
+	`öå_dißbÀ
+();
+
+196 ;*
+pSåög
+ !
+NULL
+;ÖString++)
+
+198 if(*
+pSåög
+ != '\n'){
+
+199 (
+	`öb
+(
+LINE_STATUS
+Ë& 
+THR_EMPTY
+) == 0)
+
+201 
+	`outb
+(
+FIRST_SPORT
+, *
+pSåög
+);
+
+205 
+i
+=0; i<2; i++){
+
+206 (
+	`öb
+(
+LINE_STATUS
+Ë& 
+THR_EMPTY
+) == 0)
+
+208 
+	`outb
+(
+FIRST_SPORT
+, 
+√xt_löe
+[
+i
+]);
+
+212 
+	`öå_£t_Àvñ
+ (
+ﬁd_Àvñ
+);
+
+213 
+	}
+}
+
+217 
+	$¥ötk
+(c⁄° *
+fmt
+, ...)
+
+219 
+buf
+[1024];
+
+220 
+va_li°
+ 
+¨gs
+;
+
+221 
+Àn
+;
+
+223 
+	`va_°¨t
+(
+¨gs
+, 
+fmt
+);
+
+224 
+Àn
+ = 
+	`v•rötk
+(
+buf
+, 
+fmt
+, 
+¨gs
+);
+
+225 
+	`va_íd
+(
+¨gs
+);
+
+227 #ifde‡
+SERIAL_STDOUT
+
+
+228 
+	`¥ötCh¨ToSîül
+(
+buf
+);
+
+230 
+	`PrötCh¨ToS¸ìn
+(
+Glob_x
+, 
+Glob_y
+, 
+buf
+);
+
+232  
+Àn
+;
+
+233 
+	}
+}
+
+235 #ifde‡
+SCREEN_SCROLL
+
+
+236 
+	$s¸ﬁl_s¸ìn
+(
+off£t
+)
+
+238 * 
+tmp_buf_p
+;
+
+239 * 
+tmp_buf_w
+;
+
+240 if(
+a_s
+ =
+TRUE
+ && 
+off£t
+ > 0 && 
+buf_p
+ =
+buf_w
+)
+
+243 
+a_s
+ = 
+FALSE
+;
+
+245 
+tmp_buf_p
+ = (*)(()
+buf_p
+ + (
+HSCREEN
+ * 
+off£t
+));
+
+246 
+tmp_buf_w
+ = 
+buf_w
+ + 
+SIZE_SCREEN
+;
+
+247 if(
+tmp_buf_w
+ > 
+SCROLL_END
+)
+
+248 
+tmp_buf_w
+ = (*)((Èmp_buf_w - 
+SIZE_SCROLL
+);
+
+250 if(
+sum_y
+ < 
+NSCROLL
+ && 
+off£t
+ < 0 && 
+tmp_buf_p
+ <
+buf_s
+ && 
+buf_p
+ > buf_s) ;
+
+251 if(
+off£t
+ > 0 && 
+tmp_buf_p
+ > 
+buf_w
+ && 
+buf_p
+ <= buf_w) ;
+
+252 if(
+off£t
+ < 0 && 
+tmp_buf_p
+ <
+tmp_buf_w
+ && 
+buf_p
+ >Åmp_buf_w) ;
+
+254 
+buf_p
+ = 
+tmp_buf_p
+;
+
+256 if(
+buf_p
+ >
+SCROLL_END
+)
+
+257 
+buf_p
+ = (*)(()buf_∞- 
+SIZE_SCROLL
+);
+
+258 if(
+buf_p
+ < 
+buf_s
+)
+
+259 
+buf_p
+ = (*)(()buf_∞+ 
+SIZE_SCROLL
+);
+
+261 
+	`ª‰eshS¸ìn
+();
+
+262 
+	}
+}
+
+264 
+	$£t_ÁŒow
+()
+
+266 
+a_s
+ = 
+TRUE
+;
+
+267 
+	}
+}
+
+269 
+	$ª‰eshS¸ìn
+()
+
+271 
+CHAR
+ *
+p_s
+(CHAR *Ë
+VIDIO_MEMORY
+;
+
+272 
+i
+;
+
+274 if(
+a_s
+)
+
+275 
+buf_p
+ = 
+buf_w
+;
+
+277 * 
+b
+ = 
+buf_p
+;
+
+279 
+i
+ = 0; i < 
+SIZE_SCREEN
+; i++, 
+b
+++, 
+p_s
+++)
+
+281 if(
+b
+ >
+SCROLL_END
+)
+
+282 
+b
+ -
+SIZE_SCROLL
+;
+
+283 
+p_s
+->
+bAâ
+ = 0x07;
+
+284 
+p_s
+->
+bCh
+ = *
+b
+;
+
+286 
+	}
+}
+
+289 
+c⁄sﬁe
+ *
+	$gë_c⁄sﬁe
+(){
+
+290 
+i
+;
+
+292 
+i
+ = 0; i < 
+MAX_CONSOLE_NUM
+; i++){
+
+293 if(
+c⁄sﬁe
+[
+i
+].
+u£d
+ =
+FALSE
+){
+
+294 
+c⁄sﬁe
+[
+i
+].
+u£d
+ = 
+TRUE
+;
+
+295  &
+c⁄sﬁe
+[
+i
+];
+
+299  
+NULL
+;
+
+300 
+	}
+}
+
+	@device.c
+
+1 
+	~<devi˚/c⁄sﬁe.h
+>
+
+2 
+	~<devi˚/devi˚.h
+>
+
+3 
+	~<devi˚/io.h
+>
+
+10 
+	$dev_shutdown
+()
+
+12 c⁄° 
+s
+[] = "Shutdown";
+
+13 c⁄° *
+p
+;
+
+18 
+	`¥ötk
+ ("Powering off...\n");
+
+23 
+p
+ = 
+s
+; *p != '\0';Ö++)
+
+24 
+	`outb
+ (0x8900, *
+p
+);
+
+29 
+asm
+ volatile ("cli; hlt" : : : "memory");
+
+32 
+	`¥ötk
+ ("stillÑunning...\n");
+
+34 
+	}
+}
+
+	@kbd.c
+
+1 
+	~<devi˚/kbd.h
+>
+
+2 
+	~<ty≥.h
+>
+
+3 
+	~<devi˚/c⁄sﬁe.h
+>
+
+4 
+	~<öãºu±.h
+>
+
+5 
+	~<devi˚/io.h
+>
+
+6 
+	~<ssulib.h
+>
+
+8 
+Key_Sètus
+ 
+	gKSèt
+;
+
+10 
+	gkbd_buf
+[
+BUFSIZ
+];
+
+11 
+	gbuf_hód
+, 
+	gbuf_èû
+;
+
+13 
+¥o˚ss
+ *
+cur_f‹eground_¥o˚ss
+;
+
+14 
+Kbd_buf„r
+ 
+	gkbd_buf„r
+[
+MAX_KBD_BUFFER
+];
+
+16 
+BYTE
+ 
+	gKbd_M≠
+[4][
+KBDMAPSIZE
+] = {
+
+51 
+boﬁ
+ 
+kbd_ªmove_ch¨
+();
+
+53 
+	$öô_kbd
+()
+
+55 
+KSèt
+.
+Shi·Fœg
+ = 0;
+
+56 
+KSèt
+.
+C≠¶ockFœg
+ = 0;
+
+57 
+KSèt
+.
+NumlockFLag
+ = 0;
+
+58 
+KSèt
+.
+S¸ﬁŒockFœg
+ = 0;
+
+59 
+KSèt
+.
+Exã¡edFœg
+ = 0;
+
+60 
+KSèt
+.
+Pau£Fœg
+ = 0;
+
+62 
+buf_hód
+ = 0;
+
+63 
+buf_èû
+ = 0;
+
+65 
+	`ªg_h™dÀr
+(33, 
+kbd_h™dÀr
+);
+
+66 
+	}
+}
+
+68 
+	$Upd©eKeySèt
+(
+BYTE
+ 
+Sˇncode
+)
+
+70 if(
+Sˇncode
+ & 0x80)
+
+72 if(
+Sˇncode
+ == 0xB6 || Scancode == 0xAA)
+
+74 
+KSèt
+.
+Shi·Fœg
+ = 
+FALSE
+;
+
+79 if(
+Sˇncode
+ =0x3A && 
+KSèt
+.
+C≠¶ockFœg
+)
+
+81 
+KSèt
+.
+C≠¶ockFœg
+ = 
+FALSE
+;
+
+83 if(
+Sˇncode
+ == 0x3A)
+
+84 
+KSèt
+.
+C≠¶ockFœg
+ = 
+TRUE
+;
+
+85 if(
+Sˇncode
+ == 0x36 || Scancode == 0x2A)
+
+87 
+KSèt
+.
+Shi·Fœg
+ = 
+TRUE
+;
+
+91 if(
+Sˇncode
+ == 0xE0)
+
+93 
+KSèt
+.
+Exã¡edFœg
+ = 
+TRUE
+;
+
+95 if(
+KSèt
+.
+Exã¡edFœg
+ =
+TRUE
+ && 
+Sˇncode
+ != 0xE0)
+
+97 
+KSèt
+.
+Exã¡edFœg
+ = 
+FALSE
+;
+
+99 
+	}
+}
+
+101 
+BOOL
+ 
+	$C⁄vîtSˇncodeToASCII
+(
+BYTE
+ 
+Sˇncode
+, BYTE *
+Asciicode
+)
+
+103 if(
+KSèt
+.
+Pau£Fœg
+ > 0)
+
+105 
+KSèt
+.
+Pau£Fœg
+--;
+
+106  
+FALSE
+;
+
+109 if(
+KSèt
+.
+Exã¡edFœg
+ =
+TRUE
+)
+
+111 if(
+Sˇncode
+ & 0x80)
+
+112  
+FALSE
+;
+
+113 *
+Asciicode
+ = 
+Sˇncode
+;
+
+114  
+TRUE
+;
+
+117 if(
+Sˇncode
+ == 0xE1)
+
+119 *
+Asciicode
+ = 0x00;
+
+120 
+KSèt
+.
+Pau£Fœg
+ = 2;
+
+121  
+FALSE
+;
+
+123 if(
+Sˇncode
+ == 0xE0)
+
+125 *
+Asciicode
+ = 0x00;
+
+126  
+FALSE
+;
+
+129 if(!(
+Sˇncode
+ & 0x80))
+
+131 if(
+KSèt
+.
+Shi·Fœg
+ & KSèt.
+C≠¶ockFœg
+)
+
+133 *
+Asciicode
+ = 
+Kbd_M≠
+[3][
+Sˇncode
+ & 0x7F];
+
+135 if(
+KSèt
+.
+Shi·Fœg
+)
+
+137 *
+Asciicode
+ = 
+Kbd_M≠
+[2][
+Sˇncode
+ & 0x7F];
+
+139 if(
+KSèt
+.
+C≠¶ockFœg
+)
+
+141 *
+Asciicode
+ = 
+Kbd_M≠
+[1][
+Sˇncode
+ & 0x7F];
+
+145 *
+Asciicode
+ = 
+Kbd_M≠
+[0][
+Sˇncode
+];
+
+148  
+TRUE
+;
+
+150  
+FALSE
+;
+
+151 
+	}
+}
+
+153 
+boﬁ
+ 
+	$isFuŒ
+()
+
+155  (
+buf_hód
+-1Ë% 
+BUFSIZ
+ =
+buf_èû
+;
+
+156 
+	}
+}
+
+158 
+boﬁ
+ 
+	$isEm±y
+()
+
+160  
+buf_hód
+ =
+buf_èû
+;
+
+161 
+	}
+}
+
+163 
+	$kbd_h™dÀr
+(
+öå_‰ame
+ *
+i‰ame
+)
+
+165 
+BYTE
+ 
+asciicode
+;
+
+166 
+BYTE
+ 
+d©a
+ = 
+	`öb
+(0x60);
+
+168 if(
+	`C⁄vîtSˇncodeToASCII
+(
+d©a
+, &
+asciicode
+))
+
+171 #ifde‡
+SCREEN_SCROLL
+
+
+172 if–
+KSèt
+.
+Exã¡edFœg
+ =
+TRUE
+)
+
+174 
+asciicode
+)
+
+185 
+	`s¸ﬁl_s¸ìn
+(-1);
+
+188 
+	`s¸ﬁl_s¸ìn
+(+1);
+
+191 
+	`£t_ÁŒow
+();
+
+197 if–!
+	`isFuŒ
+(Ë&& 
+asciicode
+ != 0)
+
+199 
+kbd_buf
+[
+buf_èû
+] = 
+asciicode
+;
+
+200 
+buf_èû
+ = (buf_èû + 1Ë% 
+BUFSIZ
+;
+
+206 
+	`Upd©eKeySèt
+(
+d©a
+);
+
+207 
+	}
+}
+
+209 
+	$kbd_ªad_ch¨
+()
+
+211 if–
+	`isEm±y
+())
+
+214 
+ªt
+;
+
+215 
+ªt
+ = 
+kbd_buf
+[
+buf_hód
+];
+
+216 
+buf_hód
+ = (buf_hód + 1)%
+BUFSIZ
+;
+
+217  
+ªt
+;
+
+218 
+	}
+}
+
+221 
+Kbd_buf„r
+ *
+	$gë_kbd_buf„r
+(){
+
+222 
+i
+;
+
+224 
+i
+ = 0; i < 
+MAX_KBD_BUFFER
+; i++){
+
+225 if(
+kbd_buf„r
+[
+i
+].
+u£d
+ =
+Ál£
+){
+
+226 
+kbd_buf„r
+[
+i
+].
+u£d
+ = 
+åue
+;
+
+227  &
+kbd_buf„r
+[
+i
+];
+
+231  
+NULL
+;
+
+232 
+	}
+}
+
+	@pit.c
+
+2 
+	~<devi˚/pô.h
+>
+
+3 
+	~<devi˚/io.h
+>
+
+4 
+	~<öãºu±.h
+>
+
+6 
+	$öô_pô
+()
+
+8 
+öå_Àvñ
+ 
+ﬁd_Àvñ
+ = 
+	`öå_dißbÀ
+();
+
+9 
+	`outb
+(
+PIT_COMMAND
+, (
+PIT_COUNTER0
+ | 
+PIT_RW_LMBYTE
+ | 
+PIT_MODE2
+ | 
+PIT_BINARY
+) );
+
+10 
+	`outb
+(
+PIT_CHANNEL0
+, (
+PIT_HZ
+/
+PIT_FRQ_HZ
+)%0xff);
+
+11 
+	`outb
+(
+PIT_CHANNEL0
+, (
+PIT_HZ
+/
+PIT_FRQ_HZ
+)>>8);
+
+12 
+	`öå_£t_Àvñ
+ (
+ﬁd_Àvñ
+);
+
+13 
+	}
+}
+
+	@
+1
+.
+1
+/usr/include
+4
+31
+console.c
+device.c
+kbd.c
+pit.c

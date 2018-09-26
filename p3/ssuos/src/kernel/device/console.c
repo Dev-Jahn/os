@@ -135,7 +135,7 @@ void PrintChar(int x, int y, const char String)
 #endif
 }
 
-void clrScreen(void) 
+void clrScreen() 
 {
 	CHAR *pScreen = (CHAR *) VIDIO_MEMORY;
 	int i;
@@ -151,7 +151,13 @@ void clrScreen(void)
 //Ctrl+l 화면 클리어 구현
 void clearScreen(void)
 {
-	scroll_screen(-5);
+	a_s = FALSE;
+	buf_p = buf_p+80*24;
+	for (char *p=buf_p; p<buf_p+SIZE_SCREEN; p++)
+		*p = ' ';
+	//buf_w = buf_p;
+	//clrScreen();
+	refreshScreen();
 }
 
 void scroll(void) 
@@ -251,9 +257,16 @@ void scroll_screen(int offset)
 	if(tmp_buf_w > SCROLL_END)
 		tmp_buf_w = (char *)((int)tmp_buf_w - SIZE_SCROLL);
 
-	if(sum_y < NSCROLL && offset < 0 && tmp_buf_p <= buf_s && buf_p > buf_s) return;
-	if(offset > 0 && tmp_buf_p > buf_w && buf_p <= buf_w) return;
-	else if(offset < 0 && tmp_buf_p <= tmp_buf_w && buf_p > tmp_buf_w) return;
+	if(sum_y < NSCROLL &&
+			offset < 0 &&
+			tmp_buf_p <= buf_s &&
+			buf_p > buf_s) return;
+	if(offset > 0 &&
+			tmp_buf_p > buf_w &&
+			buf_p <= buf_w) return;
+	else if(offset < 0 &&
+			tmp_buf_p <= tmp_buf_w &&
+			buf_p > tmp_buf_w) return;
 
 	buf_p = tmp_buf_p;
 	

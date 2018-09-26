@@ -1,0 +1,478 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ASSERT	debug.h	27;"	d
+ASSERT	debug.h	31;"	d
+ASSERT	debug.h	37;"	d
+BITMAP_ERROR	bitmap.h	34;"	d
+BITMASK	vaddr.h	15;"	d
+BLOCK_CNT	device/block.h	/^    BLOCK_CNT                    \/* Number of Pintos block types. *\/$/;"	e	enum:block_type
+BLOCK_FILESYS	device/block.h	/^    BLOCK_FILESYS,               \/* File system. *\/$/;"	e	enum:block_type
+BLOCK_FOREIGN	device/block.h	/^    BLOCK_FOREIGN,               \/* Owned by non-Pintos operating system. *\/$/;"	e	enum:block_type
+BLOCK_KERNEL	device/block.h	/^    BLOCK_KERNEL,                \/* Pintos OS kernel. *\/$/;"	e	enum:block_type
+BLOCK_RAW	device/block.h	/^    BLOCK_RAW = BLOCK_ROLE_CNT,  \/* "Raw" device with unidentified contents. *\/$/;"	e	enum:block_type
+BLOCK_ROLE_CNT	device/block.h	/^    BLOCK_ROLE_CNT,$/;"	e	enum:block_type
+BLOCK_SCRATCH	device/block.h	/^    BLOCK_SCRATCH,               \/* Scratch. *\/$/;"	e	enum:block_type
+BLOCK_SECTOR_SIZE	device/block.h	11;"	d
+BLOCK_SWAP	device/block.h	/^    BLOCK_SWAP,                  \/* Swap. *\/$/;"	e	enum:block_type
+BOOL	type.h	/^typedef char BOOL;$/;"	t
+BUFSIZ	ssulib.h	7;"	d
+BYTE	type.h	/^typedef unsigned char BYTE;$/;"	t
+CHAR	device/console.h	/^} CHAR;$/;"	t	typeref:struct:kChStruct
+CHAR_BIT	limits.h	4;"	d
+CHAR_MAX	limits.h	12;"	d
+CHAR_MAX	limits.h	15;"	d
+CHAR_MIN	limits.h	11;"	d
+CHAR_MIN	limits.h	14;"	d
+CR0_FLAG_PE	mem/paging.h	8;"	d
+CR0_FLAG_PG	mem/paging.h	7;"	d
+CapslockFlag	device/kbd.h	/^	BOOL CapslockFlag;$/;"	m	struct:Key_Status_Struct
+Console	device/console.h	/^typedef struct Console{$/;"	s
+Console	device/console.h	/^}Console;$/;"	t	typeref:struct:Console
+CtrlFlag	device/kbd.h	/^	BOOL CtrlFlag;		\/\/Ctrl+l, Ctrl+Tab$/;"	m	struct:Key_Status_Struct
+DEVICES_BLOCK_H	device/block.h	2;"	d
+DEVICES_PARTITION_H	device/partition.h	2;"	d
+DIV_ROUND_UP	round.h	10;"	d
+ExtentedFlag	device/kbd.h	/^	BOOL ExtentedFlag;$/;"	m	struct:Key_Status_Struct
+FALSE	type.h	13;"	d
+FIRST_SPORT	device/console.h	30;"	d
+Glob_x	device/console.h	/^	int Glob_x;$/;"	m	struct:Console
+Glob_x	device/console.h	/^int Glob_x;$/;"	v
+Glob_y	device/console.h	/^	int Glob_y;$/;"	m	struct:Console
+Glob_y	device/console.h	/^int Glob_y;$/;"	v
+HLT	interrupt.h	4;"	d
+HSCREEN	device/console.h	22;"	d
+INT16_MAX	stdint.h	9;"	d
+INT16_MAX	type.h	34;"	d
+INT16_MIN	stdint.h	10;"	d
+INT16_MIN	type.h	35;"	d
+INT32_MAX	stdint.h	13;"	d
+INT32_MAX	type.h	38;"	d
+INT32_MIN	stdint.h	14;"	d
+INT32_MIN	type.h	39;"	d
+INT64_MAX	stdint.h	17;"	d
+INT64_MAX	type.h	42;"	d
+INT64_MIN	stdint.h	18;"	d
+INT64_MIN	type.h	43;"	d
+INT8_MAX	stdint.h	5;"	d
+INT8_MAX	type.h	30;"	d
+INT8_MIN	stdint.h	6;"	d
+INT8_MIN	type.h	31;"	d
+INTMAX_MAX	stdint.h	41;"	d
+INTMAX_MAX	type.h	66;"	d
+INTMAX_MIN	stdint.h	40;"	d
+INTMAX_MIN	type.h	65;"	d
+INTPTR_MAX	stdint.h	34;"	d
+INTPTR_MAX	type.h	59;"	d
+INTPTR_MIN	stdint.h	33;"	d
+INTPTR_MIN	type.h	58;"	d
+INTR_MAX	intr-stubs.h	4;"	d
+INTR_OFF	interrupt.h	/^	INTR_OFF,             \/* Interrupts disabled. *\/$/;"	e	enum:intr_level
+INTR_ON	interrupt.h	/^	INTR_ON               \/* Interrupts enabled. *\/$/;"	e	enum:intr_level
+INT_MAX	limits.h	22;"	d
+INT_MIN	limits.h	23;"	d
+IO_BASE	device/console.h	29;"	d
+KBDMAPSIZE	device/kbd.h	7;"	d
+KBD_BUFFER_SIZE	device/kbd.h	10;"	d
+KERNEL_ADDR	mem/paging.h	34;"	d
+KERNEL_HEAP	mem/paging.h	35;"	d
+KEY_BSPACE	device/kbd.h	30;"	d
+KEY_CAPS	device/kbd.h	17;"	d
+KEY_ESC	device/kbd.h	12;"	d
+KEY_F1	device/kbd.h	18;"	d
+KEY_F10	device/kbd.h	27;"	d
+KEY_F11	device/kbd.h	28;"	d
+KEY_F12	device/kbd.h	29;"	d
+KEY_F2	device/kbd.h	19;"	d
+KEY_F3	device/kbd.h	20;"	d
+KEY_F4	device/kbd.h	21;"	d
+KEY_F5	device/kbd.h	22;"	d
+KEY_F6	device/kbd.h	23;"	d
+KEY_F7	device/kbd.h	24;"	d
+KEY_F8	device/kbd.h	25;"	d
+KEY_F9	device/kbd.h	26;"	d
+KEY_LALT	device/kbd.h	15;"	d
+KEY_PRTSCN	device/kbd.h	14;"	d
+KEY_RSHIFT	device/kbd.h	13;"	d
+KEY_SPACE	device/kbd.h	16;"	d
+KEY_TAB	device/kbd.h	31;"	d
+Kbd_buffer	device/kbd.h	/^typedef struct Kbd_buffer {$/;"	s
+Kbd_buffer	device/kbd.h	/^} Kbd_buffer;$/;"	t	typeref:struct:Kbd_buffer
+Key_Status	device/kbd.h	/^} Key_Status;$/;"	t	typeref:struct:Key_Status_Struct
+Key_Status_Struct	device/kbd.h	/^typedef struct Key_Status_Struct {$/;"	s
+LINE_STATUS	device/console.h	31;"	d
+LIST_INITIALIZER	list.h	121;"	d
+LLONG_MAX	limits.h	30;"	d
+LLONG_MIN	limits.h	31;"	d
+LOADER_ARGS	loader.h	18;"	d
+LOADER_ARGS_LEN	loader.h	24;"	d
+LOADER_ARG_CNT	loader.h	19;"	d
+LOADER_ARG_CNT_LEN	loader.h	25;"	d
+LOADER_BASE	loader.h	5;"	d
+LOADER_END	loader.h	6;"	d
+LOADER_KERN_BASE	loader.h	9;"	d
+LOADER_PARTS	loader.h	17;"	d
+LOADER_PARTS_LEN	loader.h	23;"	d
+LOADER_PHYS_BASE	loader.h	13;"	d
+LOADER_SIG	loader.h	16;"	d
+LOADER_SIG_LEN	loader.h	22;"	d
+LONG_MAX	limits.h	26;"	d
+LONG_MIN	limits.h	27;"	d
+MAX_CONSOLE_NUM	device/console.h	40;"	d
+MAX_KBD_BUFFER	device/kbd.h	9;"	d
+NOT_REACHED	debug.h	28;"	d
+NOT_REACHED	debug.h	35;"	d
+NOT_REACHED	debug.h	38;"	d
+NO_INLINE	debug.h	9;"	d
+NO_RETURN	debug.h	8;"	d
+NSCROLL	device/console.h	25;"	d
+NULL	type.h	16;"	d
+NumlockFLag	device/kbd.h	/^	BOOL NumlockFLag;	$/;"	m	struct:Key_Status_Struct
+PACKED	packed.h	8;"	d
+PAGE_ADDR_AVAIL	mem/paging.h	21;"	d
+PAGE_ADDR_BASE	mem/paging.h	22;"	d
+PAGE_DIR_SIZE	mem/paging.h	32;"	d
+PAGE_FLAG_ACCESS	mem/paging.h	15;"	d
+PAGE_FLAG_AVAIL	mem/paging.h	16;"	d
+PAGE_FLAG_CACHE	mem/paging.h	14;"	d
+PAGE_FLAG_DIRTY	mem/paging.h	17;"	d
+PAGE_FLAG_GLOB	mem/paging.h	20;"	d
+PAGE_FLAG_PRESENT	mem/paging.h	10;"	d
+PAGE_FLAG_PTA	mem/paging.h	19;"	d
+PAGE_FLAG_RW	mem/paging.h	11;"	d
+PAGE_FLAG_SIZE	mem/paging.h	18;"	d
+PAGE_FLAG_USER	mem/paging.h	12;"	d
+PAGE_FLAG_WRITE	mem/paging.h	13;"	d
+PAGE_MASK_BASE	mem/paging.h	24;"	d
+PAGE_MASK_PDE	mem/paging.h	25;"	d
+PAGE_MASK_PTE	mem/paging.h	26;"	d
+PAGE_OFFSET_PDE	mem/paging.h	27;"	d
+PAGE_OFFSET_PTE	mem/paging.h	28;"	d
+PAGE_SIZE	mem/paging.h	30;"	d
+PAGE_TBL_SIZE	mem/paging.h	31;"	d
+PANIC	debug.h	14;"	d
+PGBITS	vaddr.h	19;"	d
+PGMASK	vaddr.h	21;"	d
+PGSHIFT	vaddr.h	18;"	d
+PGSIZE	vaddr.h	20;"	d
+PHYS_BASE	vaddr.h	53;"	d
+PIT_BCD	device/pit.h	27;"	d
+PIT_BINARY	device/pit.h	26;"	d
+PIT_CHANNEL0	device/pit.h	4;"	d
+PIT_CHANNEL1	device/pit.h	5;"	d
+PIT_CHANNEL2	device/pit.h	6;"	d
+PIT_COMMAND	device/pit.h	7;"	d
+PIT_COUNTER0	device/pit.h	9;"	d
+PIT_COUNTER1	device/pit.h	10;"	d
+PIT_COUNTER2	device/pit.h	11;"	d
+PIT_FRQ_HZ	device/pit.h	30;"	d
+PIT_HZ	device/pit.h	29;"	d
+PIT_MODE0	device/pit.h	19;"	d
+PIT_MODE1	device/pit.h	20;"	d
+PIT_MODE2	device/pit.h	21;"	d
+PIT_MODE3	device/pit.h	22;"	d
+PIT_MODE4	device/pit.h	23;"	d
+PIT_MODE5	device/pit.h	24;"	d
+PIT_READBACK	device/pit.h	12;"	d
+PIT_RW_COUNTER_LATCH	device/pit.h	14;"	d
+PIT_RW_LBYTE	device/pit.h	15;"	d
+PIT_RW_LMBYTE	device/pit.h	17;"	d
+PIT_RW_MBYTE	device/pit.h	16;"	d
+PRDSNu	device/block.h	19;"	d
+PRINTF_FORMAT	debug.h	10;"	d
+PRIX16	inttypes.h	18;"	d
+PRIX32	inttypes.h	25;"	d
+PRIX64	inttypes.h	32;"	d
+PRIX8	inttypes.h	11;"	d
+PRIXMAX	inttypes.h	39;"	d
+PRIXPTR	inttypes.h	46;"	d
+PRId16	inttypes.h	13;"	d
+PRId32	inttypes.h	20;"	d
+PRId64	inttypes.h	27;"	d
+PRId8	inttypes.h	6;"	d
+PRIdMAX	inttypes.h	34;"	d
+PRIdPTR	inttypes.h	41;"	d
+PRIi16	inttypes.h	14;"	d
+PRIi32	inttypes.h	21;"	d
+PRIi64	inttypes.h	28;"	d
+PRIi8	inttypes.h	7;"	d
+PRIiMAX	inttypes.h	35;"	d
+PRIiPTR	inttypes.h	42;"	d
+PRIo16	inttypes.h	15;"	d
+PRIo32	inttypes.h	22;"	d
+PRIo64	inttypes.h	29;"	d
+PRIo8	inttypes.h	8;"	d
+PRIoMAX	inttypes.h	36;"	d
+PRIoPTR	inttypes.h	43;"	d
+PRIu16	inttypes.h	16;"	d
+PRIu32	inttypes.h	23;"	d
+PRIu64	inttypes.h	30;"	d
+PRIu8	inttypes.h	9;"	d
+PRIuMAX	inttypes.h	37;"	d
+PRIuPTR	inttypes.h	44;"	d
+PRIx16	inttypes.h	17;"	d
+PRIx32	inttypes.h	24;"	d
+PRIx64	inttypes.h	31;"	d
+PRIx8	inttypes.h	10;"	d
+PRIxMAX	inttypes.h	38;"	d
+PRIxPTR	inttypes.h	45;"	d
+PROC_BLOCK	proc/proc.h	/^	PROC_BLOCK,$/;"	e	enum:p_state
+PROC_RUN	proc/proc.h	/^	PROC_RUN,	$/;"	e	enum:p_state
+PROC_STOP	proc/proc.h	/^	PROC_STOP,$/;"	e	enum:p_state
+PROC_UNUSED	proc/proc.h	/^	PROC_UNUSED,$/;"	e	enum:p_state
+PROC_ZOMBIE	proc/proc.h	/^	PROC_ZOMBIE,$/;"	e	enum:p_state
+PTRDIFF_MAX	stdint.h	47;"	d
+PTRDIFF_MAX	type.h	72;"	d
+PTRDIFF_MIN	stdint.h	46;"	d
+PTRDIFF_MIN	type.h	71;"	d
+PauseFlag	device/kbd.h	/^	int PauseFlag;	$/;"	m	struct:Key_Status_Struct
+ROUND_DOWN	round.h	14;"	d
+ROUND_UP	round.h	6;"	d
+SCHAR_MAX	limits.h	6;"	d
+SCHAR_MIN	limits.h	7;"	d
+SCREEN_SCROLL	device/console.h	19;"	d
+SCROLL_END	device/console.h	35;"	d
+SEL_KCSEG	loader.h	30;"	d
+SEL_KDSEG	loader.h	31;"	d
+SEL_NULL	loader.h	29;"	d
+SERIAL_STDOUT	device/console.h	20;"	d
+SHRT_MAX	limits.h	18;"	d
+SHRT_MIN	limits.h	19;"	d
+SIZE_MAX	stdint.h	49;"	d
+SIZE_MAX	type.h	74;"	d
+SIZE_SCREEN	device/console.h	24;"	d
+SIZE_SCROLL	device/console.h	26;"	d
+STDIN_FILENO	stdio.h	15;"	d
+STDOUT_FILENO	stdio.h	16;"	d
+SYS_EXIT	syscall.h	/^	SYS_EXIT,$/;"	e	enum:SYS_LIST
+SYS_FORK	syscall.h	/^	SYS_FORK = 0,$/;"	e	enum:SYS_LIST
+SYS_LIST	syscall.h	/^enum SYS_LIST {$/;"	g
+SYS_NUM	syscall.h	/^	SYS_NUM,$/;"	e	enum:SYS_LIST
+SYS_SHUTDOWN	syscall.h	/^	SYS_SHUTDOWN,$/;"	e	enum:SYS_LIST
+SYS_SSUREAD	syscall.h	/^	SYS_SSUREAD,$/;"	e	enum:SYS_LIST
+SYS_WAIT	syscall.h	/^	SYS_WAIT,$/;"	e	enum:SYS_LIST
+ScrolllockFlag	device/kbd.h	/^	BOOL ScrolllockFlag;$/;"	m	struct:Key_Status_Struct
+ShiftFlag	device/kbd.h	/^	BOOL ShiftFlag; 	$/;"	m	struct:Key_Status_Struct
+THREADS_LOADER_H	loader.h	2;"	d
+THREADS_VADDR_H	vaddr.h	2;"	d
+THR_EMPTY	device/console.h	32;"	d
+TRUE	type.h	12;"	d
+UCHAR_MAX	limits.h	8;"	d
+UINT16_MAX	stdint.h	24;"	d
+UINT16_MAX	type.h	49;"	d
+UINT32_MAX	stdint.h	27;"	d
+UINT32_MAX	type.h	52;"	d
+UINT64_MAX	stdint.h	30;"	d
+UINT64_MAX	type.h	55;"	d
+UINT8_MAX	stdint.h	21;"	d
+UINT8_MAX	type.h	46;"	d
+UINTMAX_MAX	stdint.h	44;"	d
+UINTMAX_MAX	type.h	69;"	d
+UINTPTR_MAX	stdint.h	37;"	d
+UINTPTR_MAX	type.h	62;"	d
+UINT_MAX	limits.h	24;"	d
+ULLONG_MAX	limits.h	32;"	d
+ULONG_MAX	limits.h	28;"	d
+UNUSED	debug.h	7;"	d
+USHRT_MAX	limits.h	20;"	d
+VIDIO_MEMORY	device/console.h	27;"	d
+VSCREEN	device/console.h	23;"	d
+_ADDRESSOF	stdarg.h	6;"	d
+_INTR_STUBS_H_	intr-stubs.h	2;"	d
+_INTSIZEOF	stdarg.h	7;"	d
+_SWITCH_H_	proc/switch.h	2;"	d
+__BITMAP_H__	bitmap.h	2;"	d
+__CONSOLE_H__	device/console.h	2;"	d
+__DEVICE_H__	device/device.h	2;"	d
+__DO_SYSCALL_H__	do_syscall.h	2;"	d
+__INTERRUPT_H__	interrupt.h	2;"	d
+__IO_H__	device/io.h	2;"	d
+__KDB_H__	device/kbd.h	2;"	d
+__LIB_CTYPE_H	ctype.h	2;"	d
+__LIB_DEBUG_H	debug.h	2;"	d
+__LIB_INTTYPES_H	inttypes.h	2;"	d
+__LIB_PACKED_H	packed.h	2;"	d
+__LIB_ROUND_H	round.h	2;"	d
+__LIB_STDBOOL_H	stdbool.h	2;"	d
+__LIB_STDDEF_H	stddef.h	2;"	d
+__LIB_STDINT_H	stdint.h	2;"	d
+__LIB_STDIO_H	stdio.h	2;"	d
+__LIB_STDLIB_H	stdlib.h	2;"	d
+__LIB_STRING_H	string.h	2;"	d
+__LIMITS_H__	limits.h	2;"	d
+__LIST_H__	list.h	2;"	d
+__MALLOC_H__	mem/malloc.h	2;"	d
+__MEM_H__	mem/mm.h	2;"	d
+__PAGING_H__	mem/paging.h	2;"	d
+__PALLOC_H__	mem/palloc.h	2;"	d
+__PIT_H__	device/pit.h	2;"	d
+__PROC_H__	proc/proc.h	2;"	d
+__SCHED_H__	proc/sched.h	2;"	d
+__SSULIB_H__	ssulib.h	2;"	d
+__STDARG_H__	stdarg.h	2;"	d
+__SYNCH_H__	synch.h	2;"	d
+__SYSCALL_H__	syscall.h	2;"	d
+__TYPE_H__	type.h	2;"	d
+__bool_true_false_are_defined	stdbool.h	7;"	d
+a_s	device/console.h	/^	bool a_s;$/;"	m	struct:Console
+bAtt	device/console.h	/^		unsigned char bAtt;$/;"	m	struct:kChStruct
+bCh	device/console.h	/^		unsigned char bCh;$/;"	m	struct:kChStruct
+barrier	synch.h	50;"	d
+block_operations	device/block.h	/^struct block_operations$/;"	s
+block_sector_t	device/block.h	/^typedef uint32_t block_sector_t;$/;"	t
+block_type	device/block.h	/^enum block_type$/;"	g
+bool	type.h	/^typedef char bool;$/;"	t
+buf	device/kbd.h	/^	char buf[KBD_BUFFER_SIZE];$/;"	m	struct:Kbd_buffer
+buf_e	device/console.h	34;"	d
+buf_p	device/console.h	/^	char *buf_p;	$/;"	m	struct:Console
+buf_s	device/console.h	/^	char buf_s[SIZE_SCROLL]; $/;"	m	struct:Console
+buf_w	device/console.h	/^	char *buf_w;	$/;"	m	struct:Console
+child_pid	proc/proc.h	/^	int child_pid;		$/;"	m	struct:process
+condition	synch.h	/^struct condition $/;"	s
+console	proc/proc.h	/^	struct Console *console;$/;"	m	struct:process	typeref:struct:process::Console
+cs	interrupt.h	/^	uint16_t cs, :16;           \/* Code segment for eip. *\/$/;"	m	struct:intr_frame
+ds	interrupt.h	/^	uint16_t ds, :16;           \/* Saved DS segment register. *\/$/;"	m	struct:intr_frame
+eax	interrupt.h	/^	uint32_t eax;               \/* Saved EAX. *\/$/;"	m	struct:intr_frame
+ebp	interrupt.h	/^	uint32_t ebp;               \/* Saved EBP. *\/$/;"	m	struct:intr_frame
+ebx	interrupt.h	/^	uint32_t ebx;               \/* Saved EBX. *\/$/;"	m	struct:intr_frame
+ecx	interrupt.h	/^	uint32_t ecx;               \/* Saved ECX. *\/$/;"	m	struct:intr_frame
+edi	interrupt.h	/^	uint32_t edi;               \/* Saved EDI. *\/$/;"	m	struct:intr_frame
+edx	interrupt.h	/^	uint32_t edx;               \/* Saved EDX. *\/$/;"	m	struct:intr_frame
+eflags	interrupt.h	/^	uint32_t eflags;            \/* Saved CPU flags. *\/$/;"	m	struct:intr_frame
+eip	interrupt.h	/^	void (*eip) (void);         \/* Next instruction to execute. *\/$/;"	m	struct:intr_frame
+elem_all	proc/proc.h	/^	struct list_elem elem_all;		$/;"	m	struct:process	typeref:struct:process::list_elem
+elem_foreground	proc/proc.h	/^	struct list_elem elem_foreground;	$/;"	m	struct:process	typeref:struct:process::list_elem
+elem_stat	proc/proc.h	/^	struct list_elem elem_stat;	$/;"	m	struct:process	typeref:struct:process::list_elem
+error_code	interrupt.h	/^	uint32_t error_code;        \/* Error code. *\/$/;"	m	struct:intr_frame
+es	interrupt.h	/^	uint16_t es, :16;           \/* Saved ES segment register. *\/$/;"	m	struct:intr_frame
+esi	interrupt.h	/^	uint32_t esi;               \/* Saved ESI. *\/$/;"	m	struct:intr_frame
+esp	interrupt.h	/^	void *esp;                  \/* Saved stack pointer. *\/$/;"	m	struct:intr_frame
+esp_dummy	interrupt.h	/^	uint32_t esp_dummy;         \/* Not used. *\/$/;"	m	struct:intr_frame
+exit_status	proc/proc.h	/^	int exit_status;$/;"	m	struct:process
+false	stdbool.h	6;"	d
+false	type.h	22;"	d
+foreground	proc/proc.h	/^	BOOL foreground;$/;"	m	struct:proc_option
+frame_pointer	interrupt.h	/^	void *frame_pointer;        \/* Saved EBP (frame pointer). *\/$/;"	m	struct:intr_frame
+fs	interrupt.h	/^	uint16_t fs, :16;           \/* Saved FS segment register. *\/$/;"	m	struct:intr_frame
+gs	interrupt.h	/^	uint16_t gs, :16;           \/* Saved GS segment register. *\/$/;"	m	struct:intr_frame
+head	device/kbd.h	/^	int head;$/;"	m	struct:Kbd_buffer
+head	list.h	/^    struct list_elem head;      \/* List head. *\/$/;"	m	struct:list	typeref:struct:list::list_elem
+holder	synch.h	/^      struct process *holder;      \/* Process holding lock (for debugging). *\/$/;"	m	struct:lock	typeref:struct:lock::process
+idle	proc/proc.h	/^proc_func idle;					$/;"	v
+insw	device/io.h	/^insw (uint16_t port, void *addr, size_t cnt)$/;"	f
+int16_t	stdint.h	/^typedef signed short int int16_t;$/;"	t
+int16_t	type.h	/^typedef signed short int int16_t;$/;"	t
+int32_t	stdint.h	/^typedef signed int int32_t;$/;"	t
+int32_t	type.h	/^typedef signed int int32_t;$/;"	t
+int64_t	stdint.h	/^typedef signed long long int int64_t;$/;"	t
+int64_t	type.h	/^typedef signed long long int int64_t;$/;"	t
+int8_t	stdint.h	/^typedef signed char int8_t;$/;"	t
+int8_t	type.h	/^typedef signed char int8_t;$/;"	t
+intmax_t	stdint.h	/^typedef int64_t intmax_t;$/;"	t
+intmax_t	type.h	/^typedef int64_t intmax_t;$/;"	t
+intptr_t	stdint.h	/^typedef int32_t intptr_t;$/;"	t
+intptr_t	type.h	/^typedef int32_t intptr_t;$/;"	t
+intr_frame	interrupt.h	/^struct intr_frame$/;"	s
+intr_handler_func	interrupt.h	/^typedef void intr_handler_func (struct intr_frame *);$/;"	t
+intr_level	interrupt.h	/^enum intr_level$/;"	g
+intr_stub_func	intr-stubs.h	/^typedef void intr_stub_func (void);$/;"	t
+is_kernel_vaddr	vaddr.h	/^is_kernel_vaddr (const void *vaddr) $/;"	f
+is_user_vaddr	vaddr.h	/^is_user_vaddr (const void *vaddr) $/;"	f
+isalnum	ctype.h	/^static inline int isalnum (int c) { return isalpha (c) || isdigit (c); }$/;"	f
+isalpha	ctype.h	/^static inline int isalpha (int c) { return islower (c) || isupper (c); }$/;"	f
+isascii	ctype.h	/^static inline int isascii (int c) { return c >= 0 && c < 128; }$/;"	f
+isblank	ctype.h	/^static inline int isblank (int c) { return c == ' ' || c == '\\t'; }$/;"	f
+iscntrl	ctype.h	/^static inline int iscntrl (int c) { return (c >= 0 && c < 32) || c == 127; }$/;"	f
+isdigit	ctype.h	/^static inline int isdigit (int c) { return c >= '0' && c <= '9'; }$/;"	f
+isgraph	ctype.h	/^static inline int isgraph (int c) { return c > 32 && c < 127; }$/;"	f
+islower	ctype.h	/^static inline int islower (int c) { return c >= 'a' && c <= 'z'; }$/;"	f
+isprint	ctype.h	/^static inline int isprint (int c) { return c >= 32 && c < 127; }$/;"	f
+ispunct	ctype.h	/^static inline int ispunct (int c) {$/;"	f
+isspace	ctype.h	/^static inline int isspace (int c) {$/;"	f
+isupper	ctype.h	/^static inline int isupper (int c) { return c >= 'A' && c <= 'Z'; }$/;"	f
+isxdigit	ctype.h	/^static inline int isxdigit (int c) {$/;"	f
+kChStruct	device/console.h	/^typedef struct kChStruct$/;"	s
+kbd_buffer	proc/proc.h	/^	struct Kbd_buffer *kbd_buffer;$/;"	m	struct:process	typeref:struct:process::Kbd_buffer
+list	list.h	/^struct list $/;"	s
+list_elem	list.h	/^struct list_elem $/;"	s
+list_entry	list.h	107;"	d
+list_less_func	list.h	/^typedef bool list_less_func (const struct list_elem *a,$/;"	t
+lock	synch.h	/^struct lock $/;"	s
+next	list.h	/^    struct list_elem *next;     \/* Next list element. *\/$/;"	m	struct:list_elem	typeref:struct:list_elem::list_elem
+offsetof	ssulib.h	5;"	d
+offsetof	stddef.h	5;"	d
+outsw	device/io.h	/^outsw (uint16_t port, const void *addr, size_t cnt)$/;"	f
+p_state	proc/proc.h	/^enum p_state {$/;"	g
+parent	proc/proc.h	/^	struct process* parent;		$/;"	m	struct:process	typeref:struct:process::process
+pd	proc/proc.h	/^	void *pd;						\/\/page directory$/;"	m	struct:process
+pg_no	mem/paging.h	/^static inline uint32_t pg_no(const uint32_t *page){$/;"	f
+pg_no	vaddr.h	/^static inline uintptr_t pg_no (const void *va) {$/;"	f
+pg_ofs	vaddr.h	/^static inline unsigned pg_ofs (const void *va) {$/;"	f
+pg_round_down	vaddr.h	/^static inline void *pg_round_down (const void *va) {$/;"	f
+pg_round_up	vaddr.h	/^static inline void *pg_round_up (const void *va) {$/;"	f
+pid	proc/proc.h	/^	pid_t pid;						\/\/process id$/;"	m	struct:process
+pid_t	proc/proc.h	/^typedef int pid_t;$/;"	t
+prev	list.h	/^    struct list_elem *prev;     \/* Previous list element. *\/$/;"	m	struct:list_elem	typeref:struct:list_elem::list_elem
+print_pid	proc/proc.h	/^proc_func print_pid;			$/;"	v
+priority	proc/proc.h	/^	unsigned char priority;		$/;"	m	struct:process
+priority	proc/proc.h	/^	unsigned priority;$/;"	m	struct:proc_option
+proc_func	proc/proc.h	/^typedef void proc_func(void* aux);	$/;"	t
+proc_option	proc/proc.h	/^struct proc_option$/;"	s
+process	proc/proc.h	/^struct process$/;"	s
+ptov	vaddr.h	/^ptov (uintptr_t paddr)$/;"	f
+ptrdiff_t	stddef.h	/^typedef __PTRDIFF_TYPE__ ptrdiff_t;$/;"	t
+qword	type.h	/^typedef long long qword;$/;"	t
+read	device/block.h	/^    void (*read) (void *aux, block_sector_t, void *buffer);$/;"	m	struct:block_operations
+semaphore	synch.h	/^      struct semaphore semaphore; \/* Binary semaphore controlling access. *\/$/;"	m	struct:lock	typeref:struct:lock::semaphore
+semaphore	synch.h	/^struct semaphore $/;"	s
+simple_lock	proc/proc.h	/^	int simple_lock;		$/;"	m	struct:process
+size_t	stddef.h	/^typedef __SIZE_TYPE__ size_t;$/;"	t
+size_t	type.h	/^typedef unsigned size_t;$/;"	t
+sprintf	stdio.h	37;"	d
+ss	interrupt.h	/^	uint16_t ss, :16;           \/* Data segment for esp. *\/$/;"	m	struct:intr_frame
+stack	proc/proc.h	/^	void *stack;					\/\/stack for esp$/;"	m	struct:process
+state	proc/proc.h	/^	enum p_state state;				\/\/ process state$/;"	m	struct:process	typeref:enum:process::p_state
+strcat	string.h	31;"	d
+strcpy	string.h	29;"	d
+strncat	string.h	32;"	d
+strncpy	string.h	30;"	d
+strtok	string.h	33;"	d
+sum_y	device/console.h	/^	int sum_y;$/;"	m	struct:Console
+tail	device/kbd.h	/^	int tail;$/;"	m	struct:Kbd_buffer
+tail	list.h	/^    struct list_elem tail;      \/* List tail. *\/$/;"	m	struct:list	typeref:struct:list::list_elem
+time_sched	proc/proc.h	/^	unsigned long long time_sched;$/;"	m	struct:process
+time_sleep	proc/proc.h	/^	unsigned long long time_sleep;	$/;"	m	struct:process
+time_slice	proc/proc.h	/^	unsigned time_slice;	$/;"	m	struct:process
+time_used	proc/proc.h	/^	unsigned long long time_used;	$/;"	m	struct:process
+tolower	ctype.h	/^static inline int tolower (int c) { return isupper (c) ? c - 'A' + 'a' : c; }$/;"	f
+toupper	ctype.h	/^static inline int toupper (int c) { return islower (c) ? c - 'a' + 'A' : c; }$/;"	f
+true	stdbool.h	5;"	d
+true	type.h	19;"	d
+uint16_t	stdint.h	/^typedef unsigned short int uint16_t;$/;"	t
+uint16_t	type.h	/^typedef unsigned short int uint16_t;$/;"	t
+uint32_t	stdint.h	/^typedef unsigned int uint32_t;$/;"	t
+uint32_t	type.h	/^typedef unsigned int uint32_t;$/;"	t
+uint64_t	stdint.h	/^typedef unsigned long long int uint64_t;$/;"	t
+uint64_t	type.h	/^typedef unsigned long long int uint64_t;$/;"	t
+uint8_t	stdint.h	/^typedef unsigned char uint8_t;$/;"	t
+uint8_t	type.h	/^typedef unsigned char uint8_t;$/;"	t
+uintmax_t	stdint.h	/^typedef unsigned long long int uintmax_t;$/;"	t
+uintmax_t	type.h	/^typedef unsigned long long int uintmax_t;$/;"	t
+uintptr_t	stdint.h	/^typedef uint32_t uintptr_t;$/;"	t
+uintptr_t	type.h	/^typedef uint32_t uintptr_t;$/;"	t
+used	device/console.h	/^	bool used;$/;"	m	struct:Console
+used	device/kbd.h	/^	BOOL used;$/;"	m	struct:Kbd_buffer
+va_arg	stdarg.h	10;"	d
+va_end	stdarg.h	11;"	d
+va_list	stdarg.h	/^typedef char			*va_list;$/;"	t
+va_start	stdarg.h	9;"	d
+value	synch.h	/^      unsigned value;             \/* Current value. *\/$/;"	m	struct:semaphore
+vec_no	interrupt.h	/^	uint32_t vec_no;            \/* Interrupt vector number. *\/$/;"	m	struct:intr_frame
+vsprintf	stdio.h	38;"	d
+vtop	vaddr.h	/^vtop (const void *vaddr)$/;"	f
+waiters	synch.h	/^      struct list waiters;        \/* List of waiting threads. *\/$/;"	m	struct:condition	typeref:struct:condition::list
+waiters	synch.h	/^      struct list waiters;        \/* List of waiting threads. *\/$/;"	m	struct:semaphore	typeref:struct:semaphore::list
+write	device/block.h	/^    void (*write) (void *aux, block_sector_t, const void *buffer);$/;"	m	struct:block_operations
