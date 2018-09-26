@@ -71,4 +71,5 @@ void proc_block(void);
 void proc_unblock(struct process* proc);
 
 void proc_print_data(void);		
+void next_foreground_proc(void);
 #endif

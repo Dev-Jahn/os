@@ -11,8 +11,8 @@ typedef struct kChStruct
 		unsigned char bAtt;
 } CHAR;
 
-int Glob_x;
-int Glob_y;
+//int Glob_x;
+//int Glob_y;
 
 #pragma pack(pop)
 
@@ -36,21 +36,22 @@ int Glob_y;
 // Foreground 프로세스마다 입출력 버퍼 할당 시 아래 메크로로 변경
 // #define buf_e (cur_console->buf_w + SIZE_NSCROLL)
 // #define SCROLL_END (cur_console->buf_s + SIZE_SCROLL)
-
 #define MAX_CONSOLE_NUM 10
 
 typedef struct Console{
-	char buf_s[SIZE_SCROLL]; 
 	int Glob_x;
 	int Glob_y;
+#ifdef SCREEN_SCROLL
+	char buf_s[SIZE_SCROLL]; 
 	char *buf_w;	
 	char *buf_p;	
 	int sum_y;
 	bool a_s;
+#endif
 	bool used;
 }Console;
 
-void init_console(void);
+void init_console(struct Console *c);
 
 void PrintCharToScreen(int x, int y, const char *pString);
 void PrintChar(int x, int y, const char String);

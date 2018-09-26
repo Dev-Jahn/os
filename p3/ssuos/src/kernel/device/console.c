@@ -10,13 +10,12 @@ char next_line[2]; //"\r\n";
 
 #ifdef SCREEN_SCROLL
 
-char buf_s[SIZE_SCROLL]; 
-char *buf_w;	
-char *buf_p;	
+/*char buf_s[SIZE_SCROLL]; */
+/*char *buf_w;	*/
+/*char *buf_p;	*/
+/*int sum_y;*/
+/*bool a_s = TRUE;*/
 
-int sum_y;
-
-bool a_s = TRUE;
 #endif
 
 //위 전역변수를 사용하는 코드를 아래 변수를 사용하는 코드로 변경
@@ -24,20 +23,22 @@ struct Console console[MAX_CONSOLE_NUM];
 extern struct process *cur_process;
 struct Console *cur_console;
 
-void init_console(void)
+void init_console(struct Console *c)
 {
 	Glob_x = 0;
 	Glob_y = 2;
 
+	c->Glob_x = Glob_x;
+	c->Glob_y = Glob_y;
+
 	next_line[0] = '\r';
 	next_line[1] = '\r';
-
 #ifdef SCREEN_SCROLL
-	buf_w = buf_s;
-	buf_p = buf_s;
-	a_s = TRUE;
+	c->buf_w = c->buf_s;
+	c->buf_p = c->buf_s;
+	c->a_s = TRUE;
 
-	sum_y = 0;
+	c->sum_y = 0;
 #endif
 
 }
@@ -152,12 +153,14 @@ void clrScreen()
 void clearScreen(void)
 {
 	a_s = FALSE;
-	buf_p = buf_p+80*24;
-	for (char *p=buf_p; p<buf_p+SIZE_SCREEN; p++)
-		*p = ' ';
-	//buf_w = buf_p;
-	//clrScreen();
+	buf_w += (int)buf_s + 80*(sum_y+3) - (int)buf_w;
+	sum_y ++;
+	for (char *w=buf_w; w<buf_w+SIZE_SCREEN; w++)
+		*w = ' ';
+	set_fallow();
 	refreshScreen();
+	Glob_x = 0;
+	Glob_y = 0;
 }
 
 void scroll(void) 
@@ -300,10 +303,11 @@ void refreshScreen(void)
 		p_s->bAtt = 0x07;
 		p_s->bCh = *b;
 	}
+	set_cursor();
 }
 
 //콘솔 할당 함수
-struct console *get_console(void){
+struct Console *get_console(void){
 	int i;
 
 	for(i = 0; i < MAX_CONSOLE_NUM; i++){

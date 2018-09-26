@@ -533,10 +533,10 @@ void next_foreground_proc(void){
 
 	//kbd
 	e = &cur_foreground_process->elem_foreground;
-
+	//if current is tail of list, point head
 	if(e == list_rbegin(&f_list))
 		e = list_begin(&f_list);
-	else
+	else	//else, point tail
 		e = list_next(e);
 
 	cur_foreground_process = list_entry(e, struct process, elem_foreground);
