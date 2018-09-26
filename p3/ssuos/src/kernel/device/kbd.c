@@ -8,10 +8,13 @@
 
 static Key_Status KStat;
 
-static char kbd_buf[BUFSIZ];
-int buf_head, buf_tail;
+/*static char kbd_buf[BUFSIZ];*/
+/*int buf_head, buf_tail;*/
 //위 전역변수를 사용하는 코드를 cur_foreground_process를 사용하는 코드로 변경
 extern struct process *cur_foreground_process;
+#define kbd_buf cur_foreground_process->kbd_buffer->buf
+#define buf_head cur_foreground_process->kbd_buffer->head
+#define buf_tail cur_foreground_process->kbd_buffer->tail
 Kbd_buffer kbd_buffer[MAX_KBD_BUFFER];
 
 static BYTE Kbd_Map[4][KBDMAPSIZE] = {
@@ -60,6 +63,8 @@ void init_kbd(void)
 	KStat.ExtentedFlag = 0;
 	KStat.PauseFlag = 0;
 
+	for (int i=0;i<KBD_BUFFER_SIZE;i++)
+		*(kbd_buf+i) = 0;
 	buf_head = 0;
 	buf_tail = 0;
 

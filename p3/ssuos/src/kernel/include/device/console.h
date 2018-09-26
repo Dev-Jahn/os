@@ -11,9 +11,6 @@ typedef struct kChStruct
 		unsigned char bAtt;
 } CHAR;
 
-//int Glob_x;
-//int Glob_y;
-
 #pragma pack(pop)
 
 #define SCREEN_SCROLL
@@ -31,8 +28,8 @@ typedef struct kChStruct
 #define LINE_STATUS (IO_BASE + 5)   /* Line Status Register(read-only). */
 #define THR_EMPTY 0x20              /* Transmitter Holding Reg Empty. */
 
-#define buf_e (buf_w + SIZE_NSCROLL)
-#define SCROLL_END buf_s + SIZE_SCROLL
+#define buf_e (cur_console->buf_w + SIZE_NSCROLL)
+#define SCROLL_END cur_console->buf_s + SIZE_SCROLL
 // Foreground 프로세스마다 입출력 버퍼 할당 시 아래 메크로로 변경
 // #define buf_e (cur_console->buf_w + SIZE_NSCROLL)
 // #define SCROLL_END (cur_console->buf_s + SIZE_SCROLL)
@@ -51,7 +48,7 @@ typedef struct Console{
 	bool used;
 }Console;
 
-void init_console(struct Console *c);
+void init_console(void);
 
 void PrintCharToScreen(int x, int y, const char *pString);
 void PrintChar(int x, int y, const char String);
@@ -67,5 +64,6 @@ void scroll_screen(int offset);
 void set_fallow(void);
 void set_cursor(void);
 #endif
+struct Console *get_console(void);
 
 #endif

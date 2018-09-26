@@ -15,8 +15,8 @@
 #define STACK_SIZE 512
 #define PROC_NUM_MAX 16
 
-struct list p_list;		// All Porcess List
-struct list r_list;		// Run Porcess List
+struct list p_list;		// All Process List
+struct list r_list;		// Run Process List
 struct list s_list;		// Sleep Process List
 struct list d_list;		// Deleted Process List 
 struct list f_list;		// Foreground Process List
@@ -73,7 +73,8 @@ void login_prompt(void * aux)
 		if(check_user(id,password))
 			shell_proc(NULL);
 		else
-			printk("\nincorrect id or password.\n");
+			printk("\nincorrect id or password.(%s,%s)\n",id,password);
+			/*printk("\nincorrect id or password.\n");*/
 	}
 }
 
@@ -118,6 +119,8 @@ void init_proc()
 	cur_process->elem_all.next = NULL;
 	cur_process->elem_stat.prev = NULL;
 	cur_process->elem_stat.next = NULL;
+	cur_process->elem_foreground.prev = NULL;
+	cur_process->elem_foreground.next= NULL;
 
 
 	list_push_back(&p_list, &cur_process->elem_all);
@@ -204,9 +207,41 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 	p->elem_all.next = NULL;
 	p->elem_stat.prev = NULL;
 	p->elem_stat.next = NULL;
+	p->elem_foreground.prev = NULL;
+	p->elem_foreground.next = NULL;
 
 
 	//check option, set Console & Kbd
+	//if foreground, set in/out buf, push to f_list
+	if(opt != NULL && opt->foreground==TRUE)
+	{
+		//for first shell, maintain output buffer
+		if (p->parent->pid == 0)
+			p->console = p->parent->console;
+		else
+		{
+			p->console = get_console();
+			cur_console = p->console;
+			init_console();
+		}
+
+		p->kbd_buffer = get_kbd_buffer();	
+		
+		cur_foreground_process = p;
+		init_kbd();
+
+		list_push_back(&f_list, &p->elem_foreground);
+	}
+	//if background, inherit out buf
+	else
+	{
+		p->kbd_buffer = NULL;
+		p->console = p->parent->console;
+
+		/*cur_console = p->console;*/
+		/*init_console();*/
+	}
+
 	//list element, kbd_buffer, console
 
 
@@ -434,7 +469,7 @@ void shell_proc(void* aux)
 				printk("%s\n", cmdlist[i].cmd);
 			continue;
 		}
-		
+		// when there's matching command in cmdlist	
 		for(i = 0; i < CMDNUM; i++)
 		{
 			if( strncmp(cmdlist[i].cmd, token[0], BUFSIZ) == 0)
@@ -446,13 +481,14 @@ void shell_proc(void* aux)
 			printk("Unknown command %s\n", buf);
 			continue;
 		}
-
+		// if command type is 0, just run
 		if(cmdlist[i].type == 0)
 		{
 			void (*func)(void);
 			func = cmdlist[i].func;
 			func();
 		}
+		// if command type is 1, run proc and wait
 		else if(cmdlist[i].type == 1)
 		{
 			cur_process->simple_lock = 1;
@@ -471,10 +507,10 @@ void shell_proc(void* aux)
 
 void idle(void* aux)
 {
-	
 	proc_create(kernel1_proc, NULL, NULL);
 	proc_create(kernel2_proc, NULL, NULL);
-	proc_create(login_prompt,NULL,NULL);
+	struct proc_option proc_opt = {0, TRUE};
+	proc_create(login_prompt,&proc_opt,NULL);
 
 	while(1) {  
 		if(cur_process->pid != 0) {
@@ -531,7 +567,7 @@ void proc_print_data()
 void next_foreground_proc(void){
 	struct list_elem *e;
 
-	//kbd
+	//get list element
 	e = &cur_foreground_process->elem_foreground;
 	//if current is tail of list, point head
 	if(e == list_rbegin(&f_list))
@@ -541,7 +577,7 @@ void next_foreground_proc(void){
 
 	cur_foreground_process = list_entry(e, struct process, elem_foreground);
 
-	//console
+	//console & kbd
 	cur_console = cur_foreground_process->console;
 
 }

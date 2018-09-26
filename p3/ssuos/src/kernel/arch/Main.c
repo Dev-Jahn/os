@@ -18,6 +18,7 @@
 
 void main_init(void);
 void print_contributors(void);
+extern struct Console *cur_console;
 
 const char* VERSION = "0.1.02";
 const char* AUTHOR = "OSLAB";
@@ -36,7 +37,8 @@ void main_init(void)
 {
 	intr_disable();
 
-
+	//allocate initial console
+	cur_console = get_console();	
 	init_console();
 
 	print_contributors();
@@ -54,8 +56,6 @@ void main_init(void)
 	init_intr();
 	printk("%s", "Interrupt Initialization\n"); 
 
-	init_kbd();
-
 	init_palloc();
 	printk("%s" "Palloc Initialization\n");
 
@@ -64,10 +64,16 @@ void main_init(void)
 
 	init_proc();
 	printk("%s", "Process Intialization\n");
+	//link buffers to cur_process
+	cur_process->console = cur_console;
+	/*cur_process->kbd_buffer = get_kbd_buffer();*/
+	/*cur_foreground_process = cur_process;*/
+	/*init_kbd();*/
 
 	intr_enable();
 
 	//ide_init();
+	
 
 
 	sema_self_test();
