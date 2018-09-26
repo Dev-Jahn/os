@@ -4,6 +4,11 @@
 # Generated files
 bin/
 
+# Object files
+*.o
+
+# swap files
+.*.swp
 
 # Binaries
 *.bin
