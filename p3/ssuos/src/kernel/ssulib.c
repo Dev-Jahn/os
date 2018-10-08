@@ -41,6 +41,7 @@ int strncmp(char* b1, char* b2, int len)
 
 bool getkbd(char *buf, int len) 
 {
+	while(cur_process != cur_foreground_process);
 	char ch;
 	int offset = 0;
 

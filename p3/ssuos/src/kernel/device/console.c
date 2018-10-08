@@ -1,5 +1,6 @@
 #include <interrupt.h>
 #include <device/console.h>
+#include <proc/proc.h>
 #include <type.h>
 #include <device/kbd.h>
 #include <device/io.h>
@@ -11,20 +12,27 @@ char next_line[2]; //"\r\n";
 struct Console console[MAX_CONSOLE_NUM];
 extern struct process *cur_process;
 struct Console *cur_console; 
+#define Glob_x cur_console->Glob_x
+#define Glob_y cur_console->Glob_y
+#define buf_s cur_console->buf_s
+#define buf_p cur_console->buf_p
+#define buf_w cur_console->buf_w
+#define a_s cur_console->a_s
+#define sum_y cur_console->sum_y
 void init_console(void)
 {
-	cur_console->Glob_x = 0;
-	cur_console->Glob_y = 2;
+	Glob_x = 0;
+	Glob_y = 2;
 
 	next_line[0] = '\r';
 	next_line[1] = '\r';
 #ifdef SCREEN_SCROLL
 	for (int i=0;i<SIZE_SCROLL;i++)
-		*(cur_console->buf_s+i) = 0;
-	cur_console->buf_w = cur_console->buf_s;
-	cur_console->buf_p = cur_console->buf_s;
-	cur_console->a_s = TRUE;
-	cur_console->sum_y = 0;
+		buf_s[i] = 0;
+	buf_w = buf_s;
+	buf_p = buf_s;
+	a_s = TRUE;
+	sum_y = 0;
 #endif
 
 }
@@ -34,23 +42,23 @@ void set_cursor(void)
 	//setting low cursor byte
     outb(0x3D4, 0x0F);
 	//sending low cursor byte
-    outb(0x3D5, (cur_console->Glob_y*HSCREEN+cur_console->Glob_x)&0xFF);
+    outb(0x3D5, (Glob_y*HSCREEN+Glob_x)&0xFF);
 	//setting high cursor byte
     outb(0x3D4, 0x0E);
 	//sending high cursor byte
-    outb(0x3D5, (((cur_console->Glob_y*HSCREEN+cur_console->Glob_x)>>8)&0xFF));
+    outb(0x3D5, (((Glob_y*HSCREEN+Glob_x)>>8)&0xFF));
 }
 
 void PrintCharToScreen(int x, int y, const char *pString) 
 {
-	cur_console->Glob_x = x;	//location x
-	cur_console->Glob_y = y; //location y
+	Glob_x = x;	//location x
+	Glob_y = y; //location y
 	int i = 0;
 	while(pString[i] != 0)
 	{
-		PrintChar(cur_console->Glob_x++, cur_console->Glob_y, pString[i++]);
+		PrintChar(Glob_x++, Glob_y, pString[i++]);
 	}
-	cur_console->a_s = TRUE;
+	a_s = TRUE;
 }
 
 void PrintChar(int x, int y, const char String) 
@@ -61,15 +69,15 @@ void PrintChar(int x, int y, const char String)
 			scroll();
 			y--;
 		}
-		cur_console->Glob_x = 0;
-		cur_console->Glob_y = y+1;
-		cur_console->sum_y++;
+		Glob_x = 0;
+		Glob_y = y+1;
+		sum_y++;
 		return;
 	}
 	else if (String == '\b') {
-		if(cur_console->Glob_x == 0) return;
-		cur_console->Glob_x-=2;
-		cur_console->buf_w[y * HSCREEN + x - 1] = 0;
+		if(Glob_x == 0) return;
+		Glob_x-=2;
+		buf_w[y * HSCREEN + x - 1] = 0;
 	}
 	else {
 		if ((y >= VSCREEN) && (x >= 0)) {
@@ -78,16 +86,16 @@ void PrintChar(int x, int y, const char String)
 			y--;
 		}      	              	
 
-		char* b = &(cur_console->buf_w[y * HSCREEN + x]);
+		char* b = &buf_w[y * HSCREEN + x];
 		if(b >=	SCROLL_END)
 			b-= SIZE_SCROLL;
 		*b = String;
 
-		if(cur_console->Glob_x >= HSCREEN)
+		if(Glob_x >= HSCREEN)
 		{
-			cur_console->Glob_x = 0;
-			cur_console->Glob_y++;
-			cur_console->sum_y++;
+			Glob_x = 0;
+			Glob_y++;
+			sum_y++;
 		}    
 	}
 #else
@@ -99,8 +107,8 @@ void PrintChar(int x, int y, const char String)
 			y--;
 		}
 		pScreen += ((y+1) * 80);
-		cur_console->Glob_x = 0;
-		cur_console->Glob_y = y+1;
+		Glob_x = 0;
+		Glob_y = y+1;
 	return;
 	}
 	else {
@@ -113,10 +121,10 @@ void PrintChar(int x, int y, const char String)
 		pScreen[0].bAtt = 0x07;
 		pScreen[0].bCh = String;
 
-		if(cur_console->Glob_x > 79)
+		if(Glob_x > 79)
 		{
-			cur_console->Glob_x = 0;
-			cur_console->Glob_y++;
+			Glob_x = 0;
+			Glob_y++;
 		}    
 	}
 #endif
@@ -131,38 +139,44 @@ void clrScreen()
 		(*pScreen).bAtt = 0x07;
 		(*pScreen++).bCh = ' ';
 	}   
-	cur_console->Glob_x = 0;
-	cur_console->Glob_y = 0;
+	Glob_x = 0;
+	Glob_y = 0;
 }
 
 //Ctrl+l 화면 클리어 구현
 void clearScreen(void)
 {
-	cur_console->a_s = FALSE;
-	cur_console->buf_w += (int)cur_console->buf_s + 80*(cur_console->sum_y+2) - (int)cur_console->buf_w;
-	/*cur_console->sum_y ++;*/
-	for (char *w=cur_console->buf_w; w<cur_console->buf_w+SIZE_SCREEN; w++)
-		*w = ' ';
-	set_fallow();
+	char * del_cur;
+	
+	buf_p = (char*)((int)buf_w + (HSCREEN * Glob_y));
+	del_cur = buf_w + SIZE_SCREEN;
+
+	for (int i=0; i<HSCREEN*Glob_y; i++)
+	{
+		if(del_cur > SCROLL_END)
+			del_cur = (char *)((int)del_cur- SIZE_SCROLL);
+		*(del_cur++) = 0;
+	}
+
+	if(buf_p >= SCROLL_END)
+		buf_p = (char*)((int)buf_p - SIZE_SCROLL);
+	else if(buf_p < buf_s)
+		buf_p = (char*)((int)buf_p + SIZE_SCROLL);
+	buf_w = buf_p;
 	refreshScreen();
-
-	cur_console->Glob_x = 0;
-	cur_console->Glob_y = 0;
+	Glob_y = 0;
 }
-
 void scroll(void) 
 {
 #ifdef SCREEN_SCROLL
-	cur_console->buf_w += HSCREEN;
-	cur_console->buf_p += HSCREEN;
-	
-	while(cur_console->buf_w > SCROLL_END)
-		cur_console->buf_w -= SIZE_SCROLL;
-
+	buf_w += HSCREEN;
+	buf_p += HSCREEN;
+	while(buf_w > SCROLL_END)
+		buf_w -= SIZE_SCROLL;
 	
 	//clear line
 	int i;
-	char *buf_ptr = cur_console->buf_w + SIZE_SCREEN;
+	char *buf_ptr = buf_w + SIZE_SCREEN;
 	for(i = 0; i < HSCREEN; i++)
 	{
 		if(buf_ptr > SCROLL_END)
@@ -184,8 +198,7 @@ void scroll(void)
 		        (*pScreen++).bCh = ' ';
 	} 
 #endif
-	cur_console->Glob_y--;
-
+	Glob_y--;
 }
 
 #ifdef SERIAL_STDOUT
@@ -227,7 +240,7 @@ int printk(const char *fmt, ...)
 #ifdef SERIAL_STDOUT
 	printCharToSerial(buf);
 #endif
-	PrintCharToScreen(cur_console->Glob_x, cur_console->Glob_y, buf);
+	PrintCharToScreen(Glob_x, Glob_y, buf);
 
 	return len;
 }
@@ -237,56 +250,57 @@ void scroll_screen(int offset)
 {
 	char * tmp_buf_p;
 	char * tmp_buf_w;
-	if(cur_console->a_s == TRUE && offset > 0 && cur_console->buf_p == cur_console->buf_w)
+	if(a_s == TRUE && offset > 0 && buf_p == buf_w)
 		return;
 
-	cur_console->a_s = FALSE;
-	
-	tmp_buf_p = (char*)((int)cur_console->buf_p + (HSCREEN * offset));
-	tmp_buf_w = cur_console->buf_w + SIZE_SCREEN;
+	a_s = FALSE;
+	//이후 출력할 화면 상단	
+	tmp_buf_p = (char*)((int)buf_p + (HSCREEN * offset));
+	//현재화면 다음줄
+	tmp_buf_w = buf_w + SIZE_SCREEN;
+	//스크롤 끝이면
 	if(tmp_buf_w > SCROLL_END)
 		tmp_buf_w = (char *)((int)tmp_buf_w - SIZE_SCROLL);
+	//화면 최상단일때
+	if(sum_y < NSCROLL && offset < 0 && tmp_buf_p <= buf_s && buf_p > buf_s) return;
+	//
+	if(offset > 0 && tmp_buf_p > buf_w && buf_p <= buf_w) return;
+	//
+	else if(offset < 0 && tmp_buf_p <= tmp_buf_w && buf_p > tmp_buf_w) return;
 
-	if(cur_console->sum_y < NSCROLL &&
-			offset < 0 &&
-			tmp_buf_p <= cur_console->buf_s &&
-			cur_console->buf_p > cur_console->buf_s) return;
-	if(offset > 0 &&
-			tmp_buf_p > cur_console->buf_w &&
-			cur_console->buf_p <= cur_console->buf_w) return;
-	else if(offset < 0 &&
-			tmp_buf_p <= tmp_buf_w &&
-			cur_console->buf_p > tmp_buf_w) return;
-
-	cur_console->buf_p = tmp_buf_p;
+	buf_p = tmp_buf_p;
 	
-	if(cur_console->buf_p >= SCROLL_END)
-		cur_console->buf_p = (char*)((int)cur_console->buf_p - SIZE_SCROLL);
-	else if(cur_console->buf_p < cur_console->buf_s)
-		cur_console->buf_p = (char*)((int)cur_console->buf_p + SIZE_SCROLL);
-
+	if(buf_p >= SCROLL_END)
+		buf_p = (char*)((int)buf_p - SIZE_SCROLL);
+	else if(buf_p < buf_s)
+		buf_p = (char*)((int)buf_p + SIZE_SCROLL);
 	refreshScreen();
 }
 
 void set_fallow(void)
 {
-	cur_console->a_s = TRUE;
+	a_s = TRUE;
 }
-
+int cnt;
 void refreshScreen(void)
 {
 	CHAR *p_s= (CHAR *) VIDIO_MEMORY;	//0xB8000
 	int i;
 
-	if(cur_console->a_s)
-		cur_console->buf_p = cur_console->buf_w;
+	if(a_s)
+		buf_p = buf_w;
 
-	char* b = cur_console->buf_p;
+	char* b = buf_p;
 
 	for(i = 0; i < SIZE_SCREEN; i++, b++, p_s++)
 	{
-		if(b >= SCROLL_END)
+		//여기서 buf_p가 +24칸 밀림
+		if(b >= SCROLL_END)	//buf_s마지막 다음
+		{
+			cnt++;
+			/*printk("%d",buf_p);*/
 			b -= SIZE_SCROLL;
+		}
 		p_s->bAtt = 0x07;
 		p_s->bCh = *b;
 	}

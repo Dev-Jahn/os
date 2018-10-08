@@ -189,8 +189,6 @@ void kbd_handler(struct intr_frame *iframe)
 	{
 
 #ifdef SCREEN_SCROLL
-		/*printk("%d\n", data);*/
-		/*printk("%d\n", asciicode);*/
 		if( KStat.ExtentedFlag == TRUE)
 		{
 			switch(asciicode)
@@ -219,12 +217,9 @@ void kbd_handler(struct intr_frame *iframe)
 		//when ctrl is down
 		else if( KStat.CtrlFlag == TRUE)
 		{
+			int a,b;
 			switch(asciicode)
 			{
-				extern int sum_y;
-				extern char *buf_s;
-				extern char *buf_p;
-				extern char *buf_w;
 				case 9:		// Ctrl+Tab
 					next_foreground_proc();
 					break;

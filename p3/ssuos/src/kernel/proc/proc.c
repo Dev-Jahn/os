@@ -61,7 +61,6 @@ void login_prompt(void * aux)
 {
 	char id[BUFSIZ];
 	char password[BUFSIZ];
-
 	while(1)
 	{
 		printk("\nid : ");
@@ -210,7 +209,6 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 	p->elem_foreground.prev = NULL;
 	p->elem_foreground.next = NULL;
 
-
 	//check option, set Console & Kbd
 	//if foreground, set in/out buf, push to f_list
 	if(opt != NULL && opt->foreground==TRUE)
@@ -223,13 +221,13 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 			p->console = get_console();
 			cur_console = p->console;
 			init_console();
+			/*clrScreen();*/
+			clearScreen();
 		}
 
 		p->kbd_buffer = get_kbd_buffer();	
-		
 		cur_foreground_process = p;
 		init_kbd();
-
 		list_push_back(&f_list, &p->elem_foreground);
 	}
 	//if background, inherit out buf
@@ -237,18 +235,11 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 	{
 		p->kbd_buffer = NULL;
 		p->console = p->parent->console;
-
-		/*cur_console = p->console;*/
-		/*init_console();*/
 	}
-
-	//list element, kbd_buffer, console
-
-
 	list_push_back(&p_list, &p->elem_all);
 	list_push_back(&r_list, &p->elem_stat);
-
 	intr_set_level (old_level);
+
 	return p->pid;
 }
 
@@ -487,6 +478,7 @@ void shell_proc(void* aux)
 			void (*func)(void);
 			func = cmdlist[i].func;
 			func();
+			while(cur_process != cur_foreground_process);
 		}
 		// if command type is 1, run proc and wait
 		else if(cmdlist[i].type == 1)
@@ -510,7 +502,7 @@ void idle(void* aux)
 	proc_create(kernel1_proc, NULL, NULL);
 	proc_create(kernel2_proc, NULL, NULL);
 	struct proc_option proc_opt = {0, TRUE};
-	proc_create(login_prompt,&proc_opt,NULL);
+	proc_create(login_prompt,&proc_opt,"init");
 
 	while(1) {  
 		if(cur_process->pid != 0) {
@@ -572,14 +564,13 @@ void next_foreground_proc(void){
 	//if current is tail of list, point head
 	if(e == list_rbegin(&f_list))
 		e = list_begin(&f_list);
-	else	//else, point tail
+	else	//else, point next 
 		e = list_next(e);
 
 	cur_foreground_process = list_entry(e, struct process, elem_foreground);
 
 	//console & kbd
 	cur_console = cur_foreground_process->console;
-
 }
 
 void hexDump (void *addr, int len) {
