@@ -87,10 +87,12 @@ void schedule(void)
 		break;
 	//lv1. If proc exceeded tq, send to lv2.
 	case 1:
-		if (latest->state == PROC_RUN)
+		if (latest->state == PROC_RUN && latest->time_slice >= LV0_TIMER)
+		{
 			proc_que_leveldown(latest);
+		}
 		break;
-	//lv2
+	//lv2. If proc sleep(I/O), send to lv1.
 	case 2:
 		if (latest->state == PROC_STOP)
 			proc_que_levelup(latest);
