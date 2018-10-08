@@ -85,7 +85,7 @@ void schedule(void)
 	//idle
 	case 0:
 		break;
-	//lv1
+	//lv1. If proc exceeded tq, send to lv2.
 	case 1:
 		if (latest->state == PROC_RUN)
 			proc_que_leveldown(latest);
