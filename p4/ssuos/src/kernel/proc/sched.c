@@ -74,31 +74,38 @@ void schedule(void)
 	complete the schedule() code below.
 	*/
 	if ((cur -> pid) != 0) {
+		printk("not idle\n");
 		next = list_entry(list_begin(&level_que[0]), struct process, elem_stat);
 		cur_process = next;
 		cur_process->time_slice = 0;
-		switch_process(cur, next);
 		scheduling = 0;
+		switch_process(cur, next);
 		return;
 	}
-	switch (latest -> que_level) {
-	//idle
-	case 0:
-		break;
-	//lv1. If proc exceeded tq, send to lv2.
-	case 1:
-		if (latest->state == PROC_RUN && latest->time_slice >= LV0_TIMER)
-		{
-			proc_que_leveldown(latest);
+	if (latest) {
+		switch (latest -> que_level) {
+		//idle
+		case 0:
+			break;
+		//lv1. If proc exceeded tq, send to lv2.
+		case 1:
+			if (latest->state == PROC_RUN && latest->time_slice >= LV0_TIMER)
+			{
+				proc_que_leveldown(latest);
+				list_push_back(&level_que[2], list_pop_front(&level_que[1]));
+			}
+			break;
+		//lv2. If proc sleep(I/O), send to lv1.
+		case 2:
+			if (latest->state == PROC_STOP)
+			{
+				proc_que_levelup(latest);
+				list_push_back(&level_que[1], &latest->elem_stat);
+			}
+			break;
+		default:
+			break;
 		}
-		break;
-	//lv2. If proc sleep(I/O), send to lv1.
-	case 2:
-		if (latest->state == PROC_STOP)
-			proc_que_levelup(latest);
-		break;
-	default:
-		break;
 	}
 
 	proc_wake(); //wake up the process whose io is finished
@@ -126,12 +133,15 @@ void schedule(void)
 		printk("\n");
 
 	if ((next = sched_find_que()) != NULL) {
+		printk("from : %d\n", cur -> pid);
 		printk("Selected process : %d\n", next -> pid);
 		cur_process = next;
 		cur_process->time_slice = 0;
 		latest = next;
-		switch_process(cur, next);
+		printk("switching\n");
 		scheduling = 0;
+		switch_process(cur, next);
+		printk("switched\n");
 		return;
 	}
 	return;

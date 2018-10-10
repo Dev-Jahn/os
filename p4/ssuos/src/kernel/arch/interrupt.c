@@ -170,8 +170,6 @@ unsigned long get_ticks(void)
 
 void default_handler(struct intr_frame *iframe)
 {
-	if (scheduling)
-		return;
 	printk("\n\nint intr %d\n\n", iframe->vec_no);
 }
 

@@ -250,7 +250,7 @@ void proc_wake(void)
 void proc_sleep(unsigned ticks)
 {
 	unsigned long cur_ticks = get_ticks();
-
+	printk("sleep\n");
 	cur_process->time_sleep =  ticks + cur_ticks;
 	cur_process->state = PROC_STOP;
 	cur_process->time_slice = 0;
@@ -298,6 +298,7 @@ bool more_prio(const struct list_elem *a, const struct list_elem *b,void *aux)
 void kernel1_proc(void* aux)
 {
 	int passed = 0;
+	while(1)printk("kernel1\n");
 	while(1)
 	{
 		if ((cur_process -> time_used >= 80) && (!passed)) {
