@@ -14,7 +14,7 @@ intr_handler_func pf_handler;
 uint32_t scale_up(uint32_t base, uint32_t size)
 {
 	uint32_t mask = ~(size-1);
-	if((base & mask) != 0)
+	if(base & mask != 0)
 		base = base & mask + size;
 	return base;
 }
@@ -22,7 +22,7 @@ uint32_t scale_up(uint32_t base, uint32_t size)
 uint32_t scale_down(uint32_t base, uint32_t size)
 {
 	uint32_t mask = ~(size-1);
-	if((base & mask) != 0)
+	if(base & mask != 0)
 		base = base & mask - size;
 	return base;
 }

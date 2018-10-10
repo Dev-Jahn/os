@@ -38,7 +38,7 @@ struct process* sched_find_que(void) {
 	if (list_begin(&level_que[1]) != list_tail(&level_que[1]))
 		result = get_next_proc(&level_que[1]);
 	//if lv2 que is not empty
-	else if (list_begin(&level_que[2]) == list_tail(&level_que[2]))
+	else if (list_begin(&level_que[2]) != list_tail(&level_que[2]))
 		result = get_next_proc(&level_que[2]);
 
 	return result;
@@ -66,6 +66,7 @@ void schedule(void)
 	struct list_elem *ele;
 	int i = 0, printed = 0;
 
+	intr_disable();
 	scheduling = 1;	
 	cur = cur_process;
 	/*TODO : if current process is idle_process(pid 0), schedule() choose the next process (not pid 0).
@@ -78,6 +79,7 @@ void schedule(void)
 		next = list_entry(list_begin(&level_que[0]), struct process, elem_stat);
 		cur_process = next;
 		cur_process->time_slice = 0;
+		intr_enable();
 		scheduling = 0;
 		switch_process(cur, next);
 		return;
@@ -133,15 +135,16 @@ void schedule(void)
 		printk("\n");
 
 	if ((next = sched_find_que()) != NULL) {
-		printk("from : %d\n", cur -> pid);
+		printk("from : %d\n", cur->pid);
+		printk("latest : %d\n", latest);
 		printk("Selected process : %d\n", next -> pid);
 		cur_process = next;
 		cur_process->time_slice = 0;
 		latest = next;
-		printk("switching\n");
 		scheduling = 0;
+		intr_enable();
+		printk("switching3\n");
 		switch_process(cur, next);
-		printk("switched\n");
 		return;
 	}
 	return;

@@ -240,17 +240,19 @@ void proc_wake(void)
 		if(p->time_sleep > t)
 			break;
 
-		list_remove(&p->elem_stat); que_level = 1;
+		list_remove(&p->elem_stat);
+		que_level = 1;
 		p->que_level = 1;
 		list_push_back(&level_que[que_level], &p->elem_stat);
 		p->state = PROC_RUN;
 	}
+	
 }
 
 void proc_sleep(unsigned ticks)
 {
 	unsigned long cur_ticks = get_ticks();
-	printk("sleep\n");
+
 	cur_process->time_sleep =  ticks + cur_ticks;
 	cur_process->state = PROC_STOP;
 	cur_process->time_slice = 0;

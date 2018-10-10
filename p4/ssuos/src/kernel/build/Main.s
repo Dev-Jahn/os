@@ -646,10 +646,10 @@ print_contributors:
 	.string	"long long int"
 .LASF2:
 	.string	"unsigned int"
-.LASF24:
-	.string	"/media/jahn/External1/os/p4/ssuos/src/kernel"
 .LASF0:
 	.string	"unsigned char"
+.LASF24:
+	.string	"/home/jahn/os/p4/ssuos/src/kernel"
 .LASF14:
 	.string	"ssuos_main"
 .LASF7:

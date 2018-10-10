@@ -175,9 +175,6 @@ void default_handler(struct intr_frame *iframe)
 
 void timer_handler(struct intr_frame *iframe)
 {
-	//스케쥴링시 전역틱 증가 안하면
-	/*if (scheduling)*/
-		/*return;*/
 	ticks++;	
 	
 	if ((cur_process -> pid != 0) && (!scheduling)) {
@@ -204,8 +201,7 @@ void syscall_handler(struct intr_frame *iframe)
 
 #define SYSCALL_ARG_MAX 3
 	long arg[SYSCALL_ARG_MAX];
-	if (scheduling)
-		return;
+
 	pt = (int*) (((int)&iframe->ss) - 4);
 	sys_num = *pt++;
 	arg_num = syscall_tbl[sys_num][1];
