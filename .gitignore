@@ -15,3 +15,8 @@ bin/
 
 # etc
 etc/
+
+# img
+*.png
+*.jpg
+*.jpeg
