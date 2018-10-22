@@ -180,7 +180,11 @@ void timer_handler(struct intr_frame *iframe)
 	if ((cur_process -> pid != 0) && (!scheduling)) {
 		cur_process->time_used++;	
 		cur_process->time_slice++;	
-		if(cur_process->time_slice >= TIMER_MAX)
+		if (cur_process->que_level == 1 &&
+			cur_process->time_slice > LV0_TIMER)
+			do_sched_on_return();
+		else if (cur_process->que_level == 2 && 
+				 cur_process->time_slice > LV1_TIMER)
 			do_sched_on_return();
 	}
 

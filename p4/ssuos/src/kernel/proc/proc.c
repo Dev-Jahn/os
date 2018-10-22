@@ -217,6 +217,7 @@ void proc_free(void)
 
 void proc_end(void)
 {
+	intr_disable();
 	proc_free();
 	schedule();
 	return;
@@ -248,13 +249,15 @@ void proc_wake(void)
 	}
 	
 }
-
+extern unsigned long total;
 void proc_sleep(unsigned ticks)
 {
+	intr_disable();
 	unsigned long cur_ticks = get_ticks();
 
 	cur_process->time_sleep =  ticks + cur_ticks;
 	cur_process->state = PROC_STOP;
+	total += cur_process->time_slice;
 	cur_process->time_slice = 0;
 	struct list_elem *e;
 	
@@ -296,15 +299,12 @@ bool more_prio(const struct list_elem *a, const struct list_elem *b,void *aux)
 	
 	return p1->priority > p2->priority;
 }
-
 void kernel1_proc(void* aux)
 {
 	int passed = 0;
-	while(1)printk("kernel1\n");
 	while(1)
 	{
 		if ((cur_process -> time_used >= 80) && (!passed)) {
-		
 			proc_sleep(60);
 			passed = 1;
 			

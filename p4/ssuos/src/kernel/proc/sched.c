@@ -11,6 +11,7 @@ extern struct list plist;
 extern struct list slist;
 extern struct process procs[PROC_NUM_MAX];
 extern struct process *idle_process;
+unsigned long total;
 
 struct process *latest;
 
@@ -33,12 +34,12 @@ struct process* sched_find_que(void) {
 	struct process * result = NULL;
 	 
 	proc_wake();
-
+	
 	//if lv1 que is not empty
-	if (list_begin(&level_que[1]) != list_tail(&level_que[1]))
+	if (!list_empty(&level_que[1]))
 		result = get_next_proc(&level_que[1]);
 	//if lv2 que is not empty
-	else if (list_begin(&level_que[2]) != list_tail(&level_que[2]))
+	else if (!list_empty(&level_que[2]))
 		result = get_next_proc(&level_que[2]);
 
 	return result;
@@ -57,7 +58,6 @@ struct process* get_next_proc(struct list *rlist_target) {
 	}
 	return NULL;
 }
-
 void schedule(void)
 {
 	struct process *cur;
@@ -75,38 +75,69 @@ void schedule(void)
 	complete the schedule() code below.
 	*/
 	if ((cur -> pid) != 0) {
-		printk("not idle\n");
-		next = list_entry(list_begin(&level_que[0]), struct process, elem_stat);
+		if (cur->time_slice == LV0_TIMER+1 ||
+			cur->time_slice == LV1_TIMER+1) {
+			cur->time_slice--;
+			cur->time_used--;
+		}
+		next = idle_process;
 		cur_process = next;
-		cur_process->time_slice = 0;
 		intr_enable();
 		scheduling = 0;
 		switch_process(cur, next);
 		return;
 	}
 	if (latest) {
-		switch (latest -> que_level) {
-		//idle
-		case 0:
-			break;
-		//lv1. If proc exceeded tq, send to lv2.
-		case 1:
-			if (latest->state == PROC_RUN && latest->time_slice >= LV0_TIMER)
-			{
-				proc_que_leveldown(latest);
-				list_push_back(&level_que[2], list_pop_front(&level_que[1]));
+		total += latest->time_slice;
+		printk("Global elapsed: %d\n", total);
+		if (latest->state == PROC_ZOMBIE) {
+			printk("Proc%d end\n", latest->pid);
+			latest = 0;
+		}
+		else if (latest->state == PROC_STOP) {
+			printk("Proc%d I/O at %d\n", latest->pid, latest->time_used);
+			printk("Proc%d 's que is 1\n");
+		if (latest->que_level != 1)
+			printk("Proc%d change the queue (2->1)\n", latest->pid);
+		}
+		else {
+			switch (latest -> que_level) {
+			//idle
+			case 0:
+				break;
+			case 1:
+				//If tq exceeded, send to lv2.
+				if (latest->state == PROC_RUN && latest->time_slice >= LV0_TIMER)
+				{
+					proc_que_leveldown(latest);
+					list_push_back(&level_que[2], list_pop_front(&level_que[1]));
+				}
+				//schedule() called for some other reason(Not I/O), go back to latest
+				else if (latest->state != PROC_STOP)
+				{
+					cur_process = latest;
+					intr_enable();
+					scheduling = 0;
+					switch_process(cur, latest);
+				}
+				break;
+			//lv2. Scheduled but, 
+			case 2:
+				//If tq exceeded, stay
+				if (latest->state == PROC_RUN && latest->time_slice >= LV1_TIMER)
+					list_push_back(&level_que[2], &latest->elem_stat);
+				//schedule() called for some other reason(Not I/O), go back to latest
+				else if (latest->state != PROC_STOP)
+				{
+					cur_process = latest;
+					intr_enable();
+					scheduling = 0;
+					switch_process(cur, latest);
+				}
+				break;
+			default:
+				break;
 			}
-			break;
-		//lv2. If proc sleep(I/O), send to lv1.
-		case 2:
-			if (latest->state == PROC_STOP)
-			{
-				proc_que_levelup(latest);
-				list_push_back(&level_que[1], &latest->elem_stat);
-			}
-			break;
-		default:
-			break;
 		}
 	}
 
@@ -121,12 +152,12 @@ void schedule(void)
 					(tmp -> pid == 0)) 	continue;
 			if (!printed) {	
 				printk("#=%2d t=%3d u=%3d ", tmp -> pid, tmp -> time_slice, tmp -> time_used);
-				printk("q=%3d\n", tmp->que_level);
+				printk("q=%3d", tmp->que_level);
 				printed = 1;			
 			}
 			else {
 				printk(", #=%2d t=%3d u=%3d ", tmp -> pid, tmp -> time_slice, tmp->time_used);
-				printk("q=%3d\n", tmp->que_level);
+				printk("q=%3d", tmp->que_level);
 				}
 			
 	}
@@ -135,29 +166,29 @@ void schedule(void)
 		printk("\n");
 
 	if ((next = sched_find_que()) != NULL) {
-		printk("from : %d\n", cur->pid);
-		printk("latest : %d\n", latest);
 		printk("Selected process : %d\n", next -> pid);
+		printk("#### Switching... ####\n");
 		cur_process = next;
 		cur_process->time_slice = 0;
 		latest = next;
-		scheduling = 0;
 		intr_enable();
-		printk("switching3\n");
+		scheduling = 0;
 		switch_process(cur, next);
 		return;
 	}
+	intr_enable();
+	scheduling = 0;
 	return;
 }
 
 void proc_que_levelup(struct process *cur)
 {
 	cur->que_level = 1;
-	/*TODO : change the queue lv2 to queue lv1.*/
+	printk("Proc%d change the queue(2->1)\n", latest->pid);
 }
 
 void proc_que_leveldown(struct process *cur)
 {
 	cur->que_level = 2;
-	/*TODO : change the queue lv1 to queue lv2.*/
+	printk("Proc%d change the queue(1->2)\n", latest->pid);
 }
