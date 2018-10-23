@@ -76,7 +76,7 @@ Main.elf: Main.o io.o pit.o interrupt.o kbd.o crset.o paging.o vsprintk.o list.o
 	        sched.o switch.o proc.o console.o ssulib.o malloc.o mem.o mm.o device.o\
 	    	do_syscall.o syscall.o synch.o bitmap.o palloc.o intr-stubs.o partition.o\
 	    	block.o ide.o stdio.o string.o
-	ld -Ttext 0x10000 $(OBJS) -o $(BUILD_PATH)/$@ -I./include --entry $(ENTRY)
+	ld -Ttext 0x10000 $(OBJS) -o $(BUILD_PATH)/$@ -I./include --entry $(ENTRY) -m elf_i386
 
 Main.bin: Main.elf 
 	objcopy -j .text -j .data -j .rodata -j .bss -S -O binary $(BUILD_PATH)/Main.elf $(BUILD_PATH)/Main.bin

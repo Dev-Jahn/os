@@ -9,7 +9,8 @@
 #include <proc/proc.h>
 
 /* Page allocator.  Hands out memory in page-size (or
-   page-multiple) chunks.  */
+   page-multiple) chunks.  
+   */
 
 /* page struct */
 struct kpage{
@@ -24,13 +25,14 @@ static struct kpage *kpage_list;
 static uint32_t page_alloc_index;
 
 /* Initializes the page allocator. */
-void init_palloc (void) 
+	void
+init_palloc (void) 
 {
 	/* Calculate the space needed for the kpage list */
 	size_t pool_size = sizeof(struct kpage) * PAGE_POOL_SIZE;
 
 	/* kpage list alloc */
-	kpage_list = (struct kpage *)(KERNEL_ADDR);	//1MB 지점
+	kpage_list = (struct kpage *)(KERNEL_ADDR);
 
 	/* initialize */
 	memset((void*)kpage_list, 0, pool_size);
@@ -39,7 +41,8 @@ void init_palloc (void)
 
 /* Obtains and returns a group of PAGE_CNT contiguous free pages.
    */
-uint32_t * palloc_get_multiple (uint32_t page_type, size_t page_cnt)
+	uint32_t *
+palloc_get_multiple (uint32_t page_type, size_t page_cnt)
 {
 	void *pages = NULL;
 	struct kpage *kpage = kpage_list;
@@ -50,8 +53,8 @@ uint32_t * palloc_get_multiple (uint32_t page_type, size_t page_cnt)
 		return NULL;
 
 	switch(page_type){
-		case HEAP__: //(1)	
-			
+		case HEAP__: //(1)
+
 			break;
 		case STACK__: 
 			//(2)
@@ -65,14 +68,17 @@ uint32_t * palloc_get_multiple (uint32_t page_type, size_t page_cnt)
 	return (uint32_t*)pages; 
 }
 
-/* Obtains a single free page and returns its address.  */
-uint32_t * palloc_get_page (uint32_t page_type) 
+/* Obtains a single free page and returns its address.
+   */
+	uint32_t *
+palloc_get_page (uint32_t page_type) 
 {
 	return palloc_get_multiple (page_type, 1);
 }
 
 /* Frees the PAGE_CNT pages starting at PAGES. */
-void palloc_free_multiple (void *pages, size_t page_cnt) 
+	void
+palloc_free_multiple (void *pages, size_t page_cnt) 
 {
 
 	struct kpage *kpage = kpage_list;
@@ -80,20 +86,22 @@ void palloc_free_multiple (void *pages, size_t page_cnt)
 }
 
 /* Frees the page at PAGE. */
-void palloc_free_page (void *page) 
+	void
+palloc_free_page (void *page) 
 {
 	palloc_free_multiple (page, 1);
 }
 
 
-uint32_t * va_to_ra (uint32_t *va)
-{
-	return VH_TO_RH(va);
+	uint32_t *
+va_to_ra (uint32_t *va){
+
+
 }
 
-uint32_t * ra_to_va (uint32_t *ra)
-{
-	return RH_TO_VH(ra);
+	uint32_t *
+ra_to_va (uint32_t *ra){
+
 }
 
 void palloc_pf_test(void)
