@@ -654,14 +654,14 @@ print_contributors:
 	.section	.debug_str,"MS",@progbits,1
 .LASF3:
 	.string	"long long int"
+.LASF24:
+	.string	"/home/jahn/os/p5/5_MEMORY/ssuos_p5/src/kernel"
 .LASF2:
 	.string	"unsigned int"
 .LASF0:
 	.string	"unsigned char"
 .LASF14:
 	.string	"ssuos_main"
-.LASF24:
-	.string	"/home/minijw/smj/ssuos_p5/src/kernel"
 .LASF7:
 	.string	"long long unsigned int"
 .LASF18:
