@@ -2,7 +2,7 @@
 .ignore/
 
 # Generated files
-bin/
+#bin/
 
 # Object files
 *.o
@@ -11,7 +11,7 @@ bin/
 .*.swp
 
 # Binaries
-*.bin
+#*.bin
 
 # etc
 etc/
