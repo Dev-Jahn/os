@@ -6,7 +6,7 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 AFLAGS	kernel/Makefile	/^AFLAGS = -f elf32$/;"	m
 ARENA_MAGIC	kernel/mem/malloc.c	47;"	d	file:
-ASSERT	kernel/arch/interrupt.c	39;"	d	file:
+ASSERT	kernel/arch/interrupt.c	38;"	d	file:
 ASSERT	kernel/bitmap.c	12;"	d	file:
 ASSERT	kernel/include/debug.h	27;"	d
 ASSERT	kernel/include/debug.h	31;"	d
@@ -14,7 +14,6 @@ ASSERT	kernel/include/debug.h	37;"	d
 ASSERT	kernel/list.c	4;"	d	file:
 ASSERT	kernel/synch.c	7;"	d	file:
 AUTHOR	kernel/arch/Main.c	/^const char* AUTHOR = "OSLAB";$/;"	v
-AUTHOR	kernel/build/Main.s	/^AUTHOR:$/;"	l
 Activate_A20Gate	boot/i386/boot1.asm	/^Activate_A20Gate:$/;"	l
 Address	kernel/arch/interrupt.c	/^	unsigned long Address;$/;"	m	struct:_IDTR	file:
 BITMAP_ERROR	kernel/include/bitmap.h	34;"	d
@@ -37,7 +36,7 @@ BYTE	kernel/include/type.h	/^typedef unsigned char BYTE;$/;"	t
 CARRIAGE_RETURN	boot/i386/boot1.asm	/^CARRIAGE_RETURN:$/;"	l
 CC	kernel/Makefile	/^CC = gcc$/;"	m
 CFLAGS	kernel/Makefile	/^CFLAGS = -O0 -g -I.\/include -ffreestanding -m32 -nostdlib -nostdinc -static -fno-stack-protector$/;"	m
-CHANNEL_CNT	kernel/device/ide.c	79;"	d	file:
+CHANNEL_CNT	kernel/device/ide.c	78;"	d	file:
 CHAR	kernel/include/device/console.h	/^} CHAR;$/;"	t	typeref:struct:kChStruct
 CHAR	kernel/stdio.c	/^        CHAR = 1,               \/* hh *\/$/;"	e	enum:printf_conversion::__anon2	file:
 CHAR_BIT	kernel/include/limits.h	4;"	d
@@ -47,16 +46,16 @@ CHAR_MIN	kernel/include/limits.h	11;"	d
 CHAR_MIN	kernel/include/limits.h	14;"	d
 CHECK_LINE_STATUS	boot/i386/boot1.asm	/^CHECK_LINE_STATUS:$/;"	l
 CLS	boot/i386/boot1.asm	/^CLS:$/;"	l
-CMDNUM	kernel/proc/proc.c	409;"	d	file:
-CMD_IDENTIFY_DEVICE	kernel/device/ide.c	49;"	d	file:
-CMD_READ_SECTOR_RETRY	kernel/device/ide.c	50;"	d	file:
-CMD_WRITE_SECTOR_RETRY	kernel/device/ide.c	51;"	d	file:
+CMDNUM	kernel/proc/proc.c	393;"	d	file:
+CMD_IDENTIFY_DEVICE	kernel/device/ide.c	48;"	d	file:
+CMD_READ_SECTOR_RETRY	kernel/device/ide.c	49;"	d	file:
+CMD_WRITE_SECTOR_RETRY	kernel/device/ide.c	50;"	d	file:
 CODEDESCRIPTOR	boot/i386/boot1.asm	/^		CODEDESCRIPTOR  equ 0x08$/;"	d
-CODE_SEGMENT	kernel/arch/interrupt.c	17;"	d	file:
+CODE_SEGMENT	kernel/arch/interrupt.c	16;"	d	file:
 COMMON_COMMAND	kernel/Makefile	/^COMMON_COMMAND = $(BUILD_COMMAND) -c $^ $(CFLAGS)$/;"	m
 CR0_FLAG_PE	kernel/include/mem/paging.h	8;"	d
 CR0_FLAG_PG	kernel/include/mem/paging.h	7;"	d
-CTL_SRST	kernel/device/ide.c	39;"	d	file:
+CTL_SRST	kernel/device/ide.c	38;"	d	file:
 CapslockFlag	kernel/include/device/kbd.h	/^	BOOL CapslockFlag;	\/\/ Caps Lock 눌림 여부$/;"	m	struct:Key_Status_Struct
 CmdList	kernel/proc/proc.c	/^} CmdList;$/;"	t	typeref:struct:__anon4	file:
 CodeSelector	kernel/arch/interrupt.c	/^	unsigned short CodeSelector;$/;"	m	struct:_ID	file:
@@ -64,25 +63,30 @@ ConvertScancodeToASCII	kernel/device/kbd.c	/^BOOL ConvertScancodeToASCII(BYTE Sc
 DATADESCRIPTOR	boot/i386/boot1.asm	/^		DATADESCRIPTOR  equ 0x10$/;"	d
 DEVICES_BLOCK_H	kernel/include/device/block.h	2;"	d
 DEVICES_PARTITION_H	kernel/include/device/partition.h	2;"	d
-DEV_DEV	kernel/device/ide.c	44;"	d	file:
-DEV_LBA	kernel/device/ide.c	43;"	d	file:
-DEV_MBS	kernel/device/ide.c	42;"	d	file:
+DEV_DEV	kernel/device/ide.c	43;"	d	file:
+DEV_LBA	kernel/device/ide.c	42;"	d	file:
+DEV_MBS	kernel/device/ide.c	41;"	d	file:
 DIR	kernel/Makefile	/^DIR := ${CURDIR}$/;"	m
 DIV_ROUND_UP	kernel/include/round.h	10;"	d
+DirectoryOfThisScript	kernel/.ycm_extra_conf.py	/^def DirectoryOfThisScript():$/;"	f
 ELEM_BITS	kernel/bitmap.c	26;"	d	file:
 ENTRY	kernel/Makefile	/^ENTRY = ssuos_main$/;"	m
 ENTRY32	boot/i386/boot1.asm	/^ENTRY32:$/;"	l
 ExtentedFlag	kernel/include/device/kbd.h	/^	BOOL ExtentedFlag;	\/\/ 확장 키코드 존재 여부$/;"	m	struct:Key_Status_Struct
 FALSE	kernel/include/type.h	13;"	d
 FIRST_SPORT	kernel/device/console.c	17;"	d	file:
-FLAG_IF	kernel/arch/interrupt.c	174;"	d	file:
-FLAG_MBS	kernel/arch/interrupt.c	173;"	d	file:
+FLAG_IF	kernel/arch/interrupt.c	140;"	d	file:
+FLAG_MBS	kernel/arch/interrupt.c	139;"	d	file:
+FREE__	kernel/include/mem/palloc.h	6;"	d
+FlagsForFile	kernel/.ycm_extra_conf.py	/^def FlagsForFile( filename, **kwargs ):$/;"	f
 GDT	boot/i386/boot1.asm	/^GDT:$/;"	l
 GDT_DESC	boot/i386/boot1.asm	/^GDT_DESC:$/;"	l
 GDT_END	boot/i386/boot1.asm	/^GDT_END:$/;"	l
 GROUP	kernel/stdio.c	/^        GROUP = 1 << 5          \/* '\\'' *\/$/;"	e	enum:printf_conversion::__anon1	file:
+GetCompilationInfoForFile	kernel/.ycm_extra_conf.py	/^def GetCompilationInfoForFile( filename ):$/;"	f
 Glob_x	kernel/include/device/console.h	/^int Glob_x;$/;"	v
 Glob_y	kernel/include/device/console.h	/^int Glob_y;$/;"	v
+HEAP__	kernel/include/mem/palloc.h	7;"	d
 HLT	kernel/include/interrupt.h	4;"	d
 HSCREEN	kernel/device/console.c	9;"	d	file:
 HighOffset	kernel/arch/interrupt.c	/^	unsigned short HighOffset;$/;"	m	struct:_ID	file:
@@ -126,11 +130,9 @@ IO_BASE	kernel/device/console.c	16;"	d	file:
 ISR_IGNORE	boot/i386/boot1.asm	/^ISR_IGNORE:$/;"	l
 Initialize_PIC	boot/i386/boot1.asm	/^Initialize_PIC:$/;"	l
 Initialize_Serial_port	boot/i386/boot1.asm	/^Initialize_Serial_port:$/;"	l
+IsHeaderFile	kernel/.ycm_extra_conf.py	/^def IsHeaderFile( filename ):$/;"	f
 KBDMAPSIZE	kernel/include/device/kbd.h	7;"	d
 KERNEL_ADDR	kernel/include/mem/paging.h	34;"	d
-KERNEL_HEAP	kernel/include/mem/paging.h	35;"	d
-KERNEL_HEAP_END	kernel/include/mem/paging.h	37;"	d
-KERNEL_HEAP_START	kernel/include/mem/paging.h	36;"	d
 KERNEL_LOAD	boot/i386/bootloader.asm	/^KERNEL_LOAD:$/;"	l
 KER_SIZ	boot/i386/bootloader.asm	/^KER_SIZ		equ		0x80$/;"	d
 KEY_BSPACE	kernel/include/device/kbd.h	27;"	d
@@ -183,7 +185,7 @@ LowOffset	kernel/arch/interrupt.c	/^	unsigned short LowOffset;$/;"	m	struct:_ID	
 MEM_SIZE	kernel/mem/mm.c	/^static unsigned long MEM_SIZE;$/;"	v	file:
 MINUS	kernel/stdio.c	/^        MINUS = 1 << 0,         \/* '-' *\/$/;"	e	enum:printf_conversion::__anon1	file:
 MODIFIER	kernel/arch/Main.c	/^const char* MODIFIER = "You";$/;"	v
-MODIFIER	kernel/build/Main.s	/^MODIFIER:$/;"	l
+MakeRelativePathsInFlagsAbsolute	kernel/.ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	f
 NASM	kernel/Makefile	/^NASM = nasm$/;"	m
 NOT_REACHED	kernel/include/debug.h	28;"	d
 NOT_REACHED	kernel/include/debug.h	35;"	d
@@ -216,6 +218,7 @@ PAGE_MASK_PDE	kernel/include/mem/paging.h	25;"	d
 PAGE_MASK_PTE	kernel/include/mem/paging.h	26;"	d
 PAGE_OFFSET_PDE	kernel/include/mem/paging.h	27;"	d
 PAGE_OFFSET_PTE	kernel/include/mem/paging.h	28;"	d
+PAGE_POOL_SIZE	kernel/include/mem/palloc.h	10;"	d
 PAGE_SIZE	kernel/include/mem/paging.h	30;"	d
 PAGE_TBL_SIZE	kernel/include/mem/paging.h	31;"	d
 PANIC	kernel/include/debug.h	14;"	d
@@ -310,8 +313,10 @@ PrintChar	kernel/device/console.c	/^void PrintChar(int x, int y, const char Stri
 PrintCharToScreen	kernel/device/console.c	/^void PrintCharToScreen(int x, int y, const char *pString) $/;"	f
 READY_TO_PRINT	boot/i386/boot1.asm	/^READY_TO_PRINT:$/;"	l
 REAL	kernel/arch/i386/intr-stubs.S	/^#define REAL                                    \\$/;"	d
-REFRESH_FPS	kernel/arch/interrupt.c	16;"	d	file:
-REGSYS	kernel/arch/syscall.c	73;"	d	file:
+REFRESH_FPS	kernel/arch/interrupt.c	15;"	d	file:
+REGSYS	kernel/arch/syscall.c	67;"	d	file:
+RH_TO_VH	kernel/include/mem/paging.h	41;"	d
+RKERNEL_HEAP_START	kernel/include/mem/paging.h	35;"	d
 ROUND_DOWN	kernel/include/round.h	14;"	d
 ROUND_UP	kernel/include/round.h	6;"	d
 SCHAR_MAX	kernel/include/limits.h	6;"	d
@@ -332,20 +337,22 @@ SIZE_MAX	kernel/include/stdint.h	49;"	d
 SIZE_MAX	kernel/include/type.h	74;"	d
 SIZE_SCREEN	kernel/device/console.c	11;"	d	file:
 SIZE_SCROLL	kernel/device/console.c	13;"	d	file:
-SLEEP_FREQ	kernel/proc/proc.c	390;"	d	file:
+SLEEP_FREQ	kernel/proc/proc.c	369;"	d	file:
 SMALL	kernel/vsprintk.c	9;"	d	file:
+SOURCE_EXTENSIONS	kernel/.ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [ '.C', '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]$/;"	v
 SPACE	kernel/stdio.c	/^        SPACE = 1 << 2,         \/* ' ' *\/$/;"	e	enum:printf_conversion::__anon1	file:
 SPACE	kernel/vsprintk.c	6;"	d	file:
 SPECIAL	kernel/vsprintk.c	8;"	d	file:
 STACK_SIZE	kernel/proc/proc.c	15;"	d	file:
+STACK__	kernel/include/mem/palloc.h	8;"	d
 START	boot/i386/bootloader.asm	/^START:   $/;"	l
-STA_BSY	kernel/device/ide.c	34;"	d	file:
-STA_DRDY	kernel/device/ide.c	35;"	d	file:
-STA_DRQ	kernel/device/ide.c	36;"	d	file:
+STA_BSY	kernel/device/ide.c	33;"	d	file:
+STA_DRDY	kernel/device/ide.c	34;"	d	file:
+STA_DRQ	kernel/device/ide.c	35;"	d	file:
 STDIN_FILENO	kernel/include/stdio.h	15;"	d
 STDOUT_FILENO	kernel/include/stdio.h	16;"	d
 STUB	kernel/arch/i386/intr-stubs.S	/^#define STUB(NUMBER, TYPE)                      \\$/;"	d
-SYSCALL_ARG_MAX	kernel/arch/interrupt.c	275;"	d	file:
+SYSCALL_ARG_MAX	kernel/arch/interrupt.c	214;"	d	file:
 SYS_EXIT	kernel/include/syscall.h	/^	SYS_EXIT,$/;"	e	enum:SYS_LIST
 SYS_FORK	kernel/include/syscall.h	/^	SYS_FORK = 0,$/;"	e	enum:SYS_LIST
 SYS_LIST	kernel/include/syscall.h	/^enum SYS_LIST {$/;"	g
@@ -359,8 +366,8 @@ Size	kernel/arch/interrupt.c	/^	unsigned short Size;$/;"	m	struct:_IDTR	file:
 THREADS_LOADER_H	kernel/include/loader.h	2;"	d
 THREADS_VADDR_H	kernel/include/vaddr.h	2;"	d
 THR_EMPTY	kernel/device/console.c	19;"	d	file:
-TIMER_MAX	kernel/arch/interrupt.c	15;"	d	file:
-TOKNUM	kernel/proc/proc.c	410;"	d	file:
+TIMER_MAX	kernel/arch/interrupt.c	14;"	d	file:
+TOKNUM	kernel/proc/proc.c	394;"	d	file:
 TRUE	kernel/include/type.h	12;"	d
 Type	kernel/arch/interrupt.c	/^	unsigned short Type;$/;"	m	struct:_ID	file:
 UCHAR_MAX	kernel/include/limits.h	8;"	d
@@ -382,10 +389,12 @@ ULONG_MAX	kernel/include/limits.h	28;"	d
 UNUSED	kernel/include/debug.h	7;"	d
 USHRT_MAX	kernel/include/limits.h	20;"	d
 UpdateKeyStat	kernel/device/kbd.c	/^void UpdateKeyStat(BYTE Scancode)$/;"	f
-VERSION	kernel/arch/Main.c	/^const char* VERSION = "0.1.02";$/;"	v
-VERSION	kernel/build/Main.s	/^VERSION:$/;"	l
+VERSION	kernel/arch/Main.c	/^const char* VERSION = "0.1.03";$/;"	v
+VH_TO_RH	kernel/include/mem/paging.h	40;"	d
 VIDEODESCRIPTOR	boot/i386/boot1.asm	/^		VIDEODESCRIPTOR equ 0x18$/;"	d
 VIDIO_MEMORY	kernel/device/console.c	14;"	d	file:
+VKERNEL_HEAP_START	kernel/include/mem/paging.h	37;"	d
+VKERNEL_STACK_ADDR	kernel/include/mem/paging.h	38;"	d
 VSCREEN	kernel/device/console.c	10;"	d	file:
 ZERO	kernel/stdio.c	/^        ZERO = 1 << 4,          \/* '0' *\/$/;"	e	enum:printf_conversion::__anon1	file:
 ZEROPAD	kernel/vsprintk.c	3;"	d	file:
@@ -499,10 +508,10 @@ blocks_per_arena	kernel/mem/malloc.c	/^    size_t blocks_per_arena;    \/* Numbe
 bool	kernel/include/type.h	/^typedef char bool;$/;"	t
 buf_e	kernel/device/console.c	25;"	d	file:
 buf_head	kernel/device/kbd.c	/^int buf_head, buf_tail;$/;"	v
-buf_p	kernel/device/console.c	/^char *buf_p;	\/\/ = buf_s; buf_print. 해당 위치가 현재 보이고 있는 위치. 화면 왼쪽상단 기준$/;"	v
-buf_s	kernel/device/console.c	/^char buf_s[SIZE_SCROLL]; \/\/저장된 버퍼 전체$/;"	v
+buf_p	kernel/device/console.c	/^char *buf_p;	$/;"	v
+buf_s	kernel/device/console.c	/^char buf_s[SIZE_SCROLL]; $/;"	v
 buf_tail	kernel/device/kbd.c	/^int buf_head, buf_tail;$/;"	v
-buf_w	kernel/device/console.c	/^char *buf_w;	\/\/ = buf_s; buf_write. 해당 위치가 현재 쓰고있는위치. 화면 왼쪽상단 기준$/;"	v
+buf_w	kernel/device/console.c	/^char *buf_w;	$/;"	v
 byte_cnt	kernel/bitmap.c	/^byte_cnt (size_t bit_cnt)$/;"	f	file:
 calloc	kernel/mem/malloc.c	/^calloc (size_t a, size_t b) $/;"	f
 channel	kernel/device/ide.c	/^    struct channel *channel;    \/* Channel that disk is attached to. *\/$/;"	m	struct:ata_disk	typeref:struct:ata_disk::channel	file:
@@ -512,13 +521,17 @@ check_device_type	kernel/device/ide.c	/^check_device_type (struct ata_disk *d) $
 check_sector	kernel/device/block.c	/^check_sector (struct block *block, block_sector_t sector)$/;"	f	file:
 check_user	kernel/proc/proc.c	/^bool check_user(char *id, char *password)$/;"	f
 child_pid	kernel/include/proc/proc.h	/^	int child_pid;						\/\/ 종료된 자식$/;"	m	struct:process
+child_stack_reset	kernel/mem/paging.c	/^void child_stack_reset(pid_t pid){\/\/ (2)$/;"	f
 clrScreen	kernel/device/console.c	/^void clrScreen(void) $/;"	f
 cmd	kernel/proc/proc.c	/^	char* cmd;$/;"	m	struct:__anon4	file:
+compilation_database_folder	kernel/.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	v
 completion_wait	kernel/device/ide.c	/^    struct semaphore completion_wait;   \/* Up'd by interrupt handler. *\/$/;"	m	struct:channel	typeref:struct:channel::semaphore	file:
 condition	kernel/include/synch.h	/^struct condition $/;"	s
 cs	kernel/include/interrupt.h	/^	uint16_t cs, :16;           \/* Code segment for eip. *\/$/;"	m	struct:intr_frame
 cur_process	kernel/proc/proc.c	/^struct process *cur_process;$/;"	v	typeref:struct:process
-d_list	kernel/proc/proc.c	/^struct list d_list;		\/\/ Deleted Process List - 고아 프로세스 목록 같음$/;"	v	typeref:struct:list
+d_list	kernel/proc/proc.c	/^struct list d_list;		\/\/ Deleted Process List$/;"	v	typeref:struct:list
+database	kernel/.ycm_extra_conf.py	/^  database = None$/;"	v
+database	kernel/.ycm_extra_conf.py	/^  database = ycm_core.CompilationDatabase( compilation_database_folder )$/;"	v
 default_handler	kernel/arch/interrupt.c	/^void default_handler(struct intr_frame *iframe)$/;"	f
 desc	kernel/mem/malloc.c	/^    struct desc *desc;          \/* Owning descriptor, null for big block. *\/$/;"	m	struct:arena	typeref:struct:arena::desc	file:
 desc	kernel/mem/malloc.c	/^struct desc$/;"	s	file:
@@ -566,6 +579,7 @@ false	kernel/include/stdbool.h	6;"	d
 false	kernel/include/type.h	22;"	d
 filesys	kernel/Makefile	/^filesys = .\/filesys$/;"	m
 find_end_of_run	kernel/list.c	/^find_end_of_run (struct list_elem *a, struct list_elem *b,$/;"	f	file:
+flags	kernel/.ycm_extra_conf.py	/^flags = [$/;"	v
 flags	kernel/stdio.c	/^    flags;$/;"	m	struct:printf_conversion	typeref:enum:printf_conversion::__anon1	file:
 fork	kernel/arch/syscall.c	/^pid_t fork(proc_func func, void* aux)$/;"	f
 format_integer	kernel/stdio.c	/^format_integer (unsigned int value, bool is_signed, bool negative, $/;"	f	file:
@@ -576,8 +590,6 @@ free	kernel/mem/malloc.c	/^free (void *p) $/;"	f
 free_cnt	kernel/mem/malloc.c	/^    size_t free_cnt;            \/* Free blocks; pages in big block. *\/$/;"	m	struct:arena	file:
 free_elem	kernel/mem/malloc.c	/^    struct list_elem free_elem; \/* Free list element. *\/$/;"	m	struct:block	typeref:struct:block::list_elem	file:
 free_list	kernel/mem/malloc.c	/^    struct list free_list;      \/* List of free blocks. *\/$/;"	m	struct:desc	typeref:struct:desc::list	file:
-freelist	kernel/mem/palloc.c	/^static struct freelist freelist;$/;"	v	typeref:struct:freelist	file:
-freelist	kernel/mem/palloc.c	/^struct freelist{$/;"	s	file:
 fs	kernel/include/interrupt.h	/^	uint16_t fs, :16;           \/* Saved FS segment register. *\/$/;"	m	struct:intr_frame
 func	kernel/proc/proc.c	/^	void* func;$/;"	m	struct:__anon4	file:
 getEIP	kernel/proc/proc.c	/^void* getEIP()$/;"	f
@@ -587,10 +599,10 @@ getValidPid	kernel/proc/proc.c	/^pid_t getValidPid(int *idx) {$/;"	f
 get_cur_pd	kernel/mem/paging.c	/^uint32_t* get_cur_pd()$/;"	f
 get_next_proc	kernel/proc/sched.c	/^struct process* get_next_proc(void) {$/;"	f
 get_ticks	kernel/arch/interrupt.c	/^unsigned long get_ticks(void)$/;"	f
-getkbd	kernel/ssulib.c	/^bool getkbd(char *buf, int len) \/\/키보드핸들러에서 버퍼에 저장해둔 문자열을 프로그램단에서 읽어들일때 사용하는 함수. 개행을 받을때까지 계속 FALSE를 리턴하고, 개행을 이미 받은 상태에서 실행시 버퍼를 비운후 다시 받는다. 즉 라인단위로 입력을 받기 위한 함수이다.$/;"	f
+getkbd	kernel/ssulib.c	/^bool getkbd(char *buf, int len) $/;"	f
 group	kernel/stdio.c	/^    int group;                  \/* Number of digits to group with ' flag. *\/$/;"	m	struct:integer_base	file:
 gs	kernel/include/interrupt.h	/^	uint16_t gs, :16;           \/* Saved GS segment register. *\/$/;"	m	struct:intr_frame
-handlers	kernel/arch/interrupt.c	/^intr_handler_func *handlers[INTR_MAX];	\/\/실제 인터럽트 핸들러 들$/;"	v
+handlers	kernel/arch/interrupt.c	/^intr_handler_func *handlers[INTR_MAX];	$/;"	v
 head	kernel/include/list.h	/^    struct list_elem head;      \/* List head. *\/$/;"	m	struct:list	typeref:struct:list::list_elem
 hexDump	kernel/proc/proc.c	/^void hexDump (void *addr, int len) {$/;"	f
 hex_dump	kernel/stdio.c	/^hex_dump (uintptr_t ofs, const void *buf_, size_t size, bool ascii)$/;"	f
@@ -605,7 +617,7 @@ identify_ata_device	kernel/device/ide.c	/^identify_ata_device (struct ata_disk *
 idle	kernel/include/proc/proc.h	/^proc_func idle;						\/\/idle 함수$/;"	v
 idle	kernel/proc/proc.c	/^void idle(void* aux)$/;"	f
 idt	kernel/arch/interrupt.c	/^_ID     *idt;$/;"	v
-in_external_intr	kernel/arch/interrupt.c	/^static bool in_external_intr;   \/* Are we processing an external interrupt? *\/$/;"	v	file:
+in_external_intr	kernel/arch/interrupt.c	/^static bool in_external_intr;   $/;"	v	file:
 inb	kernel/arch/i386/io.asm	/^inb:$/;"	l
 init_console	kernel/device/console.c	/^void init_console(void)$/;"	f
 init_intr	kernel/arch/interrupt.c	/^int init_intr(void)$/;"	f
@@ -679,15 +691,14 @@ kbd_handler	kernel/device/kbd.c	/^void kbd_handler(struct intr_frame *iframe)$/;
 kbd_read_char	kernel/device/kbd.c	/^char kbd_read_char()$/;"	f
 kernel1_proc	kernel/proc/proc.c	/^void kernel1_proc(void* aux)$/;"	f
 kernel2_proc	kernel/proc/proc.c	/^void kernel2_proc(void* aux)$/;"	f
-khpage	kernel/mem/palloc.c	/^struct khpage{$/;"	s	file:
-khpage_list	kernel/mem/palloc.c	/^static struct khpage *khpage_list;$/;"	v	typeref:struct:khpage	file:
+kpage	kernel/mem/palloc.c	/^struct kpage{$/;"	s	file:
+kpage_list	kernel/mem/palloc.c	/^static struct kpage *kpage_list;$/;"	v	typeref:struct:kpage	file:
 last_mask	kernel/bitmap.c	/^last_mask (const struct bitmap *b) $/;"	f	file:
-lately_pid	kernel/proc/proc.c	/^static int lately_pid;		\/\/init vaule = -1$/;"	v	file:
+lately_pid	kernel/proc/proc.c	/^static int lately_pid;		$/;"	v	file:
 length	kernel/stdio.c	/^    int length;         \/* Length of output string. *\/$/;"	m	struct:vsnprintf_aux	file:
 less_time_sleep	kernel/proc/proc.c	/^bool less_time_sleep(const struct list_elem *a, const struct list_elem *b,void *aux)$/;"	f
 lib	kernel/Makefile	/^lib = .\/lib$/;"	m
 list	kernel/include/list.h	/^struct list $/;"	s
-list	kernel/mem/palloc.c	/^	struct khpage *list;$/;"	m	struct:freelist	typeref:struct:freelist::khpage	file:
 list_back	kernel/list.c	/^list_back (struct list *list)$/;"	f
 list_begin	kernel/list.c	/^list_begin (struct list *list)$/;"	f
 list_elem	kernel/device/block.c	/^    struct list_elem list_elem;         \/* Element in all_blocks. *\/$/;"	m	struct:block	typeref:struct:block::list_elem	file:
@@ -725,14 +736,13 @@ lock	kernel/mem/malloc.c	/^    struct lock lock;           \/* Lock. *\/$/;"	m	s
 lock_acquire	kernel/synch.c	/^lock_acquire (struct lock *lock)$/;"	f
 lock_held_by_current_thread	kernel/synch.c	/^lock_held_by_current_thread (const struct lock *lock) $/;"	f
 lock_init	kernel/synch.c	/^lock_init (struct lock *lock)$/;"	f
-lock_pid_simple	kernel/proc/proc.c	/^static int lock_pid_simple; \/\/1 : lock, 0 : unlock$/;"	v	file:
+lock_pid_simple	kernel/proc/proc.c	/^static int lock_pid_simple; $/;"	v	file:
 lock_release	kernel/synch.c	/^lock_release (struct lock *lock) $/;"	f
 lock_try_acquire	kernel/synch.c	/^lock_try_acquire (struct lock *lock)$/;"	f
 login_prompt	kernel/proc/proc.c	/^void login_prompt(void * aux)$/;"	f
 loop_proc	kernel/proc/proc.c	/^void loop_proc(void *aux)$/;"	f
 magic	kernel/mem/malloc.c	/^    unsigned magic;             \/* Always set to ARENA_MAGIC. *\/$/;"	m	struct:arena	file:
 main_init	kernel/arch/Main.c	/^void main_init(void)$/;"	f
-main_init	kernel/build/Main.s	/^main_init:$/;"	l
 malloc	kernel/mem/malloc.c	/^malloc (size_t size) $/;"	f
 malloc_init	kernel/mem/malloc.c	/^malloc_init (void) $/;"	f
 max_length	kernel/stdio.c	/^    int max_length;     \/* Max length of output string. *\/$/;"	m	struct:vsnprintf_aux	file:
@@ -748,14 +758,12 @@ more_prio	kernel/proc/proc.c	/^bool more_prio(const struct list_elem *a, const s
 msgPMode	boot/i386/boot1.asm	/^msgPMode db "Protected Mode", 0$/;"	d
 msgRMode	boot/i386/boot1.asm	/^msgRMode db "Real Mode", 0$/;"	d
 nGetMemSize	kernel/mem/mm.c	/^unsigned long nGetMemSize()$/;"	f
-nalloc	kernel/mem/palloc.c	/^	uint16_t nalloc;$/;"	m	struct:khpage	file:
+nalloc	kernel/mem/palloc.c	/^	uint32_t nalloc;$/;"	m	struct:kpage	file:
 name	kernel/device/block.c	/^    char name[16];                      \/* Block device name. *\/$/;"	m	struct:block	file:
 name	kernel/device/ide.c	/^    char name[8];               \/* Name, e.g. "hda". *\/$/;"	m	struct:ata_disk	file:
 name	kernel/device/ide.c	/^    char name[8];               \/* Name, e.g. "ide0". *\/$/;"	m	struct:channel	file:
 next	kernel/include/list.h	/^    struct list_elem *next;     \/* Next list element. *\/$/;"	m	struct:list_elem	typeref:struct:list_elem::list_elem
-next	kernel/mem/palloc.c	/^	struct khpage *next;$/;"	m	struct:khpage	typeref:struct:khpage::khpage	file:
 next_line	kernel/device/console.c	/^char next_line[2]; \/\/"\\r\\n";$/;"	v
-nfree	kernel/mem/palloc.c	/^	int nfree;$/;"	m	struct:freelist	file:
 number	kernel/vsprintk.c	/^static char *number(char * str, int num, int base, int size, int precision, int type)$/;"	f	file:
 offsetof	kernel/include/ssulib.h	5;"	d
 offsetof	kernel/include/stddef.h	5;"	d
@@ -771,11 +779,11 @@ p	kernel/stdio.c	/^    char *p;            \/* Current output position. *\/$/;"	
 p_list	kernel/proc/proc.c	/^struct list p_list;		\/\/ All Porcess List$/;"	v	typeref:struct:list
 p_state	kernel/include/proc/proc.h	/^enum p_state {$/;"	g
 page_alloc_index	kernel/mem/palloc.c	/^static uint32_t page_alloc_index;$/;"	v	file:
-page_type	kernel/mem/palloc.c	/^	uint16_t page_type;$/;"	m	struct:khpage	file:
 palloc_free_multiple	kernel/mem/palloc.c	/^palloc_free_multiple (void *pages, size_t page_cnt) $/;"	f
 palloc_free_page	kernel/mem/palloc.c	/^palloc_free_page (void *page) $/;"	f
-palloc_get_multiple	kernel/mem/palloc.c	/^palloc_get_multiple (size_t page_cnt)$/;"	f
-palloc_get_page	kernel/mem/palloc.c	/^palloc_get_page (void) $/;"	f
+palloc_get_multiple	kernel/mem/palloc.c	/^palloc_get_multiple (uint32_t page_type, size_t page_cnt)$/;"	f
+palloc_get_page	kernel/mem/palloc.c	/^palloc_get_page (uint32_t page_type) $/;"	f
+palloc_pf_test	kernel/mem/palloc.c	/^void palloc_pf_test(void)$/;"	f
 parent	kernel/include/proc/proc.h	/^	struct process* parent;				\/\/ 부모 프로세스$/;"	m	struct:process	typeref:struct:process::process
 parse_conversion	kernel/stdio.c	/^parse_conversion (const char *format, struct printf_conversion *c,$/;"	f	file:
 partition	kernel/device/partition.c	/^struct partition$/;"	s	file:
@@ -787,7 +795,7 @@ partition_type_name	kernel/device/partition.c	/^partition_type_name (uint8_t typ
 partition_write	kernel/device/partition.c	/^partition_write (void *p_, block_sector_t sector, const void *buffer)$/;"	f	file:
 password	kernel/proc/proc.c	/^	char password[BUFSIZ];$/;"	m	struct:__anon3	file:
 pd	kernel/include/proc/proc.h	/^	void *pd;						\/\/page directory$/;"	m	struct:process
-pd_copy	kernel/mem/paging.c	/^void pd_copy(uint32_t* from, uint32_t* to, uint32_t* start, uint32_t* end, bool share)$/;"	f
+pd_copy	kernel/mem/paging.c	/^void pd_copy(uint32_t* from, uint32_t* to)$/;"	f
 pd_create	kernel/mem/paging.c	/^uint32_t* pd_create (pid_t pid)$/;"	f
 pde_idx_addr	kernel/mem/paging.c	/^uint32_t pde_idx_addr(uint32_t* addr)$/;"	f
 pf_handler	kernel/mem/paging.c	/^intr_handler_func pf_handler;$/;"	v
@@ -799,6 +807,7 @@ pg_ofs	kernel/include/vaddr.h	/^static inline unsigned pg_ofs (const void *va) {
 pg_round_down	kernel/include/vaddr.h	/^static inline void *pg_round_down (const void *va) {$/;"	f
 pg_round_up	kernel/include/vaddr.h	/^static inline void *pg_round_up (const void *va) {$/;"	f
 pid	kernel/include/proc/proc.h	/^	pid_t pid;						\/\/process id$/;"	m	struct:process
+pid	kernel/mem/palloc.c	/^	pid_t pid;$/;"	m	struct:kpage	file:
 pid_num_max	kernel/proc/proc.c	/^int pid_num_max;$/;"	v
 pid_t	kernel/include/proc/proc.h	/^typedef int pid_t;$/;"	t
 pop	boot/i386/boot1.asm	/^		pop		ds$/;"	d
@@ -806,7 +815,6 @@ precision	kernel/stdio.c	/^    int precision;$/;"	m	struct:printf_conversion	fil
 prev	kernel/include/list.h	/^    struct list_elem *prev;     \/* Previous list element. *\/$/;"	m	struct:list_elem	typeref:struct:list_elem::list_elem
 printCharToSerial	kernel/device/console.c	/^void printCharToSerial(const char *pString)$/;"	f
 print_contributors	kernel/arch/Main.c	/^void print_contributors(void)$/;"	f
-print_contributors	kernel/build/Main.s	/^print_contributors:$/;"	l
 print_human_readable_size	kernel/stdio.c	/^print_human_readable_size (uint64_t size) $/;"	f
 print_pid	kernel/include/proc/proc.h	/^proc_func print_pid;				\/\/디버그용, pid 출력$/;"	v
 print_pid	kernel/proc/proc.c	/^void print_pid(void* aux) {$/;"	f
@@ -832,7 +840,7 @@ process_stack_ofs	kernel/proc/proc.c	/^uint32_t process_stack_ofs;$/;"	v
 procs	kernel/proc/proc.c	/^struct process procs[PROC_NUM_MAX];$/;"	v	typeref:struct:process
 ps_proc	kernel/proc/proc.c	/^void ps_proc(void* aux)$/;"	f
 pt_addr	kernel/mem/paging.c	/^uint32_t* pt_addr(uint32_t* addr)$/;"	f
-pt_copy	kernel/mem/paging.c	/^uint32_t pt_copy(uint32_t *pd, uint32_t *dest_pd, uint32_t idx, uint32_t* start, uint32_t* end, bool share)$/;"	f
+pt_copy	kernel/mem/paging.c	/^void  pt_copy(uint32_t *pd, uint32_t *dest_pd, uint32_t idx)$/;"	f
 pt_pde	kernel/mem/paging.c	/^uint32_t* pt_pde(uint32_t pde)$/;"	f
 pte_idx_addr	kernel/mem/paging.c	/^uint32_t pte_idx_addr(uint32_t* addr)$/;"	f
 ptov	kernel/include/vaddr.h	/^ptov (uintptr_t paddr)$/;"	f
@@ -840,6 +848,7 @@ ptrdiff_t	kernel/include/stddef.h	/^typedef __PTRDIFF_TYPE__ ptrdiff_t;$/;"	t
 push	boot/i386/boot1.asm	/^		push	ds$/;"	d
 qword	kernel/include/type.h	/^typedef long long qword;$/;"	t
 r_list	kernel/proc/proc.c	/^struct list r_list;		\/\/ Run Porcess List$/;"	v	typeref:struct:list
+ra_to_va	kernel/mem/palloc.c	/^ra_to_va (uint32_t *ra){$/;"	f
 read	kernel/include/device/block.h	/^    void (*read) (void *aux, block_sector_t, void *buffer);$/;"	m	struct:block_operations
 read_cnt	kernel/device/block.c	/^    unsigned long long read_cnt;        \/* Number of sectors read. *\/$/;"	m	struct:block	file:
 read_cr0	kernel/arch/i386/crset.asm	/^read_cr0:$/;"	l
@@ -847,24 +856,24 @@ read_cr3	kernel/arch/i386/crset.asm	/^read_cr3:$/;"	l
 read_partition_table	kernel/device/partition.c	/^read_partition_table (struct block *block, block_sector_t sector,$/;"	f	file:
 realloc	kernel/mem/malloc.c	/^realloc (void *old_block, size_t new_size) $/;"	f
 refreshScreen	kernel/device/console.c	/^void refreshScreen(void)$/;"	f
-reg_alt_status	kernel/device/ide.c	31;"	d	file:
+reg_alt_status	kernel/device/ide.c	30;"	d	file:
 reg_base	kernel/device/ide.c	/^    uint16_t reg_base;          \/* Base I\/O port. *\/$/;"	m	struct:channel	file:
-reg_command	kernel/device/ide.c	25;"	d	file:
-reg_ctl	kernel/device/ide.c	30;"	d	file:
-reg_data	kernel/device/ide.c	17;"	d	file:
-reg_device	kernel/device/ide.c	23;"	d	file:
-reg_error	kernel/device/ide.c	18;"	d	file:
+reg_command	kernel/device/ide.c	24;"	d	file:
+reg_ctl	kernel/device/ide.c	29;"	d	file:
+reg_data	kernel/device/ide.c	16;"	d	file:
+reg_device	kernel/device/ide.c	22;"	d	file:
+reg_error	kernel/device/ide.c	17;"	d	file:
 reg_handler	kernel/arch/interrupt.c	/^void reg_handler(unsigned short idx, intr_handler_func *handler) $/;"	f
-reg_lbah	kernel/device/ide.c	22;"	d	file:
-reg_lbal	kernel/device/ide.c	20;"	d	file:
-reg_lbam	kernel/device/ide.c	21;"	d	file:
-reg_nsect	kernel/device/ide.c	19;"	d	file:
-reg_status	kernel/device/ide.c	24;"	d	file:
+reg_lbah	kernel/device/ide.c	21;"	d	file:
+reg_lbal	kernel/device/ide.c	19;"	d	file:
+reg_lbam	kernel/device/ide.c	20;"	d	file:
+reg_nsect	kernel/device/ide.c	18;"	d	file:
+reg_status	kernel/device/ide.c	23;"	d	file:
 reset_channel	kernel/device/ide.c	/^reset_channel (struct channel *c) $/;"	f	file:
 s_list	kernel/proc/proc.c	/^struct list s_list;		\/\/ Sleep Process List$/;"	v	typeref:struct:list
 scale_down	kernel/mem/paging.c	/^uint32_t scale_down(uint32_t base, uint32_t size)$/;"	f
 scale_up	kernel/mem/paging.c	/^uint32_t scale_up(uint32_t base, uint32_t size)$/;"	f
-sched_on_return	kernel/arch/interrupt.c	/^bool sched_on_return;		\/\/인터럽트가 끝날 때 schedule 할 지 결정$/;"	v
+sched_on_return	kernel/arch/interrupt.c	/^bool sched_on_return;		$/;"	v
 schedule	kernel/proc/sched.c	/^void schedule(void)$/;"	f
 scroll	kernel/device/console.c	/^void scroll(void) $/;"	f
 scroll_screen	kernel/device/console.c	/^void scroll_screen(int offset)$/;"	f
@@ -892,7 +901,6 @@ snprintf	kernel/stdio.c	/^snprintf (char *buffer, size_t buf_size, const char *f
 sprintf	kernel/include/stdio.h	37;"	d
 ss	kernel/include/interrupt.h	/^	uint16_t ss, :16;           \/* Data segment for esp. *\/$/;"	m	struct:intr_frame
 ssuos_main	kernel/arch/Main.c	/^void ssuos_main(void)$/;"	f
-ssuos_main	kernel/build/Main.s	/^ssuos_main:$/;"	l
 ssuread	kernel/arch/syscall.c	/^int ssuread()$/;"	f
 stack	kernel/include/proc/proc.h	/^	void *stack;					\/\/stack for esp$/;"	m	struct:process
 start	kernel/device/partition.c	/^    block_sector_t start;               \/* First sector within device. *\/$/;"	m	struct:partition	file:
@@ -919,10 +927,10 @@ strtok_r	kernel/string.c	/^strtok_r (char *s, const char *delimiters, char **sav
 sum_y	kernel/device/console.c	/^int sum_y;$/;"	v
 swap	kernel/list.c	/^swap (struct list_elem **a, struct list_elem **b) $/;"	f	file:
 switch_process	kernel/arch/i386/switch.S	/^switch_process:$/;"	l
-syscall0	kernel/arch/syscall.c	11;"	d	file:
-syscall1	kernel/arch/syscall.c	23;"	d	file:
-syscall2	kernel/arch/syscall.c	37;"	d	file:
-syscall3	kernel/arch/syscall.c	53;"	d	file:
+syscall0	kernel/arch/syscall.c	5;"	d	file:
+syscall1	kernel/arch/syscall.c	17;"	d	file:
+syscall2	kernel/arch/syscall.c	31;"	d	file:
+syscall3	kernel/arch/syscall.c	47;"	d	file:
 syscall_handler	kernel/arch/interrupt.c	/^void syscall_handler(struct intr_frame *iframe)$/;"	f
 syscall_tbl	kernel/arch/syscall.c	/^int syscall_tbl[SYS_NUM][2];$/;"	v
 tail	kernel/include/list.h	/^    struct list_elem tail;      \/* List tail. *\/$/;"	m	struct:list	typeref:struct:list::list_elem
@@ -940,7 +948,8 @@ toupper	kernel/include/ctype.h	/^static inline int toupper (int c) { return islo
 true	kernel/include/stdbool.h	5;"	d
 true	kernel/include/type.h	19;"	d
 type	kernel/device/block.c	/^    enum block_type type;                \/* Type of block device. *\/$/;"	m	struct:block	typeref:enum:block::block_type	file:
-type	kernel/proc/proc.c	/^	unsigned char type;	\/\/0 : 직접실행, 1 : fork 함수실행$/;"	m	struct:__anon4	file:
+type	kernel/mem/palloc.c	/^	uint32_t type;$/;"	m	struct:kpage	file:
+type	kernel/proc/proc.c	/^	unsigned char type;	$/;"	m	struct:__anon4	file:
 type	kernel/stdio.c	/^    type;$/;"	m	struct:printf_conversion	typeref:enum:printf_conversion::__anon2	file:
 uint16_t	kernel/include/stdint.h	/^typedef unsigned short int uint16_t;$/;"	t
 uint16_t	kernel/include/type.h	/^typedef unsigned short int uint16_t;$/;"	t
@@ -955,12 +964,13 @@ uintmax_t	kernel/include/type.h	/^typedef unsigned long long int uintmax_t;$/;"	
 uintptr_t	kernel/include/stdint.h	/^typedef uint32_t uintptr_t;$/;"	t
 uintptr_t	kernel/include/type.h	/^typedef uint32_t uintptr_t;$/;"	t
 uname_proc	kernel/proc/proc.c	/^void uname_proc(void* aux)$/;"	f
-used_bit	kernel/mem/palloc.c	/^	uint32_t used_bit[4];$/;"	m	struct:khpage	file:
 user_list	kernel/proc/proc.c	/^}user_list;$/;"	t	typeref:struct:__anon3	file:
 va_arg	kernel/include/stdarg.h	10;"	d
 va_end	kernel/include/stdarg.h	11;"	d
 va_list	kernel/include/stdarg.h	/^typedef char			*va_list;$/;"	t
 va_start	kernel/include/stdarg.h	9;"	d
+va_to_ra	kernel/mem/palloc.c	/^va_to_ra (uint32_t *va){$/;"	f
+vaddr	kernel/mem/palloc.c	/^	uint32_t *vaddr;$/;"	m	struct:kpage	file:
 value	kernel/include/synch.h	/^      unsigned value;             \/* Current value. *\/$/;"	m	struct:semaphore
 vec_no	kernel/include/interrupt.h	/^	uint32_t vec_no;            \/* Interrupt vector number. *\/$/;"	m	struct:intr_frame
 vsnprintf	kernel/stdio.c	/^vsnprintf (char *buffer, size_t buf_size, const char *format, va_list args) $/;"	f
