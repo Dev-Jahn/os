@@ -50,7 +50,7 @@ void init_paging()
 	//페이지 디렉토리 구성
 	page_dir[0] = (uint32_t)page_tbl | PAGE_FLAG_RW | PAGE_FLAG_PRESENT;
 	
-	NUM_PE = RKERNEL_HEAP_START / PAGE_SIZE;
+	NUM_PE = RKERNEL_HEAP_START / PAGE_SIZE;	//512
 	//페이지 테이블 구성
 	for ( i = 0; i < NUM_PE; i++ ) {
 		page_tbl[i] = (PAGE_SIZE * i)
@@ -177,7 +177,7 @@ void pf_handler(struct intr_frame *iframe)
 	void *fault_addr;
 
 	asm ("movl %%cr2, %0" : "=r" (fault_addr));
-
+	//fault가 발생한 주소
 	printk("Page fault : %X\n",fault_addr);
 #ifdef SCREEN_SCROLL
 	refreshScreen();
@@ -187,42 +187,45 @@ void pf_handler(struct intr_frame *iframe)
     uint32_t *pta;
     uint32_t *pda = (uint32_t*)read_cr3();
 
-    pdi = pde_idx_addr(fault_addr);
-    pti = pte_idx_addr(fault_addr);
+    pdi = pde_idx_addr(fault_addr);	//상위 10비트
+    pti = pte_idx_addr(fault_addr);	//중간 10비트
 
-    if(pda == PID0_PAGE_DIR){
+    if(pda == PID0_PAGE_DIR){		//물리
         write_cr0( read_cr0() & ~CR0_FLAG_PG);
-        pta = pt_pde(pda[pdi]);
+        pta = pt_pde(pda[pdi]);		//상위 20비트
         write_cr0( read_cr0() | CR0_FLAG_PG);
+		printk("\t\tPID0\n");
     }
-    else{
+    else{	//가상
         //pda = RH_TO_VH(pda);
 		pda = ra_to_va(pda);
 
-        pta = pt_pde(pda[pdi]);
+        pta = pt_pde(pda[pdi]);		//상위20비트
+		printk("\t\tNot PID0\n");
     }
-
+	//페이지테이블이 없으면
     if(pta == NULL){
+		printk("\t\tno pta\n");
         write_cr0( read_cr0() & ~CR0_FLAG_PG);
-
+		//힙에서 할당
         pta = palloc_get_page(HEAP__);
 //        pta = VH_TO_RH(pta);
 		pta = va_to_ra(pta);
         memset(pta,0,PAGE_SIZE);
-        
+       	//디렉토리에 주소저장, 플래그 설정
         pda[pdi] = (uint32_t)pta | PAGE_FLAG_RW | PAGE_FLAG_PRESENT;
-
+		//fault주소 상위20비트
 		fault_addr = (uint32_t*)((uint32_t)fault_addr & PAGE_MASK_BASE);
 
 //	        fault_addr = VH_TO_RH(fault_addr);
 		fault_addr = va_to_ra(fault_addr);
-
+		//테이블에 주소저장, 플래그 설정
         pta[pti] = (uint32_t)fault_addr | PAGE_FLAG_RW  | PAGE_FLAG_PRESENT;
 
 //        pta = RH_TO_VH(pta);
 		pta = ra_to_va(pta);
-        pdi = pde_idx_addr(pta);
-        pti = pte_idx_addr(pta);
+        pdi = pde_idx_addr(pta);	//상위10비트
+        pti = pte_idx_addr(pta);	//중간10비트
 
         uint32_t *tmp_pta = pt_pde(pda[pdi]);
         //tmp_pta[pti] = (uint32_t)VH_TO_RH(pta) | PAGE_FLAG_RW | PAGE_FLAG_PRESENT;
@@ -231,6 +234,7 @@ void pf_handler(struct intr_frame *iframe)
         write_cr0( read_cr0() | CR0_FLAG_PG);
     }
     else{
+		printk("\t\tyes pta\n");
 //        pta = RH_TO_VH(pta);
 		pta = ra_to_va(pta);
 		fault_addr = (uint32_t*)((uint32_t)fault_addr & PAGE_MASK_BASE);

@@ -14,6 +14,7 @@ ASSERT	include/debug.h	37;"	d
 ASSERT	list.c	4;"	d	file:
 ASSERT	synch.c	7;"	d	file:
 AUTHOR	arch/Main.c	/^const char* AUTHOR = "OSLAB";$/;"	v
+AUTHOR	build/Main.s	/^AUTHOR:$/;"	l
 Address	arch/interrupt.c	/^	unsigned long Address;$/;"	m	struct:_IDTR	file:
 BITMAP_ERROR	include/bitmap.h	34;"	d
 BITMASK	include/vaddr.h	15;"	d
@@ -35,7 +36,7 @@ CC	Makefile	/^CC = gcc$/;"	m
 CFLAGS	Makefile	/^CFLAGS = -O0 -g -I.\/include -ffreestanding -m32 -nostdlib -nostdinc -static -fno-stack-protector$/;"	m
 CHANNEL_CNT	device/ide.c	78;"	d	file:
 CHAR	include/device/console.h	/^} CHAR;$/;"	t	typeref:struct:kChStruct
-CHAR	stdio.c	/^        CHAR = 1,               \/* hh *\/$/;"	e	enum:printf_conversion::__anon2	file:
+CHAR	stdio.c	/^        CHAR = 1,               \/* hh *\/$/;"	e	enum:printf_conversion::__anon4	file:
 CHAR_BIT	include/limits.h	4;"	d
 CHAR_MAX	include/limits.h	12;"	d
 CHAR_MAX	include/limits.h	15;"	d
@@ -51,7 +52,7 @@ CR0_FLAG_PE	include/mem/paging.h	8;"	d
 CR0_FLAG_PG	include/mem/paging.h	7;"	d
 CTL_SRST	device/ide.c	38;"	d	file:
 CapslockFlag	include/device/kbd.h	/^	BOOL CapslockFlag;	\/\/ Caps Lock 눌림 여부$/;"	m	struct:Key_Status_Struct
-CmdList	proc/proc.c	/^} CmdList;$/;"	t	typeref:struct:__anon4	file:
+CmdList	proc/proc.c	/^} CmdList;$/;"	t	typeref:struct:__anon2	file:
 CodeSelector	arch/interrupt.c	/^	unsigned short CodeSelector;$/;"	m	struct:_ID	file:
 ConvertScancodeToASCII	device/kbd.c	/^BOOL ConvertScancodeToASCII(BYTE Scancode, BYTE *Asciicode)$/;"	f
 DEVICES_BLOCK_H	include/device/block.h	2;"	d
@@ -71,7 +72,7 @@ FLAG_IF	arch/interrupt.c	140;"	d	file:
 FLAG_MBS	arch/interrupt.c	139;"	d	file:
 FREE__	include/mem/palloc.h	6;"	d
 FlagsForFile	.ycm_extra_conf.py	/^def FlagsForFile( filename, **kwargs ):$/;"	f
-GROUP	stdio.c	/^        GROUP = 1 << 5          \/* '\\'' *\/$/;"	e	enum:printf_conversion::__anon1	file:
+GROUP	stdio.c	/^        GROUP = 1 << 5          \/* '\\'' *\/$/;"	e	enum:printf_conversion::__anon3	file:
 GetCompilationInfoForFile	.ycm_extra_conf.py	/^def GetCompilationInfoForFile( filename ):$/;"	f
 Glob_x	include/device/console.h	/^int Glob_x;$/;"	v
 Glob_y	include/device/console.h	/^int Glob_y;$/;"	v
@@ -79,7 +80,7 @@ HEAP__	include/mem/palloc.h	7;"	d
 HLT	include/interrupt.h	4;"	d
 HSCREEN	device/console.c	9;"	d	file:
 HighOffset	arch/interrupt.c	/^	unsigned short HighOffset;$/;"	m	struct:_ID	file:
-INT	stdio.c	/^        INT = 3,                \/* (none) *\/$/;"	e	enum:printf_conversion::__anon2	file:
+INT	stdio.c	/^        INT = 3,                \/* (none) *\/$/;"	e	enum:printf_conversion::__anon4	file:
 INT16_MAX	include/stdint.h	9;"	d
 INT16_MAX	include/type.h	34;"	d
 INT16_MIN	include/stdint.h	10;"	d
@@ -96,7 +97,7 @@ INT8_MAX	include/stdint.h	5;"	d
 INT8_MAX	include/type.h	30;"	d
 INT8_MIN	include/stdint.h	6;"	d
 INT8_MIN	include/type.h	31;"	d
-INTMAX	stdio.c	/^        INTMAX = 4,             \/* j *\/$/;"	e	enum:printf_conversion::__anon2	file:
+INTMAX	stdio.c	/^        INTMAX = 4,             \/* j *\/$/;"	e	enum:printf_conversion::__anon4	file:
 INTMAX_MAX	include/stdint.h	41;"	d
 INTMAX_MAX	include/type.h	66;"	d
 INTMAX_MIN	include/stdint.h	40;"	d
@@ -155,14 +156,15 @@ LOADER_PARTS_LEN	include/loader.h	23;"	d
 LOADER_PHYS_BASE	include/loader.h	13;"	d
 LOADER_SIG	include/loader.h	16;"	d
 LOADER_SIG_LEN	include/loader.h	22;"	d
-LONG	stdio.c	/^        LONG = 5,               \/* l *\/$/;"	e	enum:printf_conversion::__anon2	file:
-LONGLONG	stdio.c	/^        LONGLONG = 6,           \/* ll *\/$/;"	e	enum:printf_conversion::__anon2	file:
+LONG	stdio.c	/^        LONG = 5,               \/* l *\/$/;"	e	enum:printf_conversion::__anon4	file:
+LONGLONG	stdio.c	/^        LONGLONG = 6,           \/* ll *\/$/;"	e	enum:printf_conversion::__anon4	file:
 LONG_MAX	include/limits.h	26;"	d
 LONG_MIN	include/limits.h	27;"	d
 LowOffset	arch/interrupt.c	/^	unsigned short LowOffset;$/;"	m	struct:_ID	file:
 MEM_SIZE	mem/mm.c	/^static unsigned long MEM_SIZE;$/;"	v	file:
-MINUS	stdio.c	/^        MINUS = 1 << 0,         \/* '-' *\/$/;"	e	enum:printf_conversion::__anon1	file:
+MINUS	stdio.c	/^        MINUS = 1 << 0,         \/* '-' *\/$/;"	e	enum:printf_conversion::__anon3	file:
 MODIFIER	arch/Main.c	/^const char* MODIFIER = "You";$/;"	v
+MODIFIER	build/Main.s	/^MODIFIER:$/;"	l
 MakeRelativePathsInFlagsAbsolute	.ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	f
 NASM	Makefile	/^NASM = nasm$/;"	m
 NOT_REACHED	include/debug.h	28;"	d
@@ -226,9 +228,9 @@ PIT_RW_COUNTER_LATCH	include/device/pit.h	14;"	d
 PIT_RW_LBYTE	include/device/pit.h	15;"	d
 PIT_RW_LMBYTE	include/device/pit.h	17;"	d
 PIT_RW_MBYTE	include/device/pit.h	16;"	d
-PLUS	stdio.c	/^        PLUS = 1 << 1,          \/* '+' *\/$/;"	e	enum:printf_conversion::__anon1	file:
+PLUS	stdio.c	/^        PLUS = 1 << 1,          \/* '+' *\/$/;"	e	enum:printf_conversion::__anon3	file:
 PLUS	vsprintk.c	5;"	d	file:
-POUND	stdio.c	/^        POUND = 1 << 3,         \/* '#' *\/$/;"	e	enum:printf_conversion::__anon1	file:
+POUND	stdio.c	/^        POUND = 1 << 3,         \/* '#' *\/$/;"	e	enum:printf_conversion::__anon3	file:
 PRDSNu	include/device/block.h	19;"	d
 PRINTF_FORMAT	include/debug.h	10;"	d
 PRIX16	include/inttypes.h	18;"	d
@@ -273,7 +275,7 @@ PROC_RUN	include/proc/proc.h	/^	PROC_RUN,	$/;"	e	enum:p_state
 PROC_STOP	include/proc/proc.h	/^	PROC_STOP,$/;"	e	enum:p_state
 PROC_UNUSED	include/proc/proc.h	/^	PROC_UNUSED,$/;"	e	enum:p_state
 PROC_ZOMBIE	include/proc/proc.h	/^	PROC_ZOMBIE,$/;"	e	enum:p_state
-PTRDIFFT	stdio.c	/^        PTRDIFFT = 7,           \/* t *\/$/;"	e	enum:printf_conversion::__anon2	file:
+PTRDIFFT	stdio.c	/^        PTRDIFFT = 7,           \/* t *\/$/;"	e	enum:printf_conversion::__anon4	file:
 PTRDIFF_MAX	include/stdint.h	47;"	d
 PTRDIFF_MAX	include/type.h	72;"	d
 PTRDIFF_MIN	include/stdint.h	46;"	d
@@ -296,11 +298,11 @@ SEL_KCSEG	include/loader.h	30;"	d
 SEL_KDSEG	include/loader.h	31;"	d
 SEL_NULL	include/loader.h	29;"	d
 SERIAL_STDOUT	include/device/console.h	18;"	d
-SHORT	stdio.c	/^        SHORT = 2,              \/* h *\/$/;"	e	enum:printf_conversion::__anon2	file:
+SHORT	stdio.c	/^        SHORT = 2,              \/* h *\/$/;"	e	enum:printf_conversion::__anon4	file:
 SHRT_MAX	include/limits.h	18;"	d
 SHRT_MIN	include/limits.h	19;"	d
 SIGN	vsprintk.c	4;"	d	file:
-SIZET	stdio.c	/^        SIZET = 8               \/* z *\/$/;"	e	enum:printf_conversion::__anon2	file:
+SIZET	stdio.c	/^        SIZET = 8               \/* z *\/$/;"	e	enum:printf_conversion::__anon4	file:
 SIZE_MAX	include/stdint.h	49;"	d
 SIZE_MAX	include/type.h	74;"	d
 SIZE_SCREEN	device/console.c	11;"	d	file:
@@ -308,7 +310,7 @@ SIZE_SCROLL	device/console.c	13;"	d	file:
 SLEEP_FREQ	proc/proc.c	369;"	d	file:
 SMALL	vsprintk.c	9;"	d	file:
 SOURCE_EXTENSIONS	.ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [ '.C', '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]$/;"	v
-SPACE	stdio.c	/^        SPACE = 1 << 2,         \/* ' ' *\/$/;"	e	enum:printf_conversion::__anon1	file:
+SPACE	stdio.c	/^        SPACE = 1 << 2,         \/* ' ' *\/$/;"	e	enum:printf_conversion::__anon3	file:
 SPACE	vsprintk.c	6;"	d	file:
 SPECIAL	vsprintk.c	8;"	d	file:
 STACK_SIZE	proc/proc.c	15;"	d	file:
@@ -357,12 +359,13 @@ UNUSED	include/debug.h	7;"	d
 USHRT_MAX	include/limits.h	20;"	d
 UpdateKeyStat	device/kbd.c	/^void UpdateKeyStat(BYTE Scancode)$/;"	f
 VERSION	arch/Main.c	/^const char* VERSION = "0.1.03";$/;"	v
+VERSION	build/Main.s	/^VERSION:$/;"	l
 VH_TO_RH	include/mem/paging.h	40;"	d
 VIDIO_MEMORY	device/console.c	14;"	d	file:
 VKERNEL_HEAP_START	include/mem/paging.h	37;"	d
 VKERNEL_STACK_ADDR	include/mem/paging.h	38;"	d
 VSCREEN	device/console.c	10;"	d	file:
-ZERO	stdio.c	/^        ZERO = 1 << 4,          \/* '0' *\/$/;"	e	enum:printf_conversion::__anon1	file:
+ZERO	stdio.c	/^        ZERO = 1 << 4,          \/* '0' *\/$/;"	e	enum:printf_conversion::__anon3	file:
 ZEROPAD	vsprintk.c	3;"	d	file:
 _ADDRESSOF	include/stdarg.h	6;"	d
 _ID	arch/interrupt.c	/^typedef struct _ID$/;"	s	file:
@@ -489,7 +492,7 @@ check_user	proc/proc.c	/^bool check_user(char *id, char *password)$/;"	f
 child_pid	include/proc/proc.h	/^	int child_pid;						\/\/ 종료된 자식$/;"	m	struct:process
 child_stack_reset	mem/paging.c	/^void child_stack_reset(pid_t pid){\/\/ (2)$/;"	f
 clrScreen	device/console.c	/^void clrScreen(void) $/;"	f
-cmd	proc/proc.c	/^	char* cmd;$/;"	m	struct:__anon4	file:
+cmd	proc/proc.c	/^	char* cmd;$/;"	m	struct:__anon2	file:
 compilation_database_folder	.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	v
 completion_wait	device/ide.c	/^    struct semaphore completion_wait;   \/* Up'd by interrupt handler. *\/$/;"	m	struct:channel	typeref:struct:channel::semaphore	file:
 condition	include/synch.h	/^struct condition $/;"	s
@@ -544,7 +547,7 @@ false	include/type.h	22;"	d
 filesys	Makefile	/^filesys = .\/filesys$/;"	m
 find_end_of_run	list.c	/^find_end_of_run (struct list_elem *a, struct list_elem *b,$/;"	f	file:
 flags	.ycm_extra_conf.py	/^flags = [$/;"	v
-flags	stdio.c	/^    flags;$/;"	m	struct:printf_conversion	typeref:enum:printf_conversion::__anon1	file:
+flags	stdio.c	/^    flags;$/;"	m	struct:printf_conversion	typeref:enum:printf_conversion::__anon3	file:
 fork	arch/syscall.c	/^pid_t fork(proc_func func, void* aux)$/;"	f
 format_integer	stdio.c	/^format_integer (unsigned int value, bool is_signed, bool negative, $/;"	f	file:
 format_string	stdio.c	/^format_string (const char *string, int length,$/;"	f	file:
@@ -555,7 +558,7 @@ free_cnt	mem/malloc.c	/^    size_t free_cnt;            \/* Free blocks; pages i
 free_elem	mem/malloc.c	/^    struct list_elem free_elem; \/* Free list element. *\/$/;"	m	struct:block	typeref:struct:block::list_elem	file:
 free_list	mem/malloc.c	/^    struct list free_list;      \/* List of free blocks. *\/$/;"	m	struct:desc	typeref:struct:desc::list	file:
 fs	include/interrupt.h	/^	uint16_t fs, :16;           \/* Saved FS segment register. *\/$/;"	m	struct:intr_frame
-func	proc/proc.c	/^	void* func;$/;"	m	struct:__anon4	file:
+func	proc/proc.c	/^	void* func;$/;"	m	struct:__anon2	file:
 getEIP	proc/proc.c	/^void* getEIP()$/;"	f
 getMemSize	arch/i386/mem.asm	/^getMemSize:		$/;"	l
 getToken	ssulib.c	/^int getToken(char* buf, char token[][BUFSIZ], int max_tok)$/;"	f
@@ -571,7 +574,7 @@ head	include/list.h	/^    struct list_elem head;      \/* List head. *\/$/;"	m	s
 hexDump	proc/proc.c	/^void hexDump (void *addr, int len) {$/;"	f
 hex_dump	stdio.c	/^hex_dump (uintptr_t ofs, const void *buf_, size_t size, bool ascii)$/;"	f
 holder	include/synch.h	/^      struct process *holder;      \/* Process holding lock (for debugging). *\/$/;"	m	struct:lock	typeref:struct:lock::process
-id	proc/proc.c	/^	char id[BUFSIZ];$/;"	m	struct:__anon3	file:
+id	proc/proc.c	/^	char id[BUFSIZ];$/;"	m	struct:__anon1	file:
 ide_init	device/ide.c	/^ide_init (void) $/;"	f
 ide_operations	device/ide.c	/^static struct block_operations ide_operations =$/;"	v	typeref:struct:block_operations	file:
 ide_operations	device/ide.c	/^static struct block_operations ide_operations;$/;"	v	typeref:struct:block_operations	file:
@@ -706,6 +709,7 @@ login_prompt	proc/proc.c	/^void login_prompt(void * aux)$/;"	f
 loop_proc	proc/proc.c	/^void loop_proc(void *aux)$/;"	f
 magic	mem/malloc.c	/^    unsigned magic;             \/* Always set to ARENA_MAGIC. *\/$/;"	m	struct:arena	file:
 main_init	arch/Main.c	/^void main_init(void)$/;"	f
+main_init	build/Main.s	/^main_init:$/;"	l
 malloc	mem/malloc.c	/^malloc (size_t size) $/;"	f
 malloc_init	mem/malloc.c	/^malloc_init (void) $/;"	f
 max_length	stdio.c	/^    int max_length;     \/* Max length of output string. *\/$/;"	m	struct:vsnprintf_aux	file:
@@ -752,7 +756,7 @@ partition_read	device/partition.c	/^partition_read (void *p_, block_sector_t sec
 partition_scan	device/partition.c	/^partition_scan (struct block *block)$/;"	f
 partition_type_name	device/partition.c	/^partition_type_name (uint8_t type)$/;"	f	file:
 partition_write	device/partition.c	/^partition_write (void *p_, block_sector_t sector, const void *buffer)$/;"	f	file:
-password	proc/proc.c	/^	char password[BUFSIZ];$/;"	m	struct:__anon3	file:
+password	proc/proc.c	/^	char password[BUFSIZ];$/;"	m	struct:__anon1	file:
 pd	include/proc/proc.h	/^	void *pd;						\/\/page directory$/;"	m	struct:process
 pd_copy	mem/paging.c	/^void pd_copy(uint32_t* from, uint32_t* to)$/;"	f
 pd_create	mem/paging.c	/^uint32_t* pd_create (pid_t pid)$/;"	f
@@ -773,6 +777,7 @@ precision	stdio.c	/^    int precision;$/;"	m	struct:printf_conversion	file:
 prev	include/list.h	/^    struct list_elem *prev;     \/* Previous list element. *\/$/;"	m	struct:list_elem	typeref:struct:list_elem::list_elem
 printCharToSerial	device/console.c	/^void printCharToSerial(const char *pString)$/;"	f
 print_contributors	arch/Main.c	/^void print_contributors(void)$/;"	f
+print_contributors	build/Main.s	/^print_contributors:$/;"	l
 print_human_readable_size	stdio.c	/^print_human_readable_size (uint64_t size) $/;"	f
 print_pid	include/proc/proc.h	/^proc_func print_pid;				\/\/디버그용, pid 출력$/;"	v
 print_pid	proc/proc.c	/^void print_pid(void* aux) {$/;"	f
@@ -858,6 +863,7 @@ snprintf	stdio.c	/^snprintf (char *buffer, size_t buf_size, const char *format, 
 sprintf	include/stdio.h	37;"	d
 ss	include/interrupt.h	/^	uint16_t ss, :16;           \/* Data segment for esp. *\/$/;"	m	struct:intr_frame
 ssuos_main	arch/Main.c	/^void ssuos_main(void)$/;"	f
+ssuos_main	build/Main.s	/^ssuos_main:$/;"	l
 ssuread	arch/syscall.c	/^int ssuread()$/;"	f
 stack	include/proc/proc.h	/^	void *stack;					\/\/stack for esp$/;"	m	struct:process
 start	device/partition.c	/^    block_sector_t start;               \/* First sector within device. *\/$/;"	m	struct:partition	file:
@@ -904,8 +910,8 @@ true	include/stdbool.h	5;"	d
 true	include/type.h	19;"	d
 type	device/block.c	/^    enum block_type type;                \/* Type of block device. *\/$/;"	m	struct:block	typeref:enum:block::block_type	file:
 type	mem/palloc.c	/^	uint32_t type;$/;"	m	struct:kpage	file:
-type	proc/proc.c	/^	unsigned char type;	$/;"	m	struct:__anon4	file:
-type	stdio.c	/^    type;$/;"	m	struct:printf_conversion	typeref:enum:printf_conversion::__anon2	file:
+type	proc/proc.c	/^	unsigned char type;	$/;"	m	struct:__anon2	file:
+type	stdio.c	/^    type;$/;"	m	struct:printf_conversion	typeref:enum:printf_conversion::__anon4	file:
 uint16_t	include/stdint.h	/^typedef unsigned short int uint16_t;$/;"	t
 uint16_t	include/type.h	/^typedef unsigned short int uint16_t;$/;"	t
 uint32_t	include/stdint.h	/^typedef unsigned int uint32_t;$/;"	t
@@ -919,7 +925,7 @@ uintmax_t	include/type.h	/^typedef unsigned long long int uintmax_t;$/;"	t
 uintptr_t	include/stdint.h	/^typedef uint32_t uintptr_t;$/;"	t
 uintptr_t	include/type.h	/^typedef uint32_t uintptr_t;$/;"	t
 uname_proc	proc/proc.c	/^void uname_proc(void* aux)$/;"	f
-user_list	proc/proc.c	/^}user_list;$/;"	t	typeref:struct:__anon3	file:
+user_list	proc/proc.c	/^}user_list;$/;"	t	typeref:struct:__anon1	file:
 va_arg	include/stdarg.h	10;"	d
 va_end	include/stdarg.h	11;"	d
 va_list	include/stdarg.h	/^typedef char			*va_list;$/;"	t

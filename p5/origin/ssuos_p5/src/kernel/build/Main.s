@@ -654,8 +654,6 @@ print_contributors:
 	.section	.debug_str,"MS",@progbits,1
 .LASF3:
 	.string	"long long int"
-.LASF24:
-	.string	"/home/jahn/os/p5/5_MEMORY/ssuos_p5/src/kernel"
 .LASF2:
 	.string	"unsigned int"
 .LASF0:
@@ -680,6 +678,8 @@ print_contributors:
 	.string	"AUTHOR"
 .LASF15:
 	.string	"main_init"
+.LASF24:
+	.string	"/media/jahn/External1/os/p5/origin/ssuos_p5/src/kernel"
 .LASF25:
 	.string	"SYS_LIST"
 .LASF8:

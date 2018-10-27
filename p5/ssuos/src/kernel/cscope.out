@@ -1,4 +1,4 @@
-cscope 15 $HOME/os/p5/ssuos/src/kernel               0000247894
+cscope 15 /media/jahn/External1/os/p5/ssuos/src/kernel               0000264402
 	@arch/Main.c
 
 1 
@@ -4828,6 +4828,3412 @@ size
 372 
 	}
 }
+
+	@build/Main.s
+
+1 .
+	gfûe
+ "Main.c"
+
+2 .
+	gãxt
+
+
+3 .
+	gLãxt0
+:
+
+4 .
+comm
+ 
+Glob_x
+,4,4
+
+5 .
+comm
+ 
+	gGlob_y
+,4,4
+
+6 .
+globl
+ 
+	gVERSION
+
+
+7 .
+	g£˘i⁄
+ .
+	grod©a
+
+
+8 .
+	gLC0
+:
+
+9 .
+°rög
+ "0.1.03"
+
+10 .
+d©a
+
+
+11 .
+Æign
+ 4
+
+12 .
+ty≥
+ 
+VERSION
+, @
+	gobje˘
+
+
+13 .
+size
+ 
+	gVERSION
+, 4
+
+14 
+	gVERSION
+:
+
+15 ..
+LC0
+
+
+16 .
+globl
+ 
+AUTHOR
+
+
+17 .
+£˘i⁄
+ .
+rod©a
+
+
+18 .
+LC1
+:
+
+19 .
+°rög
+ "OSLAB"
+
+20 .
+d©a
+
+
+21 .
+Æign
+ 4
+
+22 .
+ty≥
+ 
+AUTHOR
+, @
+	gobje˘
+
+
+23 .
+size
+ 
+	gAUTHOR
+, 4
+
+24 
+	gAUTHOR
+:
+
+25 ..
+LC1
+
+
+26 .
+globl
+ 
+MODIFIER
+
+
+27 .
+£˘i⁄
+ .
+rod©a
+
+
+28 .
+LC2
+:
+
+29 .
+°rög
+ "You"
+
+30 .
+d©a
+
+
+31 .
+Æign
+ 4
+
+32 .
+ty≥
+ 
+MODIFIER
+, @
+	gobje˘
+
+
+33 .
+size
+ 
+	gMODIFIER
+, 4
+
+34 
+	gMODIFIER
+:
+
+35 ..
+LC2
+
+
+36 .
+ãxt
+
+
+37 .
+globl
+ 
+ssuos_maö
+
+
+38 .
+ty≥
+ 
+ssuos_maö
+, @
+fun˘i⁄
+
+
+39 
+	gssuos_maö
+:
+
+40 .
+LFB3
+:
+
+41 .
+fûe
+ 1 "arch/Main.c"
+
+42 .
+loc
+ 1 27 0
+
+43 .
+cfi_°¨çroc
+
+
+44 
+pushl
+ %
+ebp
+
+
+45 .
+cfi_def_cÁ_off£t
+ 8
+
+46 .
+cfi_off£t
+ 5, -8
+
+47 
+	gmovl
+ %
+	ge•
+, %
+	gebp
+
+
+48 .
+	gcfi_def_cÁ_ªgi°î
+ 5
+
+49 
+subl
+ 
+	g$8
+, %
+	ge•
+
+
+50 .
+	gloc
+ 1 28 0
+
+51 
+ˇŒ
+ 
+	gmaö_öô
+
+
+52 .
+	gloc
+ 1 30 0
+
+53 
+subl
+ 
+	g$12
+, %
+e•
+
+
+54 
+pushl
+ 
+$0
+
+
+55 
+ˇŒ
+ 
+idÀ
+
+
+56 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+57 .
+	gloc
+ 1 32 0
+
+58 
+	gn›
+
+
+59 .
+	gloc
+ 1 33 0
+
+60 
+	gÀave
+
+
+61 .
+	gcfi_ª°‹e
+ 5
+
+62 .
+	gcfi_def_cÁ
+ 4, 4
+
+63 
+	gªt
+
+
+64 .
+	gcfi_íd¥oc
+
+
+65 .
+	gLFE3
+:
+
+66 .
+size
+ 
+ssuos_maö
+, .-
+	gssuos_maö
+
+
+67 .
+	g£˘i⁄
+ .
+	grod©a
+
+
+68 .
+	gLC3
+:
+
+69 .
+°rög
+ "Memory Detecting\n"
+
+70 .
+LC4
+:
+
+71 .
+°rög
+ "%s"
+
+72 .
+LC5
+:
+
+73 .
+°rög
+ "-Memory size = %u Kbytes\n"
+
+74 .
+LC6
+:
+
+75 .
+°rög
+ "PIT Intialization\n"
+
+76 .
+LC7
+:
+
+77 .
+°rög
+ "System call Intialization\n"
+
+78 .
+LC8
+:
+
+79 .
+°rög
+ "Interrupt Initialization\n"
+
+80 .
+LC9
+:
+
+81 .
+°rög
+ "%sPalloc Initialization\n"
+
+82 .
+LC10
+:
+
+83 .
+°rög
+ "Paging Initialization\n"
+
+84 .
+LC11
+:
+
+85 .
+°rög
+ "Process Intialization\n"
+
+86 .
+ãxt
+
+
+87 .
+globl
+ 
+maö_öô
+
+
+88 .
+ty≥
+ 
+maö_öô
+, @
+fun˘i⁄
+
+
+89 
+	gmaö_öô
+:
+
+90 .
+LFB4
+:
+
+91 .
+loc
+ 1 36 0
+
+92 .
+cfi_°¨çroc
+
+
+93 
+pushl
+ %
+ebp
+
+
+94 .
+cfi_def_cÁ_off£t
+ 8
+
+95 .
+cfi_off£t
+ 5, -8
+
+96 
+	gmovl
+ %
+	ge•
+, %
+	gebp
+
+
+97 .
+	gcfi_def_cÁ_ªgi°î
+ 5
+
+98 
+subl
+ 
+	g$8
+, %
+	ge•
+
+
+99 .
+	gloc
+ 1 37 0
+
+100 
+ˇŒ
+ 
+	göå_dißbÀ
+
+
+101 .
+	gloc
+ 1 40 0
+
+102 
+ˇŒ
+ 
+	göô_c⁄sﬁe
+
+
+103 .
+	gloc
+ 1 42 0
+
+104 
+ˇŒ
+ 
+	g¥öt_c⁄åibut‹s
+
+
+105 .
+	gloc
+ 1 44 0
+
+106 
+ˇŒ
+ 
+	gdëe˘_mem
+
+
+107 .
+	gloc
+ 1 45 0
+
+108 
+subl
+ 
+	g$8
+, %
+e•
+
+
+109 
+pushl
+ 
+	g$
+.
+LC3
+
+
+110 
+pushl
+ 
+	g$
+.
+LC4
+
+
+111 
+ˇŒ
+ 
+¥ötk
+
+
+112 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+113 .
+	gloc
+ 1 46 0
+
+114 
+ˇŒ
+ 
+mem_size
+
+
+115 
+shæ
+ 
+	g$10
+, %
+óx
+
+
+116 
+subl
+ 
+	g$8
+, %
+e•
+
+
+117 
+	gpushl
+ %
+óx
+
+
+118 
+pushl
+ 
+	g$
+.
+LC5
+
+
+119 
+ˇŒ
+ 
+¥ötk
+
+
+120 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+121 .
+	gloc
+ 1 48 0
+
+122 
+ˇŒ
+ 
+	göô_pô
+
+
+123 .
+	gloc
+ 1 49 0
+
+124 
+subl
+ 
+	g$8
+, %
+e•
+
+
+125 
+pushl
+ 
+	g$
+.
+LC6
+
+
+126 
+pushl
+ 
+	g$
+.
+LC4
+
+
+127 
+ˇŒ
+ 
+¥ötk
+
+
+128 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+129 .
+	gloc
+ 1 51 0
+
+130 
+ˇŒ
+ 
+	göô_sysˇŒ
+
+
+131 .
+	gloc
+ 1 52 0
+
+132 
+subl
+ 
+	g$8
+, %
+e•
+
+
+133 
+pushl
+ 
+	g$
+.
+LC7
+
+
+134 
+pushl
+ 
+	g$
+.
+LC4
+
+
+135 
+ˇŒ
+ 
+¥ötk
+
+
+136 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+137 .
+	gloc
+ 1 54 0
+
+138 
+ˇŒ
+ 
+	göô_öå
+
+
+139 .
+	gloc
+ 1 55 0
+
+140 
+subl
+ 
+	g$8
+, %
+e•
+
+
+141 
+pushl
+ 
+	g$
+.
+LC8
+
+
+142 
+pushl
+ 
+	g$
+.
+LC4
+
+
+143 
+ˇŒ
+ 
+¥ötk
+
+
+144 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+145 .
+	gloc
+ 1 57 0
+
+146 
+ˇŒ
+ 
+	göô_kbd
+
+
+147 .
+	gloc
+ 1 59 0
+
+148 
+ˇŒ
+ 
+	göô_∑Œoc
+
+
+149 .
+	gloc
+ 1 60 0
+
+150 
+subl
+ 
+	g$12
+, %
+e•
+
+
+151 
+pushl
+ 
+	g$
+.
+LC9
+
+
+152 
+ˇŒ
+ 
+¥ötk
+
+
+153 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+154 .
+	gloc
+ 1 62 0
+
+155 
+ˇŒ
+ 
+	göô_∑gög
+
+
+156 .
+	gloc
+ 1 63 0
+
+157 
+subl
+ 
+	g$8
+, %
+e•
+
+
+158 
+pushl
+ 
+	g$
+.
+LC10
+
+
+159 
+pushl
+ 
+	g$
+.
+LC4
+
+
+160 
+ˇŒ
+ 
+¥ötk
+
+
+161 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+162 .
+	gloc
+ 1 65 0
+
+163 
+ˇŒ
+ 
+	göô_¥oc
+
+
+164 .
+	gloc
+ 1 66 0
+
+165 
+subl
+ 
+	g$8
+, %
+e•
+
+
+166 
+pushl
+ 
+	g$
+.
+LC11
+
+
+167 
+pushl
+ 
+	g$
+.
+LC4
+
+
+168 
+ˇŒ
+ 
+¥ötk
+
+
+169 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+170 .
+	gloc
+ 1 68 0
+
+171 
+ˇŒ
+ 
+	göå_íabÀ
+
+
+172 .
+	gloc
+ 1 70 0
+
+173 
+ˇŒ
+ 
+	g∑Œoc_pf_ã°
+
+
+174 .
+	gloc
+ 1 72 0
+
+175 
+ˇŒ
+ 
+	gª‰eshS¸ìn
+
+
+176 .
+	gL4
+:
+
+177 .
+loc
+ 1 74 0 
+dis¸imö©‹
+ 1
+
+178 
+jmp
+ .
+L4
+
+
+179 .
+cfi_íd¥oc
+
+
+180 .
+LFE4
+:
+
+181 .
+size
+ 
+maö_öô
+, .-
+	gmaö_öô
+
+
+182 .
+	g£˘i⁄
+ .
+	grod©a
+
+
+183 .
+	gLC12
+:
+
+184 .
+°rög
+ "SSUOS main start!!!!\n"
+
+185 .
+Æign
+ 4
+
+186 .
+LC13
+:
+
+187 .
+°rög
+ " ______ ______ __ __ ______ ______ \n"
+
+188 .
+Æign
+ 4
+
+189 .
+LC14
+:
+
+190 .
+°rög
+ " / \\ / \\ / | / | / \\ / \\ \n"
+
+191 .
+Æign
+ 4
+
+192 .
+LC15
+:
+
+193 .
+°rög
+ " /$$$$$$ |/$$$$$$ |$$ | $$ | /$$$$$$ |/$$$$$$ |\n"
+
+194 .
+Æign
+ 4
+
+195 .
+LC16
+:
+
+196 .
+°rög
+ " $$ \\__$$/ $$ \\__$$/ $$ | $$ | $$ | $$ |$$ \\__$$/ \n"
+
+197 .
+Æign
+ 4
+
+198 .
+LC17
+:
+
+199 .
+°rög
+ " $$ \\ $$ \\ $$ | $$ | $$ | $$ |$$ \\ \n"
+
+200 .
+Æign
+ 4
+
+201 .
+LC18
+:
+
+202 .
+°rög
+ " $$$$$$ | $$$$$$ |$$ | $$ | $$ | $$ | $$$$$$ |\n"
+
+203 .
+Æign
+ 4
+
+204 .
+LC19
+:
+
+205 .
+°rög
+ " / \\__$$ |/ \\__$$ |$$ \\__$$ | $$ \\__$$ |/ \\__$$ |\n"
+
+206 .
+Æign
+ 4
+
+207 .
+LC20
+:
+
+208 .
+°rög
+ " $$ $$/ $$ $$/ $$ $$/ $$ $$/ $$ $$/ \n"
+
+209 .
+Æign
+ 4
+
+210 .
+LC21
+:
+
+211 .
+°rög
+ " $$$$$$/ $$$$$$/ $$$$$$/ $$$$$$/ $$$$$$/ \n"
+
+212 .
+LC22
+:
+
+213 .
+°rög
+ "\n"
+
+214 .
+Æign
+ 4
+
+215 .
+LC23
+:
+
+216 .
+°rög
+ "****************Made by OSLAB in SoongSil University*********************\n"
+
+217 .
+Æign
+ 4
+
+218 .
+LC24
+:
+
+219 .
+°rög
+ "contributors : Yunkyu Lee , Minwoo Jang , Sanghun Choi , Eunseok Choi\n"
+
+220 .
+Æign
+ 4
+
+221 .
+LC25
+:
+
+222 .
+°rög
+ " Hyunho Ji , Giwook Kang , Kisu Kim , Seonguk Lee \n"
+
+223 .
+Æign
+ 4
+
+224 .
+LC26
+:
+
+225 .
+°rög
+ " Gibeom Byeon, Jeonghwan Lee, Kyoungmin Kim, Myungjoon Shon\n"
+
+226 .
+Æign
+ 4
+
+227 .
+LC27
+:
+
+228 .
+°rög
+ " Jinwoo Lee , Hansol Lee , Mhanwoo Heo, Jeongwoo Choi\n"
+
+229 .
+LC28
+:
+
+230 .
+°rög
+ " Yongmin Kim\n"
+
+231 .
+Æign
+ 4
+
+232 .
+LC29
+:
+
+233 .
+°rög
+ "************************ Professor. Jiman Hong ************************\n"
+
+234 .
+Æign
+ 4
+
+235 .
+LC30
+:
+
+236 .
+°rög
+ " \n"
+
+237 .
+ãxt
+
+
+238 .
+globl
+ 
+¥öt_c⁄åibut‹s
+
+
+239 .
+ty≥
+ 
+¥öt_c⁄åibut‹s
+, @
+fun˘i⁄
+
+
+240 
+	g¥öt_c⁄åibut‹s
+:
+
+241 .
+LFB5
+:
+
+242 .
+loc
+ 1 85 0
+
+243 .
+cfi_°¨çroc
+
+
+244 
+pushl
+ %
+ebp
+
+
+245 .
+cfi_def_cÁ_off£t
+ 8
+
+246 .
+cfi_off£t
+ 5, -8
+
+247 
+	gmovl
+ %
+	ge•
+, %
+	gebp
+
+
+248 .
+	gcfi_def_cÁ_ªgi°î
+ 5
+
+249 
+subl
+ 
+	g$8
+, %
+	ge•
+
+
+250 .
+	gloc
+ 1 86 0
+
+251 
+subl
+ 
+	g$8
+, %
+e•
+
+
+252 
+pushl
+ 
+	g$
+.
+LC12
+
+
+253 
+pushl
+ 
+	g$
+.
+LC4
+
+
+254 
+ˇŒ
+ 
+¥ötk
+
+
+255 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+256 .
+	gloc
+ 1 87 0
+
+257 
+subl
+ 
+	g$12
+, %
+e•
+
+
+258 
+pushl
+ 
+	g$
+.
+LC13
+
+
+259 
+ˇŒ
+ 
+¥ötk
+
+
+260 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+261 .
+	gloc
+ 1 88 0
+
+262 
+subl
+ 
+	g$12
+, %
+e•
+
+
+263 
+pushl
+ 
+	g$
+.
+LC14
+
+
+264 
+ˇŒ
+ 
+¥ötk
+
+
+265 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+266 .
+	gloc
+ 1 89 0
+
+267 
+subl
+ 
+	g$12
+, %
+e•
+
+
+268 
+pushl
+ 
+	g$
+.
+LC15
+
+
+269 
+ˇŒ
+ 
+¥ötk
+
+
+270 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+271 .
+	gloc
+ 1 90 0
+
+272 
+subl
+ 
+	g$12
+, %
+e•
+
+
+273 
+pushl
+ 
+	g$
+.
+LC16
+
+
+274 
+ˇŒ
+ 
+¥ötk
+
+
+275 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+276 .
+	gloc
+ 1 91 0
+
+277 
+subl
+ 
+	g$12
+, %
+e•
+
+
+278 
+pushl
+ 
+	g$
+.
+LC17
+
+
+279 
+ˇŒ
+ 
+¥ötk
+
+
+280 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+281 .
+	gloc
+ 1 92 0
+
+282 
+subl
+ 
+	g$12
+, %
+e•
+
+
+283 
+pushl
+ 
+	g$
+.
+LC18
+
+
+284 
+ˇŒ
+ 
+¥ötk
+
+
+285 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+286 .
+	gloc
+ 1 93 0
+
+287 
+subl
+ 
+	g$12
+, %
+e•
+
+
+288 
+pushl
+ 
+	g$
+.
+LC19
+
+
+289 
+ˇŒ
+ 
+¥ötk
+
+
+290 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+291 .
+	gloc
+ 1 94 0
+
+292 
+subl
+ 
+	g$12
+, %
+e•
+
+
+293 
+pushl
+ 
+	g$
+.
+LC20
+
+
+294 
+ˇŒ
+ 
+¥ötk
+
+
+295 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+296 .
+	gloc
+ 1 95 0
+
+297 
+subl
+ 
+	g$12
+, %
+e•
+
+
+298 
+pushl
+ 
+	g$
+.
+LC21
+
+
+299 
+ˇŒ
+ 
+¥ötk
+
+
+300 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+301 .
+	gloc
+ 1 96 0
+
+302 
+subl
+ 
+	g$12
+, %
+e•
+
+
+303 
+pushl
+ 
+	g$
+.
+LC22
+
+
+304 
+ˇŒ
+ 
+¥ötk
+
+
+305 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+306 .
+	gloc
+ 1 97 0
+
+307 
+subl
+ 
+	g$12
+, %
+e•
+
+
+308 
+pushl
+ 
+	g$
+.
+LC23
+
+
+309 
+ˇŒ
+ 
+¥ötk
+
+
+310 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+311 .
+	gloc
+ 1 98 0
+
+312 
+subl
+ 
+	g$12
+, %
+e•
+
+
+313 
+pushl
+ 
+	g$
+.
+LC22
+
+
+314 
+ˇŒ
+ 
+¥ötk
+
+
+315 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+316 .
+	gloc
+ 1 99 0
+
+317 
+subl
+ 
+	g$12
+, %
+e•
+
+
+318 
+pushl
+ 
+	g$
+.
+LC24
+
+
+319 
+ˇŒ
+ 
+¥ötk
+
+
+320 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+321 .
+	gloc
+ 1 100 0
+
+322 
+subl
+ 
+	g$12
+, %
+e•
+
+
+323 
+pushl
+ 
+	g$
+.
+LC25
+
+
+324 
+ˇŒ
+ 
+¥ötk
+
+
+325 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+326 .
+	gloc
+ 1 101 0
+
+327 
+subl
+ 
+	g$12
+, %
+e•
+
+
+328 
+pushl
+ 
+	g$
+.
+LC26
+
+
+329 
+ˇŒ
+ 
+¥ötk
+
+
+330 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+331 .
+	gloc
+ 1 102 0
+
+332 
+subl
+ 
+	g$12
+, %
+e•
+
+
+333 
+pushl
+ 
+	g$
+.
+LC27
+
+
+334 
+ˇŒ
+ 
+¥ötk
+
+
+335 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+336 .
+	gloc
+ 1 103 0
+
+337 
+subl
+ 
+	g$12
+, %
+e•
+
+
+338 
+pushl
+ 
+	g$
+.
+LC28
+
+
+339 
+ˇŒ
+ 
+¥ötk
+
+
+340 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+341 .
+	gloc
+ 1 104 0
+
+342 
+subl
+ 
+	g$12
+, %
+e•
+
+
+343 
+pushl
+ 
+	g$
+.
+LC22
+
+
+344 
+ˇŒ
+ 
+¥ötk
+
+
+345 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+346 .
+	gloc
+ 1 105 0
+
+347 
+subl
+ 
+	g$12
+, %
+e•
+
+
+348 
+pushl
+ 
+	g$
+.
+LC29
+
+
+349 
+ˇŒ
+ 
+¥ötk
+
+
+350 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+351 .
+	gloc
+ 1 106 0
+
+352 
+subl
+ 
+	g$12
+, %
+e•
+
+
+353 
+pushl
+ 
+	g$
+.
+LC30
+
+
+354 
+ˇŒ
+ 
+¥ötk
+
+
+355 
+addl
+ 
+	g$16
+, %
+	ge•
+
+
+356 .
+	gloc
+ 1 107 0
+
+357 
+n›
+
+
+358 
+	gÀave
+
+
+359 .
+	gcfi_ª°‹e
+ 5
+
+360 .
+	gcfi_def_cÁ
+ 4, 4
+
+361 
+	gªt
+
+
+362 .
+	gcfi_íd¥oc
+
+
+363 .
+	gLFE5
+:
+
+364 .
+size
+ 
+¥öt_c⁄åibut‹s
+, .-
+	g¥öt_c⁄åibut‹s
+
+
+365 .
+	gLëext0
+:
+
+366 .
+fûe
+ 2 "./include/device/console.h"
+
+367 .
+fûe
+ 3 "./include/syscall.h"
+
+368 .
+£˘i⁄
+ .
+debug_öfo
+,"",@
+	g¥ogbôs
+
+
+369 .
+	gLdebug_öfo0
+:
+
+371 .
+vÆue
+ 0x4
+
+372 ..
+Ldebug_abbªv0
+
+
+373 .
+byã
+ 0x4
+
+374 .
+uÀb128
+ 0x1
+
+375 ..
+LASF22
+
+
+376 .
+byã
+ 0xc
+
+377 ..
+LASF23
+
+
+378 ..
+LASF24
+
+
+379 ..
+Lãxt0
+
+
+380 ..
+Lëext0
+-.
+Lãxt0
+
+
+381 ..
+Ldebug_löe0
+
+
+382 .
+uÀb128
+ 0x2
+
+383 .
+byã
+ 0x1
+
+384 .
+byã
+ 0x8
+
+385 ..
+LASF0
+
+
+386 .
+uÀb128
+ 0x2
+
+387 .
+byã
+ 0x1
+
+388 .
+byã
+ 0x6
+
+389 ..
+LASF1
+
+
+390 .
+uÀb128
+ 0x2
+
+391 .
+byã
+ 0x4
+
+392 .
+byã
+ 0x7
+
+393 ..
+LASF2
+
+
+394 .
+uÀb128
+ 0x2
+
+395 .
+byã
+ 0x8
+
+396 .
+byã
+ 0x5
+
+397 ..
+LASF3
+
+
+398 .
+uÀb128
+ 0x2
+
+399 .
+byã
+ 0x1
+
+400 .
+byã
+ 0x6
+
+401 ..
+LASF4
+
+
+402 .
+uÀb128
+ 0x2
+
+403 .
+byã
+ 0x2
+
+404 .
+byã
+ 0x5
+
+405 ..
+LASF5
+
+
+406 .
+uÀb128
+ 0x3
+
+407 .
+byã
+ 0x4
+
+408 .
+byã
+ 0x5
+
+409 .
+°rög
+ "int"
+
+410 .
+uÀb128
+ 0x2
+
+411 .
+byã
+ 0x2
+
+412 .
+byã
+ 0x7
+
+413 ..
+LASF6
+
+
+414 .
+uÀb128
+ 0x2
+
+415 .
+byã
+ 0x8
+
+416 .
+byã
+ 0x7
+
+417 ..
+LASF7
+
+
+418 .
+uÀb128
+ 0x4
+
+419 ..
+LASF25
+
+
+420 .
+byã
+ 0x4
+
+422 .
+byã
+ 0x3
+
+423 .
+byã
+ 0x4
+
+425 .
+uÀb128
+ 0x5
+
+426 ..
+LASF8
+
+
+427 .
+byã
+ 0
+
+428 .
+uÀb128
+ 0x5
+
+429 ..
+LASF9
+
+
+430 .
+byã
+ 0x1
+
+431 .
+uÀb128
+ 0x5
+
+432 ..
+LASF10
+
+
+433 .
+byã
+ 0x2
+
+434 .
+uÀb128
+ 0x5
+
+435 ..
+LASF11
+
+
+436 .
+byã
+ 0x3
+
+437 .
+uÀb128
+ 0x5
+
+438 ..
+LASF12
+
+
+439 .
+byã
+ 0x4
+
+440 .
+uÀb128
+ 0x5
+
+441 ..
+LASF13
+
+
+442 .
+byã
+ 0x5
+
+443 .
+byã
+ 0
+
+444 .
+uÀb128
+ 0x6
+
+445 ..
+LASF14
+
+
+446 .
+byã
+ 0x1
+
+447 .
+byã
+ 0x1a
+
+448 ..
+LFB3
+
+
+449 ..
+LFE3
+-.
+LFB3
+
+
+450 .
+uÀb128
+ 0x1
+
+451 .
+byã
+ 0x9c
+
+452 .
+uÀb128
+ 0x6
+
+453 ..
+LASF15
+
+
+454 .
+byã
+ 0x1
+
+455 .
+byã
+ 0x23
+
+456 ..
+LFB4
+
+
+457 ..
+LFE4
+-.
+LFB4
+
+
+458 .
+uÀb128
+ 0x1
+
+459 .
+byã
+ 0x9c
+
+460 .
+uÀb128
+ 0x6
+
+461 ..
+LASF16
+
+
+462 .
+byã
+ 0x1
+
+463 .
+byã
+ 0x54
+
+464 ..
+LFB5
+
+
+465 ..
+LFE5
+-.
+LFB5
+
+
+466 .
+uÀb128
+ 0x1
+
+467 .
+byã
+ 0x9c
+
+468 .
+uÀb128
+ 0x7
+
+469 ..
+LASF17
+
+
+470 .
+byã
+ 0x2
+
+471 .
+byã
+ 0xc
+
+473 .
+uÀb128
+ 0x5
+
+474 .
+byã
+ 0x3
+
+475 .
+Glob_x
+
+
+476 .
+uÀb128
+ 0x7
+
+477 ..
+LASF18
+
+
+478 .
+byã
+ 0x2
+
+479 .
+byã
+ 0xd
+
+481 .
+uÀb128
+ 0x5
+
+482 .
+byã
+ 0x3
+
+483 .
+Glob_y
+
+
+484 .
+uÀb128
+ 0x7
+
+485 ..
+LASF19
+
+
+486 .
+byã
+ 0x1
+
+487 .
+byã
+ 0x16
+
+489 .
+uÀb128
+ 0x5
+
+490 .
+byã
+ 0x3
+
+491 .
+VERSION
+
+
+492 .
+uÀb128
+ 0x8
+
+493 .
+byã
+ 0x4
+
+495 .
+uÀb128
+ 0x9
+
+497 .
+uÀb128
+ 0x7
+
+498 ..
+LASF20
+
+
+499 .
+byã
+ 0x1
+
+500 .
+byã
+ 0x17
+
+502 .
+uÀb128
+ 0x5
+
+503 .
+byã
+ 0x3
+
+504 .
+AUTHOR
+
+
+505 .
+uÀb128
+ 0x7
+
+506 ..
+LASF21
+
+
+507 .
+byã
+ 0x1
+
+508 .
+byã
+ 0x18
+
+510 .
+uÀb128
+ 0x5
+
+511 .
+byã
+ 0x3
+
+512 .
+MODIFIER
+
+
+513 .
+byã
+ 0
+
+514 .
+£˘i⁄
+ .
+debug_abbªv
+,"",@
+	g¥ogbôs
+
+
+515 .
+	gLdebug_abbªv0
+:
+
+516 .
+uÀb128
+ 0x1
+
+517 .
+uÀb128
+ 0x11
+
+518 .
+byã
+ 0x1
+
+519 .
+uÀb128
+ 0x25
+
+520 .
+uÀb128
+ 0xe
+
+521 .
+uÀb128
+ 0x13
+
+522 .
+uÀb128
+ 0xb
+
+523 .
+uÀb128
+ 0x3
+
+524 .
+uÀb128
+ 0xe
+
+525 .
+uÀb128
+ 0x1b
+
+526 .
+uÀb128
+ 0xe
+
+527 .
+uÀb128
+ 0x11
+
+528 .
+uÀb128
+ 0x1
+
+529 .
+uÀb128
+ 0x12
+
+530 .
+uÀb128
+ 0x6
+
+531 .
+uÀb128
+ 0x10
+
+532 .
+uÀb128
+ 0x17
+
+533 .
+byã
+ 0
+
+534 .
+byã
+ 0
+
+535 .
+uÀb128
+ 0x2
+
+536 .
+uÀb128
+ 0x24
+
+537 .
+byã
+ 0
+
+538 .
+uÀb128
+ 0xb
+
+539 .
+uÀb128
+ 0xb
+
+540 .
+uÀb128
+ 0x3e
+
+541 .
+uÀb128
+ 0xb
+
+542 .
+uÀb128
+ 0x3
+
+543 .
+uÀb128
+ 0xe
+
+544 .
+byã
+ 0
+
+545 .
+byã
+ 0
+
+546 .
+uÀb128
+ 0x3
+
+547 .
+uÀb128
+ 0x24
+
+548 .
+byã
+ 0
+
+549 .
+uÀb128
+ 0xb
+
+550 .
+uÀb128
+ 0xb
+
+551 .
+uÀb128
+ 0x3e
+
+552 .
+uÀb128
+ 0xb
+
+553 .
+uÀb128
+ 0x3
+
+554 .
+uÀb128
+ 0x8
+
+555 .
+byã
+ 0
+
+556 .
+byã
+ 0
+
+557 .
+uÀb128
+ 0x4
+
+558 .
+uÀb128
+ 0x4
+
+559 .
+byã
+ 0x1
+
+560 .
+uÀb128
+ 0x3
+
+561 .
+uÀb128
+ 0xe
+
+562 .
+uÀb128
+ 0xb
+
+563 .
+uÀb128
+ 0xb
+
+564 .
+uÀb128
+ 0x49
+
+565 .
+uÀb128
+ 0x13
+
+566 .
+uÀb128
+ 0x3a
+
+567 .
+uÀb128
+ 0xb
+
+568 .
+uÀb128
+ 0x3b
+
+569 .
+uÀb128
+ 0xb
+
+570 .
+uÀb128
+ 0x1
+
+571 .
+uÀb128
+ 0x13
+
+572 .
+byã
+ 0
+
+573 .
+byã
+ 0
+
+574 .
+uÀb128
+ 0x5
+
+575 .
+uÀb128
+ 0x28
+
+576 .
+byã
+ 0
+
+577 .
+uÀb128
+ 0x3
+
+578 .
+uÀb128
+ 0xe
+
+579 .
+uÀb128
+ 0x1c
+
+580 .
+uÀb128
+ 0xb
+
+581 .
+byã
+ 0
+
+582 .
+byã
+ 0
+
+583 .
+uÀb128
+ 0x6
+
+584 .
+uÀb128
+ 0x2e
+
+585 .
+byã
+ 0
+
+586 .
+uÀb128
+ 0x3f
+
+587 .
+uÀb128
+ 0x19
+
+588 .
+uÀb128
+ 0x3
+
+589 .
+uÀb128
+ 0xe
+
+590 .
+uÀb128
+ 0x3a
+
+591 .
+uÀb128
+ 0xb
+
+592 .
+uÀb128
+ 0x3b
+
+593 .
+uÀb128
+ 0xb
+
+594 .
+uÀb128
+ 0x27
+
+595 .
+uÀb128
+ 0x19
+
+596 .
+uÀb128
+ 0x11
+
+597 .
+uÀb128
+ 0x1
+
+598 .
+uÀb128
+ 0x12
+
+599 .
+uÀb128
+ 0x6
+
+600 .
+uÀb128
+ 0x40
+
+601 .
+uÀb128
+ 0x18
+
+602 .
+uÀb128
+ 0x2116
+
+603 .
+uÀb128
+ 0x19
+
+604 .
+byã
+ 0
+
+605 .
+byã
+ 0
+
+606 .
+uÀb128
+ 0x7
+
+607 .
+uÀb128
+ 0x34
+
+608 .
+byã
+ 0
+
+609 .
+uÀb128
+ 0x3
+
+610 .
+uÀb128
+ 0xe
+
+611 .
+uÀb128
+ 0x3a
+
+612 .
+uÀb128
+ 0xb
+
+613 .
+uÀb128
+ 0x3b
+
+614 .
+uÀb128
+ 0xb
+
+615 .
+uÀb128
+ 0x49
+
+616 .
+uÀb128
+ 0x13
+
+617 .
+uÀb128
+ 0x3f
+
+618 .
+uÀb128
+ 0x19
+
+619 .
+uÀb128
+ 0x2
+
+620 .
+uÀb128
+ 0x18
+
+621 .
+byã
+ 0
+
+622 .
+byã
+ 0
+
+623 .
+uÀb128
+ 0x8
+
+624 .
+uÀb128
+ 0xf
+
+625 .
+byã
+ 0
+
+626 .
+uÀb128
+ 0xb
+
+627 .
+uÀb128
+ 0xb
+
+628 .
+uÀb128
+ 0x49
+
+629 .
+uÀb128
+ 0x13
+
+630 .
+byã
+ 0
+
+631 .
+byã
+ 0
+
+632 .
+uÀb128
+ 0x9
+
+633 .
+uÀb128
+ 0x26
+
+634 .
+byã
+ 0
+
+635 .
+uÀb128
+ 0x49
+
+636 .
+uÀb128
+ 0x13
+
+637 .
+byã
+ 0
+
+638 .
+byã
+ 0
+
+639 .
+byã
+ 0
+
+640 .
+£˘i⁄
+ .
+debug_¨™ges
+,"",@
+	g¥ogbôs
+
+
+642 .
+	gvÆue
+ 0x2
+
+643 ..
+	gLdebug_öfo0
+
+
+644 .
+	gbyã
+ 0x4
+
+645 .
+	gbyã
+ 0
+
+646 .
+	gvÆue
+ 0
+
+647 .
+	gvÆue
+ 0
+
+648 ..
+	gLãxt0
+
+
+649 ..
+	gLëext0
+-.
+	gLãxt0
+
+
+652 .
+	g£˘i⁄
+ .
+	gdebug_löe
+,"",@
+	g¥ogbôs
+
+
+653 .
+	gLdebug_löe0
+:
+
+654 .
+£˘i⁄
+ .
+debug_°r
+,"MS",@
+	g¥ogbôs
+,1
+
+655 .
+	gLASF3
+:
+
+656 .
+°rög
+ "longÜong int"
+
+657 .
+LASF2
+:
+
+658 .
+°rög
+ "unsigned int"
+
+659 .
+LASF0
+:
+
+660 .
+°rög
+ "unsigned char"
+
+661 .
+LASF14
+:
+
+662 .
+°rög
+ "ssuos_main"
+
+663 .
+LASF7
+:
+
+664 .
+°rög
+ "longÜong unsigned int"
+
+665 .
+LASF18
+:
+
+666 .
+°rög
+ "Glob_y"
+
+667 .
+LASF23
+:
+
+668 .
+°rög
+ "arch/Main.c"
+
+669 .
+LASF12
+:
+
+670 .
+°rög
+ "SYS_SHUTDOWN"
+
+671 .
+LASF11
+:
+
+672 .
+°rög
+ "SYS_SSUREAD"
+
+673 .
+LASF19
+:
+
+674 .
+°rög
+ "VERSION"
+
+675 .
+LASF1
+:
+
+676 .
+°rög
+ "char"
+
+677 .
+LASF20
+:
+
+678 .
+°rög
+ "AUTHOR"
+
+679 .
+LASF15
+:
+
+680 .
+°rög
+ "main_init"
+
+681 .
+LASF25
+:
+
+682 .
+°rög
+ "SYS_LIST"
+
+683 .
+LASF17
+:
+
+684 .
+°rög
+ "Glob_x"
+
+685 .
+LASF8
+:
+
+686 .
+°rög
+ "SYS_FORK"
+
+687 .
+LASF22
+:
+
+688 .
+°rög
+ "GNU C11 5.4.0 20160609 -m32 -mtune=generic -march=i686 -g -O0 -ffreestanding -fno-stack-protector"
+
+689 .
+LASF9
+:
+
+690 .
+°rög
+ "SYS_EXIT"
+
+691 .
+LASF6
+:
+
+692 .
+°rög
+ "short unsigned int"
+
+693 .
+LASF24
+:
+
+694 .
+°rög
+ "/media/jahn/External1/os/p5/ssuos/src/kernel"
+
+695 .
+LASF16
+:
+
+696 .
+°rög
+ "print_contributors"
+
+697 .
+LASF10
+:
+
+698 .
+°rög
+ "SYS_WAIT"
+
+699 .
+LASF5
+:
+
+700 .
+°rög
+ "short int"
+
+701 .
+LASF21
+:
+
+702 .
+°rög
+ "MODIFIER"
+
+703 .
+LASF13
+:
+
+704 .
+°rög
+ "SYS_NUM"
+
+705 .
+LASF4
+:
+
+706 .
+°rög
+ "signed char"
+
+707 .
+idít
+ "GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.10) 5.4.0 20160609"
+
+708 .
+£˘i⁄
+ .
+nŸe
+.
+GNU
+-
+°ack
+,"",@
+	g¥ogbôs
+
 
 	@device/block.c
 
@@ -18685,51 +22091,59 @@ PAGE_FLAG_PRESENT
 	~<¥oc/¥oc.h
 >
 
-16 
+10 
+	~<°dboﬁ.h
+>
+
+11 
+	~<öãºu±.h
+>
+
+18 
 	sk∑ge
 {
 
-17 
+19 
 uöt32_t
  
 	mty≥
 ;
 
-18 
+20 
 uöt32_t
  *
 	mvaddr
 ;
 
-19 
+21 
 uöt32_t
  
 	m«Œoc
 ;
 
-20 
+22 
 pid_t
  
 	mpid
 ;
 
-24 
+26 
 k∑ge
  *
 	gk∑ge_li°
 ;
 
-25 
+27 
 uöt32_t
  
 	g∑ge_Æloc_ödex
 ;
 
-29 
+31 
 	$öô_∑Œoc
  ()
 
-32 
+34 
 size_t
  
 poﬁ_size
@@ -18739,7 +22153,7 @@ k∑ge
 PAGE_POOL_SIZE
 ;
 
-35 
+37 
 k∑ge_li°
  = (
 k∑ge
@@ -18747,7 +22161,7 @@ k∑ge
 KERNEL_ADDR
 );
 
-38 
+40 
 	`mem£t
 ((*)
 k∑ge_li°
@@ -18755,19 +22169,19 @@ k∑ge_li°
 poﬁ_size
 );
 
-39 
+41 
 ∑ge_Æloc_ödex
  = 0;
 
-40 
+42 
 	}
 }
 
-44 
+46 
 uöt32_t
  *
 
-45 
+47 
 	$∑Œoc_gë_mu…ùÀ
  (
 uöt32_t
@@ -18779,69 +22193,227 @@ size_t
 ∑ge_˙t
 )
 
-47 *
+49 *
 ∑ges
  = 
 NULL
 ;
 
-48 
+50 
 k∑ge
  *k∑gê
 k∑ge_li°
 ;
 
-49 
-size_t
- 
-∑ge_idx
-;
-
-50 
+51 
 i
 ,
 j
+,
+kp˙t
+,
+found
+ = 
+Ál£
 ;
 
-52 i‡(
+53 i‡(
 ∑ge_˙t
  == 0)
 
-53  
+54  
 NULL
 ;
 
-55 
+56 
 ∑ge_ty≥
 ){
 
-56 
+57 
 HEAP__
 :
 
-59 
+59 
+i
+=0;
+k∑ge
+->
+ty≥
+!=0&&i<1024;i++,kpage+=(kpage))
+
+60 if(
+k∑ge
+->
+ty≥
+ =
+FREE__
+ && k∑ge->
+«Œoc
+ =
+∑ge_˙t
+)
+
+62 
+found
+ = 
+åue
+;
+
+63 
+kp˙t
+ = 
+i
+;
+
+71 i‡(!
+found
+)
+
+73 
+∑ge_Æloc_ödex
+ +
+∑ge_˙t
+;
+
+75 
+k∑ge
+->
+ty≥
+ = 
+HEAP__
+;
+
+76 
+	`¥ötk
+("\tödex=%d\n",
+∑ge_Æloc_ödex
+);
+
+77 
+	`¥ötk
+("\ç˙t=%d\n",
+∑ge_˙t
+);
+
+78 
+k∑ge
+->
+vaddr
+ = 
+	`ø_to_va
+(
+RKERNEL_HEAP_START
++
+
+79 (
+∑ge_Æloc_ödex
+-
+∑ge_˙t
+)*
+PAGE_SIZE
+)
+
+80 -(
+∑ge_˙t
+-1)*
+PAGE_SIZE
+;
+
+81 
+k∑ge
+->
+«Œoc
+ = 
+∑ge_˙t
+;
+
+82 
+k∑ge
+->
+pid
+ = 
+cur_¥o˚ss
+->pid;
+
+83 
+	`mem£t
+((*)
+k∑ge
+->
+vaddr
+, 0, 
+PAGE_SIZE
+*
+∑ge_˙t
+);
+
+84 
+∑ges
+ = 
+k∑ge
+->
+vaddr
+;
+
+89 
+k∑ge
+->
+ty≥
+ = 
+HEAP__
+;
+
+90 
+k∑ge
+->
+pid
+ = 
+cur_¥o˚ss
+->pid;
+
+91 
+	`mem£t
+((*)
+k∑ge
+->
+vaddr
+, 0, 
+PAGE_SIZE
+*
+∑ge_˙t
+);
+
+92 
+∑ges
+ = 
+k∑ge
+->
+vaddr
+;
+
+96 
 STACK__
 :
 
-64  
+101  
 NULL
 ;
 
-68  (
+103  (
 uöt32_t
 *)
 ∑ges
 ;
 
-69 
+104 
 	}
 }
 
-73 
+108 
 uöt32_t
  *
 
-74 
+109 
 	$∑Œoc_gë_∑ge
  (
 uöt32_t
@@ -18849,17 +22421,17 @@ uöt32_t
 ∑ge_ty≥
 )
 
-76  
+111  
 	`∑Œoc_gë_mu…ùÀ
  (
 ∑ge_ty≥
 , 1);
 
-77 
+112 
 	}
 }
 
-81 
+116 
 	$∑Œoc_‰ì_mu…ùÀ
  (*
 ∑ges
@@ -18869,37 +22441,117 @@ size_t
 ∑ge_˙t
 )
 
-84 
+118 
+uöt32_t
+ *
+vaddr
+ = 
+∑ges
+;
+
+119 
 k∑ge
  *k∑gê
 k∑ge_li°
 ;
 
-86 
+121 !(
+k∑ge
+->
+vaddr
+ >= vaddr &&
+
+122 
+k∑ge
+->
+vaddr
+ - 
+PAGE_SIZE
+ * k∑ge->
+«Œoc
+ < vaddr) &&
+
+123 
+k∑ge
+ < 
+k∑ge_li°
+ + (k∑geË* 
+PAGE_POOL_SIZE
+)
+
+124 
+k∑ge
+ += (kpage);
+
+126 i‡(
+k∑ge
+ >
+k∑ge_li°
+ + (k∑geË* 
+PAGE_POOL_SIZE
+)
+
+130 i‡((
+∑ges
+ =
+k∑ge
+->
+vaddr
+Ë&& (
+∑ge_˙t
+ =k∑ge->
+«Œoc
+))
+
+131 
+k∑ge
+->
+ty≥
+ = 
+FREE__
+;
+
+133 i‡((
+uöt32_t
+*)
+∑ges
+ + 
+PAGE_SIZE
+ * 
+∑ge_˙t
+ > 
+k∑ge
+->
+vaddr
+ + PAGE_SIZE * k∑ge->
+«Œoc
+)
+
+140 
 	}
 }
 
-90 
+144 
 	$∑Œoc_‰ì_∑ge
  (*
 ∑ge
 )
 
-92 
+146 
 	`∑Œoc_‰ì_mu…ùÀ
  (
 ∑ge
 , 1);
 
-93 
+147 
 	}
 }
 
-96 
+150 
 uöt32_t
  *
 
-97 
+151 
 	$va_to_ø
  (
 uöt32_t
@@ -18907,33 +22559,33 @@ uöt32_t
 va
 ){
 
-98 i‡(
+152 i‡(
 va
  < (
 uöt32_t
 *)
-VKERNEL_HEAP_START
+RKERNEL_HEAP_START
 )
 
-99  
+153  
 va
 ;
 
-101  
+155  
 	`VH_TO_RH
 (
 va
 );
 
-103 
+157 
 	}
 }
 
-105 
+159 
 uöt32_t
  *
 
-106 
+160 
 	$ø_to_va
  (
 uöt32_t
@@ -18941,7 +22593,7 @@ uöt32_t
 ø
 ){
 
-107 i‡(
+161 i‡(
 ø
  < (
 uöt32_t
@@ -18949,25 +22601,29 @@ uöt32_t
 RKERNEL_HEAP_START
 )
 
-108  
+162  
 ø
 ;
 
-110  
+164  
 	`RH_TO_VH
 (
 ø
 );
 
-111 
+165 
 	}
 }
 
-113 
+167 
 	$∑Œoc_pf_ã°
 ()
 
-115 
+169 
+	`¥ötk
+("Test start\n");
+
+170 
 uöt32_t
  *
 ⁄e_∑ge1
@@ -18977,7 +22633,7 @@ uöt32_t
 HEAP__
 );
 
-116 
+171 
 uöt32_t
  *
 ⁄e_∑ge2
@@ -18987,7 +22643,7 @@ uöt32_t
 HEAP__
 );
 
-117 
+172 
 uöt32_t
  *
 two_∑ge1
@@ -18997,53 +22653,53 @@ two_∑ge1
 HEAP__
 ,2);
 
-118 
+173 
 uöt32_t
  *
 thªe_∑ge
 ;
 
-119 
+174 
 	`¥ötk
 ("⁄e_∑ge1 = %x\n", 
 ⁄e_∑ge1
 );
 
-120 
+175 
 	`¥ötk
 ("⁄e_∑ge2 = %x\n", 
 ⁄e_∑ge2
 );
 
-121 
+176 
 	`¥ötk
 ("two_∑ge1 = %x\n", 
 two_∑ge1
 );
 
-123 
+178 
 	`¥ötk
 ("=----------------------------------=\n");
 
-124 
+179 
 	`∑Œoc_‰ì_∑ge
 (
 ⁄e_∑ge1
 );
 
-125 
+180 
 	`∑Œoc_‰ì_∑ge
 (
 ⁄e_∑ge2
 );
 
-126 
+181 
 	`∑Œoc_‰ì_mu…ùÀ
 (
 two_∑ge1
 ,2);
 
-128 
+183 
 ⁄e_∑ge1
  = 
 	`∑Œoc_gë_∑ge
@@ -19051,7 +22707,7 @@ two_∑ge1
 HEAP__
 );
 
-129 
+184 
 two_∑ge1
  = 
 	`∑Œoc_gë_mu…ùÀ
@@ -19059,7 +22715,7 @@ two_∑ge1
 HEAP__
 ,2);
 
-130 
+185 
 ⁄e_∑ge2
  = 
 	`∑Œoc_gë_∑ge
@@ -19067,29 +22723,29 @@ HEAP__
 HEAP__
 );
 
-132 
+187 
 	`¥ötk
 ("⁄e_∑ge1 = %x\n", 
 ⁄e_∑ge1
 );
 
-133 
+188 
 	`¥ötk
 ("⁄e_∑ge2 = %x\n", 
 ⁄e_∑ge2
 );
 
-134 
+189 
 	`¥ötk
 ("two_∑ge1 = %x\n", 
 two_∑ge1
 );
 
-136 
+191 
 	`¥ötk
 ("=----------------------------------=\n");
 
-137 
+192 
 thªe_∑ge
  = 
 	`∑Œoc_gë_mu…ùÀ
@@ -19097,37 +22753,37 @@ thªe_∑ge
 HEAP__
 ,3);
 
-139 
+194 
 	`¥ötk
 ("thªe_∑gê%x\n", 
 thªe_∑ge
 );
 
-140 
+195 
 	`∑Œoc_‰ì_∑ge
 (
 ⁄e_∑ge1
 );
 
-141 
+196 
 	`∑Œoc_‰ì_∑ge
 (
 ⁄e_∑ge2
 );
 
-142 
+197 
 	`∑Œoc_‰ì_mu…ùÀ
 (
 two_∑ge1
 ,2);
 
-143 
+198 
 	`∑Œoc_‰ì_mu…ùÀ
 (
 thªe_∑ge
 , 3);
 
-144 
+199 
 	}
 }
 
@@ -48020,8 +51676,8 @@ __END_DECLS
 .
 1
 /usr/include
-87
-1564
+88
+1577
 arch/Main.c
 arch/do_syscall.c
 arch/i386/crset.asm
@@ -48032,6 +51688,7 @@ arch/i386/switch.S
 arch/interrupt.c
 arch/syscall.c
 bitmap.c
+build/Main.s
 device/block.c
 device/console.c
 device/device.c
