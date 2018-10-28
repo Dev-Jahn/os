@@ -159,7 +159,6 @@ void pd_copy(uint32_t* from, uint32_t* to)
 uint32_t* pd_create (pid_t pid)
 {
 	uint32_t *pd = palloc_get_page(HEAP__);
-
 //	pd_copy(RH_TO_VH((uint32_t*)read_cr3()), pd);
 	pd_copy(ra_to_va((uint32_t*)read_cr3()), pd);
 
@@ -168,8 +167,12 @@ uint32_t* pd_create (pid_t pid)
 
 	return pd;
 }
-void child_stack_reset(pid_t pid){// (2)
-		
+void child_stack_reset(pid_t pid){
+    uint32_t *pda = (uint32_t*)read_cr3();
+    uint32_t *pta;
+	write_cr0( read_cr0() & ~CR0_FLAG_PG);
+	/*pta = pt_pde(pda[pdi]);*/
+	write_cr0( read_cr0() | CR0_FLAG_PG);
 }
 
 void pf_handler(struct intr_frame *iframe)
@@ -194,18 +197,15 @@ void pf_handler(struct intr_frame *iframe)
         write_cr0( read_cr0() & ~CR0_FLAG_PG);
         pta = pt_pde(pda[pdi]);		//상위 20비트
         write_cr0( read_cr0() | CR0_FLAG_PG);
-		printk("\t\tPID0\n");
     }
     else{	//가상
         //pda = RH_TO_VH(pda);
 		pda = ra_to_va(pda);
 
         pta = pt_pde(pda[pdi]);		//상위20비트
-		printk("\t\tNot PID0\n");
     }
 	//페이지테이블이 없으면
     if(pta == NULL){
-		printk("\t\tno pta\n");
         write_cr0( read_cr0() & ~CR0_FLAG_PG);
 		//힙에서 할당
         pta = palloc_get_page(HEAP__);
@@ -234,10 +234,9 @@ void pf_handler(struct intr_frame *iframe)
         write_cr0( read_cr0() | CR0_FLAG_PG);
     }
     else{
-		printk("\t\tyes pta\n");
 //        pta = RH_TO_VH(pta);
 		pta = ra_to_va(pta);
-		fault_addr = (uint32_t*)((uint32_t)fault_addr & PAGE_MASK_BASE);
+		fault_addr = (uint32_t*)((uint32_t)fault_addr & PAGE_MASK_BASE);	//상위 20비트
 	       // fault_addr = VH_TO_RH(fault_addr);
 		fault_addr = va_to_ra(fault_addr);
         pta[pti] = (uint32_t)fault_addr | PAGE_FLAG_RW  | PAGE_FLAG_PRESENT;

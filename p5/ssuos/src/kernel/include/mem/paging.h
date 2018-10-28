@@ -49,5 +49,7 @@ uint32_t* pd_create (pid_t pid);
 void child_stack_reset(pid_t pid);
 uint32_t pde_idx_addr(uint32_t* addr);
 uint32_t pte_idx_addr(uint32_t* addr);
+void pd_copy(uint32_t* from, uint32_t* to);
+uint32_t* pt_pde(uint32_t pde);
 
 #endif

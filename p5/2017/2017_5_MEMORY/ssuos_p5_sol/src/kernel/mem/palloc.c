@@ -90,11 +90,12 @@ palloc_get_page (void)
 palloc_free_multiple (void *pages, size_t page_cnt) 
 {
 	struct khpage *khpage = freelist.list;
+	//가상주소상 몇번째 페이지인지
 	size_t page_idx = (((uint32_t)pages - VKERNEL_HEAP_START) / PAGE_SIZE);
 
 	if (pages == NULL || page_cnt == 0)
 		return;
-
+	//
 	if(khpage == NULL){
 		freelist.list = khpage_list + page_idx;
 		freelist.list->nalloc = page_cnt;

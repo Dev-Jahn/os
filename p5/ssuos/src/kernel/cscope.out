@@ -1,4 +1,4 @@
-cscope 15 /media/jahn/External1/os/p5/ssuos/src/kernel               0000264402
+cscope 15 /media/jahn/External1/os/p5/ssuos/src/kernel               0000264306
 	@arch/Main.c
 
 1 
@@ -21885,7 +21885,7 @@ pdi
 NULL
 ){
 
-206 
+207 
 	`wrôe_¸0
 –
 	`ªad_¸0
@@ -21893,7 +21893,7 @@ NULL
 CR0_FLAG_PG
 );
 
-208 
+209 
 ±a
  = 
 	`∑Œoc_gë_∑ge
@@ -21901,13 +21901,13 @@ CR0_FLAG_PG
 HEAP__
 );
 
-210 
+211 
 ±a
  = 
 	`va_to_ø
 (pta);
 
-211 
+212 
 	`mem£t
 (
 ±a
@@ -21915,7 +21915,7 @@ HEAP__
 PAGE_SIZE
 );
 
-213 
+214 
 pda
 [
 pdi
@@ -21929,7 +21929,7 @@ PAGE_FLAG_RW
 PAGE_FLAG_PRESENT
 ;
 
-215 
+216 
 Áu…_addr
  = (
 uöt32_t
@@ -21937,13 +21937,13 @@ uöt32_t
 PAGE_MASK_BASE
 );
 
-218 
+219 
 Áu…_addr
  = 
 	`va_to_ø
 (fault_addr);
 
-220 
+221 
 ±a
 [
 ±i
@@ -21957,13 +21957,13 @@ PAGE_FLAG_RW
 PAGE_FLAG_PRESENT
 ;
 
-223 
+224 
 ±a
  = 
 	`ø_to_va
 (pta);
 
-224 
+225 
 pdi
  = 
 	`pde_idx_addr
@@ -21971,7 +21971,7 @@ pdi
 ±a
 );
 
-225 
+226 
 ±i
  = 
 	`±e_idx_addr
@@ -21979,7 +21979,7 @@ pdi
 ±a
 );
 
-227 
+228 
 uöt32_t
  *
 tmp_±a
@@ -21991,7 +21991,7 @@ pda
 pdi
 ]);
 
-229 
+230 
 tmp_±a
 [
 ±i
@@ -22007,7 +22007,7 @@ PAGE_FLAG_RW
 PAGE_FLAG_PRESENT
 ;
 
-231 
+232 
 	`wrôe_¸0
 –
 	`ªad_¸0
@@ -22015,13 +22015,13 @@ PAGE_FLAG_PRESENT
 CR0_FLAG_PG
 );
 
-235 
+237 
 ±a
  = 
 	`ø_to_va
 (pta);
 
-236 
+238 
 Áu…_addr
  = (
 uöt32_t
@@ -22029,13 +22029,13 @@ uöt32_t
 PAGE_MASK_BASE
 );
 
-238 
+240 
 Áu…_addr
  = 
 	`va_to_ø
 (fault_addr);
 
-239 
+241 
 ±a
 [
 ±i
@@ -22049,7 +22049,7 @@ PAGE_FLAG_RW
 PAGE_FLAG_PRESENT
 ;
 
-241 
+243 
 	}
 }
 
@@ -22209,12 +22209,6 @@ k∑ge_li°
 i
 ,
 j
-,
-kp˙t
-,
-found
- = 
-Ál£
 ;
 
 53 i‡(
@@ -22239,9 +22233,15 @@ i
 k∑ge
 ->
 ty≥
-!=0&&i<1024;i++,kpage+=(kpage))
+!=0&&i<1024;
 
-60 if(
+60 
+i
+++,
+k∑ge
++=(kpage))
+
+61 if(
 k∑ge
 ->
 ty≥
@@ -22253,29 +22253,7 @@ FREE__
 ∑ge_˙t
 )
 
-62 
-found
- = 
-åue
-;
-
 63 
-kp˙t
- = 
-i
-;
-
-71 i‡(!
-found
-)
-
-73 
-∑ge_Æloc_ödex
- +
-∑ge_˙t
-;
-
-75 
 k∑ge
 ->
 ty≥
@@ -22283,51 +22261,7 @@ ty≥
 HEAP__
 ;
 
-76 
-	`¥ötk
-("\tödex=%d\n",
-∑ge_Æloc_ödex
-);
-
-77 
-	`¥ötk
-("\ç˙t=%d\n",
-∑ge_˙t
-);
-
-78 
-k∑ge
-->
-vaddr
- = 
-	`ø_to_va
-(
-RKERNEL_HEAP_START
-+
-
-79 (
-∑ge_Æloc_ödex
--
-∑ge_˙t
-)*
-PAGE_SIZE
-)
-
-80 -(
-∑ge_˙t
--1)*
-PAGE_SIZE
-;
-
-81 
-k∑ge
-->
-«Œoc
- = 
-∑ge_˙t
-;
-
-82 
+64 
 k∑ge
 ->
 pid
@@ -22335,19 +22269,15 @@ pid
 cur_¥o˚ss
 ->pid;
 
-83 
-	`mem£t
-((*)
+65 i‡(
 k∑ge
 ->
 vaddr
-, 0, 
-PAGE_SIZE
-*
-∑ge_˙t
-);
+>=
+VKERNEL_STACK_ADDR
+)
 
-84 
+66 
 ∑ges
  = 
 k∑ge
@@ -22355,7 +22285,13 @@ k∑ge
 vaddr
 ;
 
-89 
+71 i‡(
+∑ges
+ =
+NULL
+)
+
+73 
 k∑ge
 ->
 ty≥
@@ -22363,7 +22299,39 @@ ty≥
 HEAP__
 ;
 
-90 
+74 
+∑ges
+ = 
+	`ø_to_va
+(
+RKERNEL_HEAP_START
++
+
+75 (
+∑ge_Æloc_ödex
++
+∑ge_˙t
+-1)*
+PAGE_SIZE
+);
+
+76 
+k∑ge
+->
+vaddr
+ = 
+∑ges
+;
+
+77 
+k∑ge
+->
+«Œoc
+ = 
+∑ge_˙t
+;
+
+78 
 k∑ge
 ->
 pid
@@ -22371,17 +22339,63 @@ pid
 cur_¥o˚ss
 ->pid;
 
-91 
-	`mem£t
-((*)
+80 
+∑ge_Æloc_ödex
+ +
+∑ge_˙t
+;
+
+82 
+	`¥ötk
+("\tHEAP:%X\n", 
+∑ges
+);
+
+84 
+STACK__
+:
+
+86 
+i
+=0;
 k∑ge
 ->
-vaddr
-, 0, 
-PAGE_SIZE
-*
+ty≥
+!=0 && i<1024;
+
+87 
+i
+++,
+k∑ge
++=(kpage))
+
+88 if(
+k∑ge
+->
+ty≥
+ =
+FREE__
+ && k∑ge->
+«Œoc
+ =
 ∑ge_˙t
-);
+)
+
+90 
+k∑ge
+->
+ty≥
+ = 
+HEAP__
+;
+
+91 
+k∑ge
+->
+pid
+ = 
+cur_¥o˚ss
+->pid;
 
 92 
 ∑ges
@@ -22391,29 +22405,41 @@ k∑ge
 vaddr
 ;
 
-96 
-STACK__
-:
-
-101  
+99  
 NULL
 ;
 
-103  (
+101 i‡(
+∑ges
+ !
+NULL
+)
+
+102 
+	`mem£t
+(
+∑ges
+, 0, 
+PAGE_SIZE
+ * 
+∑ge_˙t
+);
+
+104  (
 uöt32_t
 *)
 ∑ges
 ;
 
-104 
+105 
 	}
 }
 
-108 
+109 
 uöt32_t
  *
 
-109 
+110 
 	$∑Œoc_gë_∑ge
  (
 uöt32_t
@@ -22421,17 +22447,17 @@ uöt32_t
 ∑ge_ty≥
 )
 
-111  
+112  
 	`∑Œoc_gë_mu…ùÀ
  (
 ∑ge_ty≥
 , 1);
 
-112 
+113 
 	}
 }
 
-116 
+117 
 	$∑Œoc_‰ì_mu…ùÀ
  (*
 ∑ges
@@ -22441,69 +22467,49 @@ size_t
 ∑ge_˙t
 )
 
-118 
-uöt32_t
- *
-vaddr
+119 
+boﬁ
+ 
+found
  = 
-∑ges
+Ál£
 ;
 
-119 
+120 
 k∑ge
  *k∑gê
 k∑ge_li°
 ;
 
-121 !(
-k∑ge
-->
-vaddr
- >= vaddr &&
-
-122 
-k∑ge
-->
-vaddr
- - 
-PAGE_SIZE
- * k∑ge->
-«Œoc
- < vaddr) &&
-
-123 
-k∑ge
- < 
-k∑ge_li°
- + (k∑geË* 
-PAGE_POOL_SIZE
-)
-
-124 
-k∑ge
- += (kpage);
-
-126 i‡(
-k∑ge
- >
-k∑ge_li°
- + (k∑geË* 
-PAGE_POOL_SIZE
-)
-
-130 i‡((
+122 i‡(
 ∑ges
  =
+NULL
+ || 
+∑ge_˙t
+ == 0)
+
+126 
+i
+=0;
+k∑ge
+->
+ty≥
+!=0 && i<1024;i++,kpage+=(kpage))
+
+127 i‡(
 k∑ge
 ->
 vaddr
-Ë&& (
-∑ge_˙t
- =k∑ge->
+ =
+∑ges
+ && k∑ge->
 «Œoc
-))
+ =
+∑ge_˙t
+)
 
-131 
+129 
 k∑ge
 ->
 ty≥
@@ -22511,47 +22517,45 @@ ty≥
 FREE__
 ;
 
-133 i‡((
-uöt32_t
-*)
-∑ges
- + 
-PAGE_SIZE
- * 
-∑ge_˙t
- > 
-k∑ge
-->
-vaddr
- + PAGE_SIZE * k∑ge->
-«Œoc
+130 
+found
+ = 
+åue
+;
+
+134 i‡(!
+found
 )
 
-140 
+136 
+	`¥ötk
+("out of bound\n");
+
+139 
 	}
 }
 
-144 
+143 
 	$∑Œoc_‰ì_∑ge
  (*
 ∑ge
 )
 
-146 
+145 
 	`∑Œoc_‰ì_mu…ùÀ
  (
 ∑ge
 , 1);
 
-147 
+146 
 	}
 }
 
-150 
+149 
 uöt32_t
  *
 
-151 
+150 
 	$va_to_ø
  (
 uöt32_t
@@ -22559,33 +22563,31 @@ uöt32_t
 va
 ){
 
-152 i‡(
+151 i‡(
 va
- < (
-uöt32_t
-*)
+ < 
 RKERNEL_HEAP_START
 )
 
-153  
+152  
 va
 ;
 
-155  
+154  
 	`VH_TO_RH
 (
 va
 );
 
-157 
+155 
 	}
 }
 
-159 
+157 
 uöt32_t
  *
 
-160 
+158 
 	$ø_to_va
  (
 uöt32_t
@@ -22593,37 +22595,35 @@ uöt32_t
 ø
 ){
 
-161 i‡(
+159 i‡(
 ø
- < (
-uöt32_t
-*)
+ < 
 RKERNEL_HEAP_START
 )
 
-162  
+160  
 ø
 ;
 
-164  
+162  
 	`RH_TO_VH
 (
 ø
 );
 
-165 
+163 
 	}
 }
 
-167 
+165 
 	$∑Œoc_pf_ã°
 ()
 
-169 
+167 
 	`¥ötk
 ("Test start\n");
 
-170 
+168 
 uöt32_t
  *
 ⁄e_∑ge1
@@ -22633,7 +22633,7 @@ uöt32_t
 HEAP__
 );
 
-171 
+169 
 uöt32_t
  *
 ⁄e_∑ge2
@@ -22643,7 +22643,7 @@ uöt32_t
 HEAP__
 );
 
-172 
+170 
 uöt32_t
  *
 two_∑ge1
@@ -22653,53 +22653,53 @@ two_∑ge1
 HEAP__
 ,2);
 
-173 
+171 
 uöt32_t
  *
 thªe_∑ge
 ;
 
-174 
+172 
 	`¥ötk
 ("⁄e_∑ge1 = %x\n", 
 ⁄e_∑ge1
 );
 
-175 
+173 
 	`¥ötk
 ("⁄e_∑ge2 = %x\n", 
 ⁄e_∑ge2
 );
 
-176 
+174 
 	`¥ötk
 ("two_∑ge1 = %x\n", 
 two_∑ge1
 );
 
-178 
+176 
 	`¥ötk
 ("=----------------------------------=\n");
 
-179 
+177 
 	`∑Œoc_‰ì_∑ge
 (
 ⁄e_∑ge1
 );
 
-180 
+178 
 	`∑Œoc_‰ì_∑ge
 (
 ⁄e_∑ge2
 );
 
-181 
+179 
 	`∑Œoc_‰ì_mu…ùÀ
 (
 two_∑ge1
 ,2);
 
-183 
+181 
 ⁄e_∑ge1
  = 
 	`∑Œoc_gë_∑ge
@@ -22707,7 +22707,7 @@ two_∑ge1
 HEAP__
 );
 
-184 
+182 
 two_∑ge1
  = 
 	`∑Œoc_gë_mu…ùÀ
@@ -22715,7 +22715,7 @@ two_∑ge1
 HEAP__
 ,2);
 
-185 
+183 
 ⁄e_∑ge2
  = 
 	`∑Œoc_gë_∑ge
@@ -22723,29 +22723,29 @@ HEAP__
 HEAP__
 );
 
-187 
+185 
 	`¥ötk
 ("⁄e_∑ge1 = %x\n", 
 ⁄e_∑ge1
 );
 
-188 
+186 
 	`¥ötk
 ("⁄e_∑ge2 = %x\n", 
 ⁄e_∑ge2
 );
 
-189 
+187 
 	`¥ötk
 ("two_∑ge1 = %x\n", 
 two_∑ge1
 );
 
-191 
+189 
 	`¥ötk
 ("=----------------------------------=\n");
 
-192 
+190 
 thªe_∑ge
  = 
 	`∑Œoc_gë_mu…ùÀ
@@ -22753,37 +22753,37 @@ thªe_∑ge
 HEAP__
 ,3);
 
-194 
+192 
 	`¥ötk
 ("thªe_∑gê%x\n", 
 thªe_∑ge
 );
 
-195 
+193 
 	`∑Œoc_‰ì_∑ge
 (
 ⁄e_∑ge1
 );
 
-196 
+194 
 	`∑Œoc_‰ì_∑ge
 (
 ⁄e_∑ge2
 );
 
-197 
+195 
 	`∑Œoc_‰ì_mu…ùÀ
 (
 two_∑ge1
 ,2);
 
-198 
+196 
 	`∑Œoc_‰ì_mu…ùÀ
 (
 thªe_∑ge
 , 3);
 
-199 
+197 
 	}
 }
 

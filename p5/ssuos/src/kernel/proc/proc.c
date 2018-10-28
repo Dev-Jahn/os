@@ -25,6 +25,7 @@ struct process *cur_process;
 int pid_num_max;
 
 uint32_t process_stack_ofs;
+extern uint32_t *PID0_PAGE_DIR;
 
 //values for pid
 static int lock_pid_simple; 
@@ -171,8 +172,64 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 	p->parent = cur_process;
 	p->simple_lock = 0;
 	p->child_pid = -1;
+	/*p->pd = palloc_get_page(HEAP__);*/
 
-    int *top = (int*)palloc_get_multiple(STACK__, 2);
+	uint32_t *sta;
+	/*child_stack_reset(cur_process->pid);*/
+	pid_t tmp_pid = cur_process->pid;
+	cur_process->pid = p->pid;
+    sta = palloc_get_multiple(STACK__, 2);
+	cur_process->pid = tmp_pid;
+    int *top = (int*)sta;
+	//add to page table
+	uint32_t pdi, pti;
+	uint32_t *pta, *pda = cur_process->pd;
+	pdi = pde_idx_addr(sta);
+	pti = pte_idx_addr(sta);
+	if (pda == PID0_PAGE_DIR)
+	{
+        write_cr0( read_cr0() & ~CR0_FLAG_PG);
+        pta = pt_pde(pda[pdi]);
+        write_cr0( read_cr0() | CR0_FLAG_PG);
+    }
+    else
+	{
+		pda = ra_to_va(pda);
+        pta = pt_pde(pda[pdi]);
+    }
+	if(pta == NULL)
+	{
+		/*printk("\tallocating pta\n");*/
+        write_cr0( read_cr0() & ~CR0_FLAG_PG);
+		//힙에서 할당
+        pta = palloc_get_page(HEAP__);
+		pta = va_to_ra(pta);
+        memset(pta,0,PAGE_SIZE);
+       	//디렉토리에 주소저장, 플래그 설정
+        pda[pdi] = (uint32_t)pta | PAGE_FLAG_RW | PAGE_FLAG_PRESENT;
+		//fault주소 상위20비트
+		sta = (uint32_t*)((uint32_t)sta & PAGE_MASK_BASE);
+
+		sta = va_to_ra(sta);
+		//테이블에 주소저장, 플래그 설정
+        pta[pti] = (uint32_t)sta | PAGE_FLAG_RW  | PAGE_FLAG_PRESENT;
+
+		pta = ra_to_va(pta);
+        pdi = pde_idx_addr(pta);	//상위10비트
+        pti = pte_idx_addr(pta);	//중간10비트
+
+        uint32_t *tmp_pta = pt_pde(pda[pdi]);
+        tmp_pta[pti] = (uint32_t)va_to_ra(pta) | PAGE_FLAG_RW | PAGE_FLAG_PRESENT;
+
+        write_cr0( read_cr0() | CR0_FLAG_PG);
+    }
+    else{
+		pta = ra_to_va(pta);
+		sta = (uint32_t*)((uint32_t)sta & PAGE_MASK_BASE);	//상위 20비트
+		sta = va_to_ra(sta );
+        pta[pti] = (uint32_t)sta | PAGE_FLAG_RW  | PAGE_FLAG_PRESENT;
+    }
+
 	int stack = (int)(top-1);
 
 	*(--top) = (int)aux;		//argument for func
@@ -189,7 +246,13 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 	*(--top) = 6; //edi
 
 	p->stack = top;
-	p->pd = pd_create(pid);
+	//copy pd from parent
+	/*p->pd = pd_create(pid);*/
+	uint32_t *tmp = palloc_get_page(HEAP__);
+	pd_copy(ra_to_va((uint32_t*)read_cr3()), tmp);
+	p->pd = va_to_ra(tmp);
+
+
 	p->elem_all.prev = NULL;
 	p->elem_all.next = NULL;
 	p->elem_stat.prev = NULL;

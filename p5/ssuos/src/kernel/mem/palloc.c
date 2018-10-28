@@ -10,6 +10,7 @@
 #include <stdbool.h>
 #include <interrupt.h>
 
+#define STACK_PAGES 2
 /* Page allocator.  Hands out memory in page-size (or
    page-multiple) chunks.  
    */
@@ -54,54 +55,56 @@ palloc_get_multiple (uint32_t page_type, size_t page_cnt)
 		return NULL;
 
 	switch(page_type){
-		case HEAP__: //(1)
+		case HEAP__:
 			//Find fitting kpage to allocate
-			for (i=0;kpage->type!=0&&i<1024;i++,kpage+=sizeof(struct kpage))
+			for (i=0;kpage->type!=0&&i<1024;
+					i++,kpage+=sizeof(struct kpage))
 				if(kpage->type == FREE__ && kpage->nalloc == page_cnt)
 				{
-					found = true;
-					kpcnt = i;
+					if (kpage->vaddr>=VKERNEL_STACK_ADDR)
+						pages = kpage->vaddr;
+					//if kpage was previously not heap, allocate new
 					break;
 				}
+			if (i == 1024)	//if kpage full
+				return NULL;
+
+			kpage->type = HEAP__;
+			kpage->pid = cur_process->pid;
 			//If not found add new kpage
-			/*
-			 *printk("\tkpage:%X\n",kpage);
-			 *printk("\tsize:%d\n",sizeof(struct kpage));
-			 */
-			if (!found)
+			if (pages == NULL)
 			{
-				page_alloc_index += page_cnt;
+				pages = ra_to_va(RKERNEL_HEAP_START+
+							(page_alloc_index+page_cnt-1)*PAGE_SIZE);
+				kpage->vaddr = pages;
 				kpage->nalloc = page_cnt;
-				/*printk("\tindex=%d\n",page_alloc_index);*/
-				kpage->type = HEAP__;
-				printk("\tindex=%d\n",page_alloc_index);
-				printk("\tpcnt=%d\n",page_cnt);
-				kpage->vaddr = ra_to_va(RKERNEL_HEAP_START+
-							(page_alloc_index-page_cnt)*PAGE_SIZE)
-							-(page_cnt-1)*PAGE_SIZE;
-				kpage->pid = cur_process->pid;
-				pages = kpage->vaddr;
+				page_alloc_index += page_cnt;
 			}
-			//If fount allocate it
-			else
-			{
-				kpage->type = HEAP__;
-				kpage->pid = cur_process->pid;
-				pages = kpage->vaddr;
-			}
-			printk("\tHEAP:%X\n", pages);
+			/*printk("\tHEAP:%X\n", pages);*/
 			break;
 		case STACK__: 
-			//(2)
-
+			//Find fitting kpage to allocate
+			for (i=0;kpage->type!=0 && i<1024;
+					i++,kpage+=sizeof(struct kpage))
+				if(kpage->type == FREE__ && kpage->nalloc == page_cnt)
+					break;
+			if (i==1024)
+				return NULL;
+			kpage->type = STACK__;
+			kpage->nalloc = page_cnt;
+			kpage->pid = cur_process->pid;
+			kpage->vaddr = pages = (void*)VKERNEL_STACK_ADDR;
 			break;
 		default:
 			return NULL;
 	}
-	if (pages == NULL)
-		;
-	else
-		memset(pages, 0, PAGE_SIZE * page_cnt);
+	if (pages != NULL)
+	{
+		if (page_type == HEAP__) 
+			memset(pages, 0, PAGE_SIZE * page_cnt);
+		else if (page_type == STACK__)
+			memset(pages - PAGE_SIZE*STACK_PAGES, 0, PAGE_SIZE*STACK_PAGES);
+	}
 		
 	return (uint32_t*)pages; 
 }
@@ -118,28 +121,26 @@ palloc_get_page (uint32_t page_type)
 	void
 palloc_free_multiple (void *pages, size_t page_cnt) 
 {
-	uint32_t *vaddr = pages;
+	bool found = false;
 	struct kpage *kpage = kpage_list;
+
+	if (pages == NULL || page_cnt == 0)
+		return;
+	
 	//Linear search for kpage where pages are in.
-	while (!(kpage->vaddr >= vaddr && 
-			 kpage->vaddr - PAGE_SIZE * kpage->nalloc < vaddr) &&
-			kpage < kpage_list + sizeof(struct kpage) * PAGE_POOL_SIZE)
-		kpage += sizeof(struct kpage);
-	//Not found
-	if (kpage >= kpage_list + sizeof(struct kpage) * PAGE_POOL_SIZE)
+	for (int i=0;kpage->type!=0 && i<1024;i++,kpage+=sizeof(struct kpage))
+		if (kpage->vaddr == pages && kpage->nalloc == page_cnt)
+		{
+			kpage->type = FREE__;
+			found = true;
+			return;
+		}
+	//If address doesn't fit to kpage
+	if (!found)
+	{
+		printk("out of bound\n");
 		return;
-	//Fount the kpage
-	//If page_cnt fits the size of kpage
-	else if ((pages == kpage->vaddr) && (page_cnt == kpage->nalloc))
-		kpage->type = FREE__;
-	//If page_cnt exceeds the size of kpage 
-	else if ((uint32_t*)pages + PAGE_SIZE * page_cnt > kpage->vaddr + PAGE_SIZE * kpage->nalloc)
-		return;
-	//If page_cnt smaller than the size of kpage, split it.
-	/*
-	 *else
-	 *    ;
-	 */
+	}
 }
 
 /* Frees the page at PAGE. */

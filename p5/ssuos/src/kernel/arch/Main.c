@@ -71,11 +71,11 @@ void main_init(void)
 #ifdef SCREEN_SCROLL
 	refreshScreen();
 #endif
-	while(1); // (1)
+	/*while(1); // (1)*/
 	sema_self_test();
 	printk("========== initialization complete ==========\n\n");
 
-	while(1); //(2)
+	/*while(1); //(2)*/
 #ifdef SCREEN_SCROLL
 	refreshScreen();
 #endif
