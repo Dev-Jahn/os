@@ -151,8 +151,16 @@ void pd_copy(uint32_t* from, uint32_t* to)
 
 	for(i = 0; i < 1024; i++)
 	{
+		//초기 from 참조시 BFFFF000(pd)에 대한 fault발생
+		//pd 순회시 BFFFC000 테이블에 없는 엔트리에 대해
+		//page fault 발생
+		//BFFF5000 생성, BFFFE000 참조(fault)
+		//BFFF4000 생성, BFFFD000 참조(no fault)
+		//BFFF3000 생성, BFFFC000 참조(no fault)
 		if(from[i] & PAGE_FLAG_PRESENT)
+		{
 			pt_copy(from, to, i);
+		}
 	}
 }
 
@@ -168,11 +176,12 @@ uint32_t* pd_create (pid_t pid)
 	return pd;
 }
 void child_stack_reset(pid_t pid){
-    uint32_t *pda = (uint32_t*)read_cr3();
-    uint32_t *pta;
+    uint32_t *pda = cur_process->pd;
+    uint32_t pdi = pde_idx_addr((uint32_t*)VKERNEL_STACK_ADDR);	//상위 10비트(인덱스)
 	write_cr0( read_cr0() & ~CR0_FLAG_PG);
-	/*pta = pt_pde(pda[pdi]);*/
+	pda[pdi] = NULL;
 	write_cr0( read_cr0() | CR0_FLAG_PG);
+	uint32_t tmp = ra_to_va(pda)[0];
 }
 
 void pf_handler(struct intr_frame *iframe)

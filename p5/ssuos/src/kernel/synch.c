@@ -113,11 +113,12 @@ sema_self_test (void)
 	sema_init (&sema[0], 0);
 	sema_init (&sema[1], 0);
 	proc_create (sema_test_helper, NULL, &sema);
-	for (i = 0; i < 10; i++) 
-	{
-		sema_up (&sema[0]);
-		sema_down (&sema[1]);
-	}
+	printk("after create\n");
+	/*for (i = 0; i < 10; i++) */
+	/*{*/
+		/*sema_up (&sema[0]);*/
+		/*sema_down (&sema[1]);*/
+	/*}*/
 	printk ("done.\n");
 }
 

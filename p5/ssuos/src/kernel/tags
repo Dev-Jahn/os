@@ -42,7 +42,7 @@ CHAR_MAX	include/limits.h	12;"	d
 CHAR_MAX	include/limits.h	15;"	d
 CHAR_MIN	include/limits.h	11;"	d
 CHAR_MIN	include/limits.h	14;"	d
-CMDNUM	proc/proc.c	393;"	d	file:
+CMDNUM	proc/proc.c	452;"	d	file:
 CMD_IDENTIFY_DEVICE	device/ide.c	48;"	d	file:
 CMD_READ_SECTOR_RETRY	device/ide.c	49;"	d	file:
 CMD_WRITE_SECTOR_RETRY	device/ide.c	50;"	d	file:
@@ -307,12 +307,13 @@ SIZE_MAX	include/stdint.h	49;"	d
 SIZE_MAX	include/type.h	74;"	d
 SIZE_SCREEN	device/console.c	11;"	d	file:
 SIZE_SCROLL	device/console.c	13;"	d	file:
-SLEEP_FREQ	proc/proc.c	369;"	d	file:
+SLEEP_FREQ	proc/proc.c	428;"	d	file:
 SMALL	vsprintk.c	9;"	d	file:
 SOURCE_EXTENSIONS	.ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [ '.C', '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]$/;"	v
 SPACE	stdio.c	/^        SPACE = 1 << 2,         \/* ' ' *\/$/;"	e	enum:printf_conversion::__anon3	file:
 SPACE	vsprintk.c	6;"	d	file:
 SPECIAL	vsprintk.c	8;"	d	file:
+STACK_PAGES	mem/palloc.c	13;"	d	file:
 STACK_SIZE	proc/proc.c	15;"	d	file:
 STACK__	include/mem/palloc.h	8;"	d
 STA_BSY	device/ide.c	33;"	d	file:
@@ -336,7 +337,7 @@ THREADS_LOADER_H	include/loader.h	2;"	d
 THREADS_VADDR_H	include/vaddr.h	2;"	d
 THR_EMPTY	device/console.c	19;"	d	file:
 TIMER_MAX	arch/interrupt.c	14;"	d	file:
-TOKNUM	proc/proc.c	394;"	d	file:
+TOKNUM	proc/proc.c	453;"	d	file:
 TRUE	include/type.h	12;"	d
 Type	arch/interrupt.c	/^	unsigned short Type;$/;"	m	struct:_ID	file:
 UCHAR_MAX	include/limits.h	8;"	d
@@ -490,7 +491,7 @@ check_device_type	device/ide.c	/^check_device_type (struct ata_disk *d) $/;"	f	f
 check_sector	device/block.c	/^check_sector (struct block *block, block_sector_t sector)$/;"	f	file:
 check_user	proc/proc.c	/^bool check_user(char *id, char *password)$/;"	f
 child_pid	include/proc/proc.h	/^	int child_pid;						\/\/ 종료된 자식$/;"	m	struct:process
-child_stack_reset	mem/paging.c	/^void child_stack_reset(pid_t pid){\/\/ (2)$/;"	f
+child_stack_reset	mem/paging.c	/^void child_stack_reset(pid_t pid){$/;"	f
 clrScreen	device/console.c	/^void clrScreen(void) $/;"	f
 cmd	proc/proc.c	/^	char* cmd;$/;"	m	struct:__anon2	file:
 compilation_database_folder	.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	v

@@ -172,7 +172,6 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 	p->parent = cur_process;
 	p->simple_lock = 0;
 	p->child_pid = -1;
-	/*p->pd = palloc_get_page(HEAP__);*/
 
 	uint32_t *sta;
 	/*child_stack_reset(cur_process->pid);*/
@@ -247,11 +246,7 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 
 	p->stack = top;
 	//copy pd from parent
-	/*p->pd = pd_create(pid);*/
-	uint32_t *tmp = palloc_get_page(HEAP__);
-	pd_copy(ra_to_va((uint32_t*)read_cr3()), tmp);
-	p->pd = va_to_ra(tmp);
-
+	p->pd = pd_create(pid);
 
 	p->elem_all.prev = NULL;
 	p->elem_all.next = NULL;
@@ -262,6 +257,7 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 	list_push_back(&r_list, &p->elem_stat);
 
 	intr_set_level (old_level);
+	printk("proc create done\n");
 	return p->pid;
 }
 
