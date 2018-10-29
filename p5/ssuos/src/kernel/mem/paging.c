@@ -178,10 +178,10 @@ uint32_t* pd_create (pid_t pid)
 void child_stack_reset(pid_t pid){
     uint32_t *pda = cur_process->pd;
     uint32_t pdi = pde_idx_addr((uint32_t*)VKERNEL_STACK_ADDR);	//상위 10비트(인덱스)
+	pda = ra_to_va(pda);
 	write_cr0( read_cr0() & ~CR0_FLAG_PG);
 	pda[pdi] = NULL;
 	write_cr0( read_cr0() | CR0_FLAG_PG);
-	uint32_t tmp = ra_to_va(pda)[0];
 }
 
 void pf_handler(struct intr_frame *iframe)

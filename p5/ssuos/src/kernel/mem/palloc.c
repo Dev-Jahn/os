@@ -142,7 +142,6 @@ palloc_free_multiple (void *pages, size_t page_cnt)
 		return;
 	}
 }
-
 /* Frees the page at PAGE. */
 	void
 palloc_free_page (void *page) 
@@ -155,8 +154,11 @@ palloc_free_page (void *page)
 va_to_ra (uint32_t *va){
 	if (va < RKERNEL_HEAP_START)
 		return va;
-	else
+	else if (va > VKERNEL_STACK_ADDR)
 		return VH_TO_RH(va);
+	else
+		return ;
+		;
 }
 
 	uint32_t *

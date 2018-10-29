@@ -174,7 +174,7 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 	p->child_pid = -1;
 
 	uint32_t *sta;
-	/*child_stack_reset(cur_process->pid);*/
+	child_stack_reset(cur_process->pid);
 	pid_t tmp_pid = cur_process->pid;
 	cur_process->pid = p->pid;
     sta = palloc_get_multiple(STACK__, 2);
