@@ -178,6 +178,7 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 	cur_process->pid = p->pid;
 	child_stack_reset(tmp_pid);
     int *top = (int*)palloc_get_multiple(STACK__, 2);
+	/*printk("top:%x\n",):*/
 	//pid 복원
 	cur_process->pid = tmp_pid;
 

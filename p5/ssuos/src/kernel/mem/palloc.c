@@ -175,44 +175,43 @@ va_to_ra (uint32_t *va){
 	
 	if (va < RKERNEL_HEAP_START)
 		return va;
-	if ((uint32_t)hi < VKERNEL_STACK_ADDR)
-		hi = VKERNEL_STACK_ADDR;
-	else
+	if ((uint32_t)va < VKERNEL_STACK_ADDR)
 	{
-		int i;
-		for (i=0;kp->type!=0 && i<1024;i++)
-		{
-			if (kp->vaddr == (uint32_t*)hi)
-			{
-				if (kp->type == STACK__)
-				{
-					if(kp->pid == cur_process->pid)
-					{
-						flag = 1;
-						break;
-					}
-				}
-				else
-					break;
-			}
-			sum += kp->nalloc;
-			kp+=sizeof(struct kpage);
-		}
-		if (kp->type == 0 || i ==1024)
-		{
-			/*printk("meh..\n");*/
-			return NULL;
-		}
-		/*printk("\tra:%X\n",(uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo));*/
-		if (flag)
-		{
-			/*printk("va:%X\n", va);*/
-			/*printk("ra:%X\n", (uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo));*/
-			/*printk("va>ra>va:%X\n", ra_to_va((uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo)));*/
-		}
-		return (uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo);
+		lo = PAGE_SIZE*2 - (VKERNEL_STACK_ADDR - (uint32_t)va);
+		hi = VKERNEL_STACK_ADDR;
 	}
-	return NULL;
+	int i;
+	for (i=0;kp->type!=0 && i<1024;i++)
+	{
+		if (kp->vaddr == (uint32_t*)hi)
+		{
+			if (kp->type == STACK__)
+			{
+				if(kp->pid == cur_process->pid)
+				{
+					flag = 1;
+					break;
+				}
+			}
+			else
+				break;
+		}
+		sum += kp->nalloc;
+		kp+=sizeof(struct kpage);
+	}
+	if (kp->type == 0 || i ==1024)
+	{
+		/*printk("meh..\n");*/
+		return NULL;
+	}
+	/*printk("\tra:%X\n",(uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo));*/
+	if (flag)
+	{
+		printk("va:%X\n", va);
+		printk("ra:%X\n", (uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo));
+		/*printk("va>ra>va:%X\n", ra_to_va((uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo)));*/
+	}
+	return (uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo);
 }
  
 
