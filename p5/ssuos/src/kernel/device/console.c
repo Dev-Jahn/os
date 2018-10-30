@@ -40,7 +40,7 @@ void init_console(void)
 	Glob_y = 2;
 
 	next_line[0] = '\r';
-	next_line[1] = '\r';
+	next_line[1] = '\n';
 
 #ifdef SCREEN_SCROLL
 	buf_w = buf_s;

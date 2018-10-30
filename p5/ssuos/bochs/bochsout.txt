@@ -1,6 +1,6 @@
 00000000000i[      ] Bochs x86 Emulator 2.6.8
 00000000000i[      ]   Built from SVN snapshot on May 3, 2015
-00000000000i[      ] Compiled on Sep  5 2018 at 17:21:00
+00000000000i[      ] Compiled on Sep 17 2018 at 15:35:58
 00000000000i[      ] System configuration
 00000000000i[      ]   processors: 1 (cores=1, HT threads=1)
 00000000000i[      ]   A20 line support: yes
@@ -32,7 +32,7 @@
 00000000000i[      ]   SB16 support: no
 00000000000i[      ]   USB support: no
 00000000000i[      ]   VGA extension support: vbe
-00000000000i[MEM0  ] allocated memory at 0x7fade5db6010. after alignment, vector=0x7fade5db7000
+00000000000i[MEM0  ] allocated memory at 0x7f5e00386010. after alignment, vector=0x7f5e00387000
 00000000000i[MEM0  ] 128.00MB
 00000000000i[MEM0  ] mem block size = 0x00100000, blocks=128
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('/usr/local/share/bochs/BIOS-bochs-latest')
@@ -42,7 +42,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using utc time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Sun Oct 28 17:23:55 2018 (time0=1540715035)
+00000000000i[CMOS  ] Setting initial clock to: Mon Oct 29 18:42:05 2018 (time0=1540806125)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -138,149 +138,1407 @@
 00000336266i[BIOS  ] Shutdown flag 0
 00000336849i[BIOS  ] ram_size=0x08000000
 00000337292i[BIOS  ] ram_end=128MB
-00000356412i[BIOS  ] Found 1 cpu(s)
-00000370616i[BIOS  ] bios_table_addr: 0x000fa498 end=0x000fcc00
-00000698411i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
-00001026340i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
-00001026359i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
-00001026378i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
-00001026397i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
-00001026407i[P2ISA ] write: ELCR2 = 0x0a
-00001027177i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
-00001034858i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
-00001037137i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
-00001039255i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
-00001039480i[PIDE  ] new BM-DMA address: 0xc000
-00001040096i[BIOS  ] region 4: 0x0000c000
-00001042130i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
-00001042362i[ACPI  ] new irq line = 11
-00001042374i[ACPI  ] new irq line = 9
-00001042399i[ACPI  ] new PM base address: 0xb000
-00001042413i[ACPI  ] new SM base address: 0xb100
-00001042441i[PCI   ] setting SMRAM control register to 0x4a
-00001206534i[CPU0  ] Enter to System Management Mode
-00001206545i[CPU0  ] RSM: Resuming from System Management Mode
-00001370566i[PCI   ] setting SMRAM control register to 0x0a
-00001385432i[BIOS  ] MP table addr=0x000fa570 MPC table addr=0x000fa4a0 size=0xc8
-00001387254i[BIOS  ] SMBIOS table addr=0x000fa580
-00001389435i[BIOS  ] ACPI tables: RSDP addr=0x000fa6a0 ACPI DATA addr=0x07ff0000 size=0xf72
-00001392647i[BIOS  ] Firmware waking vector 0x7ff00cc
-00001394442i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
-00001395165i[BIOS  ] bios_table_cur_addr: 0x000fa6c4
-00001522782i[VBIOS ] VGABios $Id: vgabios.c,v 1.76 2013/02/10 08:07:03 vruppert Exp $
-00001522853i[BXVGA ] VBE known Display Interface b0c0
-00001522885i[BXVGA ] VBE known Display Interface b0c5
-00001525810i[VBIOS ] VBE Bios $Id: vbe.c,v 1.65 2014/07/08 18:02:25 vruppert Exp $
-00001870135i[BIOS  ] ata0-0: PCHS=20/16/63 translation=none LCHS=20/16/63
-00005746918i[BIOS  ] IDE time out
-00148507966i[XGUI  ] charmap update. Font Height is 16
-18160361576i[BIOS  ] Booting from 0000:7c00
-18212731157i[CPU0  ] CPU is in protected mode (active)
-18212731157i[CPU0  ] CS.mode = 32 bit
-18212731157i[CPU0  ] SS.mode = 32 bit
-18212731157i[CPU0  ] EFER   = 0x00000000
-18212731157i[CPU0  ] | EAX=ffffffff  EBX=ffffffff  ECX=ffffffff  EDX=ffffffff
-18212731157i[CPU0  ] | ESP=40000000  EBP=40000000  ESI=ffffffff  EDI=ffffffff
-18212731157i[CPU0  ] | IOPL=0 id vip vif ac vm RF nt of df if tf sf zf af pf cf
-18212731157i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-18212731157i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
-18212731157i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-18212731157i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-18212731157i[CPU0  ] |  ES:0020( 0004| 0|  0) 00020000 ffffffff 1 1
-18212731157i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-18212731157i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-18212731157i[CPU0  ] | EIP=0001054a (0001054a)
-18212731157i[CPU0  ] | CR0=0xe0000011 CR2=0x3ffffffc
-18212731157i[CPU0  ] | CR3=0x00204000 CR4=0x00000000
-18212731157i[CPU0  ] 0x0001054a>> push ebx : 53
-18212731157e[CPU0  ] exception(): 3rd (14) exception with no resolution, shutdown status is 00h, resetting
-18212731157i[SYS   ] bx_pc_system_c::Reset(HARDWARE) called
-18212731157i[CPU0  ] cpu hardware reset
-18212731157i[APIC0 ] allocate APIC id=0 (MMIO enabled) to 0x0000fee00000
-18212731157i[CPU0  ] CPUID[0x00000000]: 00000005 756e6547 6c65746e 49656e69
-18212731157i[CPU0  ] CPUID[0x00000001]: 00000633 00010800 00000008 1fcbfbff
-18212731157i[CPU0  ] CPUID[0x00000002]: 00410601 00000000 00000000 00000000
-18212731157i[CPU0  ] CPUID[0x00000003]: 00000000 00000000 00000000 00000000
-18212731157i[CPU0  ] CPUID[0x00000004]: 00000000 00000000 00000000 00000000
-18212731157i[CPU0  ] CPUID[0x00000005]: 00000040 00000040 00000003 00000020
-18212731157i[PLUGIN] reset of 'pci' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'pci2isa' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'cmos' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'dma' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'pic' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'pit' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'vga' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'floppy' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'acpi' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'ioapic' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'keyboard' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'harddrv' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'pci_ide' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'unmapped' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'biosdev' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'speaker' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'extfpuirq' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'parallel' plugin device by virtual method
-18212731157i[PLUGIN] reset of 'serial' plugin device by virtual method
-18212735819i[BIOS  ] $Revision: 12579 $ $Date: 2014-12-26 11:31:39 +0100 (Fr, 26. Dez 2014) $
-18213055059i[KBD   ] reset-disable command received
-18213065808i[BIOS  ] Starting rombios32
-18213066246i[BIOS  ] Shutdown flag 0
-18213066829i[BIOS  ] ram_size=0x08000000
-18213067272i[BIOS  ] ram_end=128MB
-18214043552i[BIOS  ] Found 1 cpu(s)
-18214057756i[BIOS  ] bios_table_addr: 0x000fa498 end=0x000fcc00
-18214385551i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
-18214713480i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
-18214713499i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
-18214713518i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
-18214713537i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
-18214713547i[P2ISA ] write: ELCR2 = 0x0a
-18214714317i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
-18214721998i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
-18214724277i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
-18214726395i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
-18214727236i[BIOS  ] region 4: 0x0000c000
-18214729270i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
-18214729502i[ACPI  ] new irq line = 11
-18214729514i[ACPI  ] new irq line = 9
-18214729581i[PCI   ] setting SMRAM control register to 0x4a
-18214893674i[CPU0  ] Enter to System Management Mode
-18214893685i[CPU0  ] RSM: Resuming from System Management Mode
-18215057706i[PCI   ] setting SMRAM control register to 0x0a
-18215072572i[BIOS  ] MP table addr=0x000fa570 MPC table addr=0x000fa4a0 size=0xc8
-18215074394i[BIOS  ] SMBIOS table addr=0x000fa580
-18215076575i[BIOS  ] ACPI tables: RSDP addr=0x000fa6a0 ACPI DATA addr=0x07ff0000 size=0xf72
-18215079787i[BIOS  ] Firmware waking vector 0x7ff00cc
-18215081582i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
-18215082305i[BIOS  ] bios_table_cur_addr: 0x000fa6c4
-18215209922i[VBIOS ] VGABios $Id: vgabios.c,v 1.76 2013/02/10 08:07:03 vruppert Exp $
-18215209993i[BXVGA ] VBE known Display Interface b0c0
-18215210025i[BXVGA ] VBE known Display Interface b0c5
-18215212950i[VBIOS ] VBE Bios $Id: vbe.c,v 1.65 2014/07/08 18:02:25 vruppert Exp $
-18215557252i[BIOS  ] ata0-0: PCHS=20/16/63 translation=none LCHS=20/16/63
-18219434035i[BIOS  ] IDE time out
-18677842106i[XGUI  ] charmap update. Font Height is 16
-22220400005i[      ] cpu loop quit, shutting down simulator
-22220400005i[CPU0  ] CPU is in real mode (halted)
-22220400005i[CPU0  ] CS.mode = 16 bit
-22220400005i[CPU0  ] SS.mode = 16 bit
-22220400005i[CPU0  ] EFER   = 0x00000000
-22220400005i[CPU0  ] | EAX=00000000  EBX=00000000  ECX=0009e080  EDX=00000000
-22220400005i[CPU0  ] | ESP=0000ff9c  EBP=0000ffb0  ESI=000e0000  EDI=0000ffac
-22220400005i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df IF tf SF zf AF PF CF
-22220400005i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-22220400005i[CPU0  ] |  CS:f000( 0004| 0|  0) 000f0000 0000ffff 0 0
-22220400005i[CPU0  ] |  DS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-22220400005i[CPU0  ] |  SS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-22220400005i[CPU0  ] |  ES:0080( 0005| 0|  0) 00000800 0000ffff 0 0
-22220400005i[CPU0  ] |  FS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-22220400005i[CPU0  ] |  GS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-22220400005i[CPU0  ] | EIP=00000863 (00000863)
-22220400005i[CPU0  ] | CR0=0x60000010 CR2=0x00000000
-22220400005i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
-22220400005i[CPU0  ] 0x00000863>> mov ax, word ptr ds:0x046c : A16C04
-22220400005i[CMOS  ] Last time is 1540716146 (Sun Oct 28 17:42:26 2018)
-22220400005i[XGUI  ] Exit
-22220400005i[      ] restoring default signal behavior
-22220400005i[SIM   ] quit_sim called with exit code 1
+00000725912i[BIOS  ] Found 1 cpu(s)
+00000740116i[BIOS  ] bios_table_addr: 0x000fa498 end=0x000fcc00
+00001067911i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001395840i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
+00001395859i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
+00001395878i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
+00001395897i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
+00001395907i[P2ISA ] write: ELCR2 = 0x0a
+00001396677i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
+00001404358i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
+00001406637i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
+00001408755i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
+00001408980i[PIDE  ] new BM-DMA address: 0xc000
+00001409596i[BIOS  ] region 4: 0x0000c000
+00001411630i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
+00001411862i[ACPI  ] new irq line = 11
+00001411874i[ACPI  ] new irq line = 9
+00001411899i[ACPI  ] new PM base address: 0xb000
+00001411913i[ACPI  ] new SM base address: 0xb100
+00001411941i[PCI   ] setting SMRAM control register to 0x4a
+00001576034i[CPU0  ] Enter to System Management Mode
+00001576045i[CPU0  ] RSM: Resuming from System Management Mode
+00001740066i[PCI   ] setting SMRAM control register to 0x0a
+00001754932i[BIOS  ] MP table addr=0x000fa570 MPC table addr=0x000fa4a0 size=0xc8
+00001756754i[BIOS  ] SMBIOS table addr=0x000fa580
+00001758935i[BIOS  ] ACPI tables: RSDP addr=0x000fa6a0 ACPI DATA addr=0x07ff0000 size=0xf72
+00001762147i[BIOS  ] Firmware waking vector 0x7ff00cc
+00001763942i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001764665i[BIOS  ] bios_table_cur_addr: 0x000fa6c4
+00001892282i[VBIOS ] VGABios $Id: vgabios.c,v 1.76 2013/02/10 08:07:03 vruppert Exp $
+00001892353i[BXVGA ] VBE known Display Interface b0c0
+00001892385i[BXVGA ] VBE known Display Interface b0c5
+00001895310i[VBIOS ] VBE Bios $Id: vbe.c,v 1.65 2014/07/08 18:02:25 vruppert Exp $
+00002239635i[BIOS  ] ata0-0: PCHS=20/16/63 translation=none LCHS=20/16/63
+00006116395i[BIOS  ] IDE time out
+00570926026i[XGUI  ] charmap update. Font Height is 16
+16318795173i[BIOS  ] Booting from 0000:7c00
+16423930295e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16424297008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16424692587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16425088179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16425483755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16425879347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16426274923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16426670499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16427066075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16427461659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16427857220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16428252813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16428648390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16429043967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16429439544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16429835121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16430230714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16430626291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16431021868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16431417445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16431813022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16432208599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16432604192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16432999769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16433395346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16433790923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16434186500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16434582095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16434977687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16435373263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16435768839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16436164415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16436560007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16436955583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16437351151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16437746728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16438142305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16438537882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16438933459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16439329052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16439724629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16440120206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16440515783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16440911360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16441306953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16441702530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16442098107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16442493684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16442889261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16443284854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16443680431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16444076008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16444471587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16444867179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16445262755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16445658347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16446053923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16446449499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16446845075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16447240659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16447636220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16448031813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16448427390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16448822967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16449218544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16449614121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16450009714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16450405291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16450800868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16451196445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16451592022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16451987599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16452383192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16452778769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16453174346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16453569923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16453965500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16454361095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16454756687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16455152263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16455547839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16455943415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16456339007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16456734583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16457130151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16457525728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16457921305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16458316882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16458712459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16459108052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16459503629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16459899206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16460294783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16460690360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16461085953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16461481530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16461877107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16462272684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16462668261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16463063854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16463459431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16463855008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16464250587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16464646179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16465041755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16465437347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16465832923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16466228499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16466624075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16467019659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16467415220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16467810813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16468206390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16468601967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16468997544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16469393121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16469788714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16470184291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16470579868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16470975445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16471371022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16471766599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16472162192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16472557769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16472953346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16473348923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16473744500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16474140095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16474535687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16474931263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16475326839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16475722415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16476118007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16476513583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16476909151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16477304728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16477700305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16478095882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16478491459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16478887052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16479282629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16479678206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16480073783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16480469360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16480864953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16481260530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16481656107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16482051684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16482447261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16482842854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16483238431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16483634008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16484029587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16484425179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16484820755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16485216347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16485611923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16486007499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16486403075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16486798659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16487194220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16487589813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16487985390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16488380967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16488776544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16489172121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16489567714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16489963291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16490358868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16490754445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16491150022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16491545599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16491941192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16492336769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16492732346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16493127923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16493523500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16493919095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16494314687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16494710263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16495105839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16495501415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16495897007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16496292583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16496688151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16497083728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16497479305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16497874882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16498270459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16498666052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16499061629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16499457206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16499852783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16500248360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16500643953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16501039530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16501435107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16501830684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16502226261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16502621854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16503017431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16503413008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16503808587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16504204179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16504599755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16504995347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16505390923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16505786499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16506182075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16506577659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16506973220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16507368813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16507764390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16508159967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16508555544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16508951121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16509346714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16509742291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16510137868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16510533445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16510929022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16511324599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16511720192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16512115769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16512511346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16512906923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16513302500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16513698095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16514093687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16514489263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16514884839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16515280415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16515676007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16516071583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16516467151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16516862728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16517258305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16517653882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16518049459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16518445052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16518840629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16519236206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16519631783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16520027360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16520422953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16520818530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16521214107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16521609684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16522005261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16522400854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16522796431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16523192008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16523587587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16523983179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16524378755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16524774347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16525169923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16525565499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16525961075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16526356659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16526752220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16527147813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16527543390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16527938967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16528334544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16528730121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16529125714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16529521291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16529916868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16530312445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16530708022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16531103599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16531499192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16531894769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16532290346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16532685923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16533081500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16533477095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16533872687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16534268263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16534663839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16535059415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16535455007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16535850583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16536246151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16536641728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16537037305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16537432882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16537828459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16538224052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16538619629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16539015206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16539410783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16539806360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16540201953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16540597530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16540993107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16541388684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16541784261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16542179854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16542575431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16542971008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16543366587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16543762179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16544157755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16544553347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16544948923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16545344499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16545740075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16546135659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16546531220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16546926813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16547322390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16547717967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16548113544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16548509121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16548904714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16549300291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16549695868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16550091445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16550487022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16550882599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16551278192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16551673769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16552069346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16552464923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16552860500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16553256095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16553651687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16554047263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16554442839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16554838415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16555234007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16555629583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16556025151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16556420728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16556816305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16557211882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16557607459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16558003052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16558398629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16558794206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16559189783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16559585360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16559980953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16560376530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16560772107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16561167684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16561563261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16561958854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16562354431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16562750008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16563145587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16563541179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16563936755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16564332347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16564727923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16565123499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16565519075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16565914659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16566310220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16566705813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16567101390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16567496967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16567892544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16568288121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16568683714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16569079291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16569474868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16569870445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16570266022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16570661599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16571057192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16571452769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16571848346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16572243923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16572639500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16573035095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16573430687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16573826263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16574221839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16574617415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16575013007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16575408583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16575804151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16576199728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16576595305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16576990882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16577386459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16577782052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16578177629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16578573206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16578968783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16579364360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16579759953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16580155530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16580551107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16580946684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16581342261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16581737854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16582133431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16582529008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16582924587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16583320179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16583715755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16584111347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16584506923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16584902499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16585298075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16585693659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16586089220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16586484813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16586880390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16587275967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16587671544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16588067121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16588462714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16588858291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16589253868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16589649445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16590045022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16590440599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16590836192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16591231769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16591627346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16592022923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16592418500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16592814095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16593209687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16593605263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16594000839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16594396415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16594792007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16595187583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16595583151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16595978728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16596374305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16596769882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16597165459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16597561052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16597956629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16598352206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16598747783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16599143360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16599538953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16599934530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16600330107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16600725684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16601121261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16601516854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16601912431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16602308008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16602703587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16603099179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16603494755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16603890347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16604285923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16604681499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16605077075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16605472659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16605868220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16606263813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16606659390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16607054967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16607450544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16607846121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16608241714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16608637291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16609032868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16609428445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16609824022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16610219599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16610615192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16611010769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16611406346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16611801923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16612197500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16612593095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16612988687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16613384263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16613779839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16614175415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16614571007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16614966583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16615362151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16615757728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16616153305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16616548882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16616944459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16617340052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16617735629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16618131206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16618526783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16618922360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16619317953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16619713530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16620109107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16620504684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16620900261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16621295854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16621691431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16622087008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16622482587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16622878179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16623273755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16623669347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16624064923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16624460499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16624856075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16625251659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16625647220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16626042813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16626438390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16626833967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16627229544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16627625121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16628020714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16628416291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16628811868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16629207445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16629603022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16629998599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16630394192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16630789769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16631185346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16631580923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16631976500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16632372095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16632767687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16633163263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16633558839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16633954415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16634350007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16634745583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16635141151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16635536728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16635932305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16636327882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16636723459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16637119052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16637514629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16637910206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16638305783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16638701360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16639096953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16639492530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16639888107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16640283684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16640679261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16641074854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16641470431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16641866008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16642261587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16642657179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16643052755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16643448347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16643843923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16644239499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16644635075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16645030659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16645426220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16645821813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16646217390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16646612967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16647008544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16647404121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16647799714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16648195291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16648590868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16648986445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16649382022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16649777599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16650173192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16650568769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16650964346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16651359923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16651755500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16652151095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16652546687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16652942263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16653337839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16653733415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16654129007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16654524583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16654920151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16655315728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16655711305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16656106882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16656502459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16656898052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16657293629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16657689206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16658084783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16658480360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16658875953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16659271530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16659667107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16660062684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16660458261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16660853854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16661249431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16661645008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16662040587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16662436179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16662831755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16663227347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16663622923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16664018499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16664414075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16664809659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16665205220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16665600813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16665996390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16666391967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16666787544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16667183121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16667578714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16667974291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16668369868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16668765445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16669161022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16669556599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16669952192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16670347769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16670743346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16671138923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16671534500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16671930095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16672325687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16672721263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16673116839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16673512415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16673908007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16674303583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16674699151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16675094728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16675490305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16675885882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16676281459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16676677052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16677072629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16677468206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16677863783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16678259360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16678654953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16679050530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16679446107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16679841684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16680237261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16680632854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16681028431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16681424008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16681819587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16682215179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16682610755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16683006347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16683401923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16683797499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16684193075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16684588659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16684984220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16685379813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16685775390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16686170967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16686566544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16686962121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16687357714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16687753291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16688148868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16688544445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16688940022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16689335599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16689731192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16690126769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16690522346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16690917923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16691313500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16691709095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16692104687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16692500263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16692895839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16693291415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16693687007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16694082583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16694478151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16694873728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16695269305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16695664882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16696060459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16696456052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16696851629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16697247206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16697642783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16698038360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16698433953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16698829530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16699225107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16699620684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16700016261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16700411854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16700807431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16701203008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16701598587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16701994179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16702389755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16702785347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16703180923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16703576499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16703972075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16704367659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16704763220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16705158813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16705554390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16705949967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16706345544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16706741121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16707136714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16707532291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16707927868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16708323445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16708719022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16709114599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16709510192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16709905769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16710301346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16710696923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16711092500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16711488095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16711883687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16712279263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16712674839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16713070415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16713466007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16713861583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16714257151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16714652728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16715048305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16715443882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16715839459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16716235052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16716630629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16717026206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16717421783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16717817360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16718212953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16718608530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16719004107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16719399684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16719795261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16720190854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16720586431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16720982008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16721377587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16721773179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16722168755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16722564347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16722959923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16723355499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16723751075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16724146659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16724542220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16724937813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16725333390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16725728967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16726124544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16726520121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16726915714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16727311291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16727706868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16728102445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16728498022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16728893599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16729289192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16729684769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16730080346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16730475923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16730871500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16731267095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16731662687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16732058263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16732453839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16732849415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16733245007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16733640583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16734036151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16734431728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16734827305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16735222882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16735618459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16736014052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16736409629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16736805206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16737200783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16737596360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16737991953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16738387530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16738783107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16739178684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16739574261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16739969854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16740365431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16740761008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16741156587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16741552179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16741947755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16742343347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16742738923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16743134499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16743530075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16743925659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16744321220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16744716813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16745112390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16745507967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16745903544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16746299121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16746694714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16747090291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16747485868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16747881445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16748277022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16748672599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16749068192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16749463769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16749859346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16750254923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16750650500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16751046095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16751441687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16751837263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16752232839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16752628415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16753024007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16753419583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16753815151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16754210728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16754606305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16755001882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16755397459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16755793052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16756188629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16756584206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16756979783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16757375360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16757770953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16758166530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16758562107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16758957684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16759353261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16759748854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16760144431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16760540008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16760935587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16761331179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16761726755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16762122347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16762517923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16762913499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16763309075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16763704659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16764100220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16764495813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16764891390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16765286967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16765682544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16766078121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16766473714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16766869291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16767264868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16767660445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16768056022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16768451599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16768847192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16769242769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16769638346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16770033923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16770429500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16770825095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16771220687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16771616263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16772011839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16772407415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16772803007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16773198583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16773594151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16773989728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16774385305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16774780882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16775176459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16775572052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16775967629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16776363206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16776758783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16777154360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16777549953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16777945530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16778341107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16778736684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16779132261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16779527854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16779923431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16780319008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16780714587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16781110179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16781505755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16781901347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16782296923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16782692499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16783088075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16783483659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16783879220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16784274813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16784670390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16785065967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16785461544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16785857121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16786252714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16786648291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16787043868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16787439445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16787835022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16788230599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16788626192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16789021769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16789417346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16789812923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16790208500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16790604095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16790999687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16791395263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16791790839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16792186415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16792582007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16792977583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16793373151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16793768728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16794164305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16794559882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16794955459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16795351052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16795746629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16796142206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16796537783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16796933360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16797328953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16797724530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16798120107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16798515684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16798911261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16799306854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16799702431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16800098008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16800493587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16800889179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16801284755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16801680347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16802075923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16802471499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16802867075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16803262659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16803658220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16804053813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16804449390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16804844967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16805240544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16805636121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16806031714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16806427291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16806822868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16807218445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16807614022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16808009599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16808405192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16808800769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16809196346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16809591923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16809987500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16810383095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16810778687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16811174263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16811569839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16811965415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16812361007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16812756583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16813152151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16813547728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16813943305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16814338882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16814734459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16815130052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16815525629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16815921206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16816316783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16816712360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16817107953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16817503530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16817899107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16818294684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16818690261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16819085854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16819481431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16819877008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16820272587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16820668179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16821063755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16821459347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16821854923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16822250499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16822646075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16823041659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16823437220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16823832813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16824228390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16824623967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16825019544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16825415121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16825810714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16826206291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16826601868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16826997445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16827393022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16827788599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16828184192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16828579769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16828975346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16829370923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16829766500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16830162095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16830557687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16830953263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16831348839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16831744415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16832140007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16832535583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16832931151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16833326728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16833722305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16834117882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16834513459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16834909052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16835304629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16835700206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16836095783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16836491360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16836886953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16837282530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16837678107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16838073684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16838469261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16838864854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16839260431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16839656008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16840051587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16840447179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16840842755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16841238347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16841633923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16842029499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16842425075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16842820659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16843216220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16843611813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16844007390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16844402967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16844798544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16845194121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16845589714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16845985291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16846380868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16846776445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16847172022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16847567599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16847963192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16848358769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16848754346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16849149923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16849545500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16849941095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16850336687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16850732263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16851127839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16851523415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16851919007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16852314583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16852710151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16853105728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16853501305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16853896882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16854292459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16854688052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16855083629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16855479206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16855874783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16856270360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16856665953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16857061530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16857457107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16857852684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16858248261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16858643854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16859039431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16859435008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16859830587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16860226179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16860621755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16861017347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16861412923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16861808499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16862204075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16862599659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16862995220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16863390813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16863786390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16864181967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16864577544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16864973121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16865368714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16865764291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16866159868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16866555445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16866951022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16867346599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16867742192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16868137769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16868533346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16868928923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16869324500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16869720095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16870115687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16870511263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16870906839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16871302415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16871698007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16872093583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16872489151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16872884728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16873280305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16873675882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16874071459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16874467052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16874862629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16875258206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16875653783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16876049360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16876444953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16876840530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16877236107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16877631684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16878027261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16878422854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16878818431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16879214008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16879609587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16880005179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16880400755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16880796347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16881191923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16881587499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16881983075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16882378659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16882774220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16883169813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16883565390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16883960967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16884356544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16884752121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16885147714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16885543291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16885938868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16886334445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16886730022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16887125599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16887521192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16887916769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16888312346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16888707923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16889103500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16889499095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16889894687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16890290263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16890685839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16891081415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16891477007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16891872583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16892268151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16892663728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16893059305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16893454882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16893850459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16894246052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16894641629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16895037206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16895432783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16895828360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16896223953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16896619530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16897015107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16897410684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16897806261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16898201854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16898597431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16898993008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16899388587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16899784179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16900179755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16900575347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16900970923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16901366499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16901762075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16902157659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16902553220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16902948813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16903344390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16903739967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16904135544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16904531121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16904926714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16905322291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16905717868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16906113445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16906509022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16906904599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16907300192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16907695769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16908091346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16908486923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16908882500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16909278095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16909673687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16910069263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16910464839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16910860415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16911256007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16911651583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16912047151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16912442728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16912838305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16913233882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16913629459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16914025052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16914420629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16914816206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16915211783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16915607360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16916002953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16916398530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16916794107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16917189684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16917585261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16917980854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16918376431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16918772008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16919167587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16919563179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16919958755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16920354347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16920749923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16921145499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16921541075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16921936659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16922332220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16922727813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16923123390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16923518967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16923914544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16924310121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16924705714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16925101291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16925496868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16925892445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16926288022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16926683599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16927079192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16927474769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16927870346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16928265923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16928661500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16929057095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16929452687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16929848263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16930243839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16930639415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16931035007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16931430583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16931826151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16932221728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16932617305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16933012882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16933408459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16933804052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16934199629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16934595206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16934990783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16935386360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16935781953e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16936177530e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16936573107e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16936968684e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16937364261e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16937759854e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16938155431e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16938551008e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16938946587e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16939342179e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16939737755e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16940133347e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16940528923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16940924499e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16941320075e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16941715659e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16942111220e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16942506813e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16942902390e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16943297967e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16943693544e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16944089121e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16944484714e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16944880291e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16945275868e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16945671445e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16946067022e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16946462599e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16946858192e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16947253769e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16947649346e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16948044923e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16948440500e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16948836095e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16949231687e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16949627263e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16950022839e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16950418415e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16950814007e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16951209583e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16951605151e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16952000728e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16952396305e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16952791882e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16953187459e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16953583052e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16953978629e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16954374206e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16954769783e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16955165360e[CPU0  ] load_seg_reg(SS): rpl != CPL
+16955400000i[      ] cpu loop quit, shutting down simulator
+16955400000i[CPU0  ] CPU is in protected mode (active)
+16955400000i[CPU0  ] CS.mode = 32 bit
+16955400000i[CPU0  ] SS.mode = 32 bit
+16955400000i[CPU0  ] EFER   = 0x00000000
+16955400000i[CPU0  ] | EAX=00000000  EBX=0001265f  ECX=40001aa5  EDX=000003fd
+16955400000i[CPU0  ] | ESP=40001b0d  EBP=40001b31  ESI=00000005  EDI=00000006
+16955400000i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf zf AF pf cf
+16955400000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+16955400000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+16955400000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+16955400000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+16955400000i[CPU0  ] |  ES:0020( 0004| 0|  0) 00020000 ffffffff 1 1
+16955400000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+16955400000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+16955400000i[CPU0  ] | EIP=0001315e (0001315e)
+16955400000i[CPU0  ] | CR0=0xe0000011 CR2=0x00200002
+16955400000i[CPU0  ] | CR3=0x00213000 CR4=0x00000000
+16955400000i[CPU0  ] 0x0001315e>> push 0x000003fd : 68FD030000
+16955400000i[CMOS  ] Last time is 1540806972 (Mon Oct 29 18:56:12 2018)
+16955400000i[XGUI  ] Exit
+16955400000i[      ] restoring default signal behavior
+16955400000i[SIM   ] quit_sim called with exit code 1

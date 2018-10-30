@@ -11,6 +11,7 @@
 #include <interrupt.h>
 
 #define STACK_PAGES 2
+#define STACK_MASK 0xFFFFE000
 /* Page allocator.  Hands out memory in page-size (or
    page-multiple) chunks.  
    */
@@ -61,7 +62,8 @@ palloc_get_multiple (uint32_t page_type, size_t page_cnt)
 					i++,kpage+=sizeof(struct kpage))
 				if(kpage->type == FREE__ && kpage->nalloc == page_cnt)
 				{
-					if (kpage->vaddr>=VKERNEL_STACK_ADDR)
+					if (kpage->vaddr>=VKERNEL_STACK_ADDR &&
+							kpage->vaddr<=VKERNEL_HEAP_START)
 						pages = kpage->vaddr;
 					//if kpage was previously not heap, allocate new
 					break;
@@ -74,8 +76,7 @@ palloc_get_multiple (uint32_t page_type, size_t page_cnt)
 			//If not found add new kpage
 			if (pages == NULL)
 			{
-				pages = ra_to_va(RKERNEL_HEAP_START+
-							(page_alloc_index+page_cnt-1)*PAGE_SIZE);
+				pages = VKERNEL_HEAP_START - (page_alloc_index + page_cnt)*PAGE_SIZE;
 				kpage->vaddr = pages;
 				kpage->nalloc = page_cnt;
 				page_alloc_index += page_cnt;
@@ -86,14 +87,16 @@ palloc_get_multiple (uint32_t page_type, size_t page_cnt)
 			//Find fitting kpage to allocate
 			for (i=0;kpage->type!=0 && i<1024;
 					i++,kpage+=sizeof(struct kpage))
-				if(kpage->type == FREE__ && kpage->nalloc == page_cnt)
+				if(kpage->type == FREE__ && kpage->nalloc == page_cnt &&
+						kpage->vaddr == (uint32_t*)VKERNEL_STACK_ADDR)
 					break;
 			if (i==1024)
 				return NULL;
 			kpage->type = STACK__;
 			kpage->nalloc = page_cnt;
 			kpage->pid = cur_process->pid;
-			kpage->vaddr = pages = (void*)VKERNEL_STACK_ADDR;
+			pages = (void*)VKERNEL_STACK_ADDR;
+			kpage->vaddr = pages;
 			break;
 		default:
 			return NULL;
@@ -105,6 +108,11 @@ palloc_get_multiple (uint32_t page_type, size_t page_cnt)
 		else if (page_type == STACK__)
 			memset(pages - PAGE_SIZE*STACK_PAGES, 0, PAGE_SIZE*STACK_PAGES);
 	}
+	if (page_type == HEAP__)
+		printk("\tHEAP:%X(%dpage)\n",pages, page_cnt);
+	if (page_type == STACK__)
+		printk("\tSTACK:%X(%dpage)\n",pages, page_cnt);
+	printk("\t\talloc ra:%X\n",va_to_ra(pages));
 		
 	return (uint32_t*)pages; 
 }
@@ -123,13 +131,18 @@ palloc_free_multiple (void *pages, size_t page_cnt)
 {
 	bool found = false;
 	struct kpage *kpage = kpage_list;
-
+	uint32_t* target = pages;
 	if (pages == NULL || page_cnt == 0)
 		return;
 	
+	if ((uint32_t)pages < VKERNEL_STACK_ADDR)
+	{
+		target = (uint32_t*)(((uint32_t)pages & (uint32_t)STACK_MASK)
+								+ (uint32_t)0x2000);
+	}
 	//Linear search for kpage where pages are in.
 	for (int i=0;kpage->type!=0 && i<1024;i++,kpage+=sizeof(struct kpage))
-		if (kpage->vaddr == pages && kpage->nalloc == page_cnt)
+		if (kpage->vaddr == target && kpage->nalloc == page_cnt)
 		{
 			kpage->type = FREE__;
 			found = true;
@@ -152,21 +165,79 @@ palloc_free_page (void *page)
 
 	uint32_t *
 va_to_ra (uint32_t *va){
+	struct kpage *kp = kpage_list;
+	uint32_t hi = (uint32_t)va & PAGE_MASK_BASE;
+	uint32_t lo = (uint32_t)va & ~PAGE_MASK_BASE;
+	size_t sum = 0;
+	int flag = 0;
+	
 	if (va < RKERNEL_HEAP_START)
 		return va;
-	else if (va > VKERNEL_STACK_ADDR)
-		return VH_TO_RH(va);
+	if ((uint32_t)hi < VKERNEL_STACK_ADDR)
+		hi = VKERNEL_STACK_ADDR;
 	else
-		return ;
-		;
+	{
+		int i;
+		for (i=0;kp->type!=0 && i<1024;i++)
+		{
+			if (kp->vaddr == (uint32_t*)hi)
+			{
+				if (kp->type == STACK__)
+				{
+					if(kp->pid == cur_process->pid)
+					{
+						flag = 1;
+						break;
+					}
+				}
+				else
+					break;
+			}
+			sum += kp->nalloc;
+			kp+=sizeof(struct kpage);
+		}
+		if (kp->type == 0 || i ==1024)
+		{
+			/*printk("meh..\n");*/
+			return NULL;
+		}
+		/*printk("\tra:%X\n",(uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo));*/
+		if (flag)
+		{
+			/*printk("va:%X\n", va);*/
+			/*printk("ra:%X\n", (uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo));*/
+			/*printk("va>ra>va:%X\n", ra_to_va((uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo)));*/
+		}
+		return (uint32_t*)(RKERNEL_HEAP_START + PAGE_SIZE*sum + lo);
+	}
+	return NULL;
 }
+ 
 
 	uint32_t *
 ra_to_va (uint32_t *ra){
+	struct kpage *kp = kpage_list;
+	uint32_t hi = (uint32_t)ra & PAGE_MASK_BASE;
+	uint32_t lo = (uint32_t)ra & ~PAGE_MASK_BASE;
+	size_t npages, sum = 0;
+	/*printk(("ra:%X\n",(uint32_t)ra));*/
 	if (ra < RKERNEL_HEAP_START)
 		return ra;
 	else
-		return RH_TO_VH(ra);
+	{
+		int i;
+		npages = (hi - RKERNEL_HEAP_START)/PAGE_SIZE;
+		for (i=0;kp->type!=0 && i<1024;i++)
+		{
+			if (sum == npages)
+				break;
+			sum += kp->nalloc;
+			kp+=sizeof(struct kpage);
+		}
+		if (kp->type == 0 || i ==1024)
+			return NULL;
+		return kp->vaddr + lo;
+	}
 }
 
 void palloc_pf_test(void)

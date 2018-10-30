@@ -174,60 +174,64 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 	p->child_pid = -1;
 
 	uint32_t *sta;
-	child_stack_reset(cur_process->pid);
 	pid_t tmp_pid = cur_process->pid;
+	//pid임시변환
 	cur_process->pid = p->pid;
+	child_stack_reset(tmp_pid);
     sta = palloc_get_multiple(STACK__, 2);
-	cur_process->pid = tmp_pid;
     int *top = (int*)sta;
 	//add to page table
-	uint32_t pdi, pti;
-	uint32_t *pta, *pda = cur_process->pd;
-	pdi = pde_idx_addr(sta);
-	pti = pte_idx_addr(sta);
-	if (pda == PID0_PAGE_DIR)
-	{
-        write_cr0( read_cr0() & ~CR0_FLAG_PG);
-        pta = pt_pde(pda[pdi]);
-        write_cr0( read_cr0() | CR0_FLAG_PG);
-    }
-    else
-	{
-		pda = ra_to_va(pda);
-        pta = pt_pde(pda[pdi]);
-    }
-	if(pta == NULL)
-	{
-		/*printk("\tallocating pta\n");*/
-        write_cr0( read_cr0() & ~CR0_FLAG_PG);
-		//힙에서 할당
-        pta = palloc_get_page(HEAP__);
-		pta = va_to_ra(pta);
-        memset(pta,0,PAGE_SIZE);
-       	//디렉토리에 주소저장, 플래그 설정
-        pda[pdi] = (uint32_t)pta | PAGE_FLAG_RW | PAGE_FLAG_PRESENT;
-		//fault주소 상위20비트
-		sta = (uint32_t*)((uint32_t)sta & PAGE_MASK_BASE);
-
-		sta = va_to_ra(sta);
-		//테이블에 주소저장, 플래그 설정
-        pta[pti] = (uint32_t)sta | PAGE_FLAG_RW  | PAGE_FLAG_PRESENT;
-
-		pta = ra_to_va(pta);
-        pdi = pde_idx_addr(pta);	//상위10비트
-        pti = pte_idx_addr(pta);	//중간10비트
-
-        uint32_t *tmp_pta = pt_pde(pda[pdi]);
-        tmp_pta[pti] = (uint32_t)va_to_ra(pta) | PAGE_FLAG_RW | PAGE_FLAG_PRESENT;
-
-        write_cr0( read_cr0() | CR0_FLAG_PG);
-    }
-    else{
-		pta = ra_to_va(pta);
-		sta = (uint32_t*)((uint32_t)sta & PAGE_MASK_BASE);	//상위 20비트
-		sta = va_to_ra(sta );
-        pta[pti] = (uint32_t)sta | PAGE_FLAG_RW  | PAGE_FLAG_PRESENT;
-    }
+/*
+ *    uint32_t pdi, pti;
+ *    uint32_t *pta, *pda = cur_process->pd;
+ *    pdi = pde_idx_addr(sta);
+ *    pti = pte_idx_addr(sta);
+ *    if (pda == PID0_PAGE_DIR)
+ *    {
+ *        write_cr0( read_cr0() & ~CR0_FLAG_PG);
+ *        pta = pt_pde(pda[pdi]);
+ *        write_cr0( read_cr0() | CR0_FLAG_PG);
+ *    }
+ *    else
+ *    {
+ *        pda = ra_to_va(pda);
+ *        pta = pt_pde(pda[pdi]);
+ *    }
+ *    if(pta == NULL)
+ *    {
+ *        write_cr0( read_cr0() & ~CR0_FLAG_PG);
+ *        //힙에서 할당
+ *        pta = palloc_get_page(HEAP__);
+ *        pta = va_to_ra(pta);
+ *        memset(pta,0,PAGE_SIZE);
+ *        //디렉토리에 주소저장, 플래그 설정
+ *        pda[pdi] = (uint32_t)pta | PAGE_FLAG_RW | PAGE_FLAG_PRESENT;
+ *        //fault주소 상위20비트
+ *        sta = (uint32_t*)((uint32_t)sta & PAGE_MASK_BASE);
+ *
+ *        sta = va_to_ra(sta);
+ *        //테이블에 주소저장, 플래그 설정
+ *        pta[pti] = (uint32_t)sta | PAGE_FLAG_RW  | PAGE_FLAG_PRESENT;
+ *
+ *        pta = ra_to_va(pta);
+ *        pdi = pde_idx_addr(pta);	//상위10비트
+ *        pti = pte_idx_addr(pta);	//중간10비트
+ *
+ *        uint32_t *tmp_pta = pt_pde(pda[pdi]);
+ *        tmp_pta[pti] = (uint32_t)va_to_ra(pta) | PAGE_FLAG_RW | PAGE_FLAG_PRESENT;
+ *
+ *        write_cr0( read_cr0() | CR0_FLAG_PG);
+ *    }
+ *    else{
+ *        [>printk("putting in\n");<]
+ *        pta = ra_to_va(pta);
+ *        sta = (uint32_t*)((uint32_t)sta & PAGE_MASK_BASE);	//상위 20비트
+ *        sta = va_to_ra(sta );
+ *        pta[pti] = (uint32_t)sta | PAGE_FLAG_RW  | PAGE_FLAG_PRESENT;
+ *    }
+ */
+	//pid 복원
+	cur_process->pid = tmp_pid;
 
 	int stack = (int)(top-1);
 
@@ -257,7 +261,6 @@ pid_t proc_create(proc_func func, struct proc_option *opt, void* aux)
 	list_push_back(&r_list, &p->elem_stat);
 
 	intr_set_level (old_level);
-	printk("proc create done\n");
 	return p->pid;
 }
 
@@ -521,9 +524,10 @@ void shell_proc(void* aux)
 
 void idle(void* aux)
 {
-	
 	proc_create(kernel1_proc, NULL, NULL);
+	printk("\n\n");
 	proc_create(kernel2_proc, NULL, NULL);
+	printk("\n\n");
 	proc_create(login_prompt,NULL,NULL);
 
 	while(1) {  
