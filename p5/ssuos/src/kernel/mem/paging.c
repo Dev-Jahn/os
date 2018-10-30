@@ -47,6 +47,7 @@ void init_paging()
 	printk("-PE=%d, PT=%d\n", NUM_PE, NUM_PT);
 	printk("-page dir=%x page tbl=%x\n", page_dir, page_tbl);
 
+
 	//페이지 디렉토리 구성
 	page_dir[0] = (uint32_t)page_tbl | PAGE_FLAG_RW | PAGE_FLAG_PRESENT;
 	
@@ -58,7 +59,6 @@ void init_paging()
 			| PAGE_FLAG_PRESENT;
 		//writable & present
 	}
-
 
 	//CR0레지스터 설정
 	cr0_paging_set = read_cr0() | CR0_FLAG_PG;		// PG bit set
@@ -124,11 +124,12 @@ void  pt_copy(uint32_t *pd, uint32_t *dest_pd, uint32_t idx)
 	uint32_t *new_pt;
 	uint32_t i;
 
+#ifdef TEST
 	printk("NEW-PT(from:%X)\n",pt);
+#endif
 //	pt = RH_TO_VH(pt);
 	pt = ra_to_va(pt);
     new_pt = palloc_get_page(HEAP__);
-	printk("\t\tra:%X\n",va_to_ra(new_pt));
  
     for(i = 0; i<1024; i++)
     {
@@ -168,9 +169,11 @@ void pd_copy(uint32_t* from, uint32_t* to)
 
 uint32_t* pd_create (pid_t pid)
 {
-	printk("NEW-PD\n");
 	uint32_t *pd = palloc_get_page(HEAP__);
+#ifdef TEST
+	printk("NEW-PD\n");
 	printk("\t\tra:%X\n",va_to_ra(pd));
+#endif
 //	pd_copy(RH_TO_VH((uint32_t*)read_cr3()), pd);
 	pd_copy(ra_to_va((uint32_t*)read_cr3()), pd);
 
@@ -183,12 +186,14 @@ void child_stack_reset(pid_t pid){
     uint32_t *pda = cur_process->pd;
     uint32_t pdi = pde_idx_addr((uint32_t*)VKERNEL_STACK_ADDR);	//상위 10비트(인덱스)
 	pda = ra_to_va(pda);
-	printk("reset:%X\n",pda[pdi]);
-	/*printk("pda[pdi]:%X\n",pda[pdi]);*/
+#ifdef TEST
+	printk("(reset):%X\n",pda[pdi]);
+	printk("(pda):%X\n",pda);
+	printk("(pdi):%d\n",pdi);
+#endif
 	/*write_cr0( read_cr0() & ~CR0_FLAG_PG);*/
-	if(pid == 0 && pda[0] != NULL)
+	if(pid == 0 && (pda[0] != NULL))
 		pda[pdi] = NULL;
-	/*pda[pdi] = pda[pdi] & ~PAGE_FLAG_PRESENT;*/
 	/*write_cr0( read_cr0() | CR0_FLAG_PG);*/
 }
 
@@ -198,7 +203,8 @@ void pf_handler(struct intr_frame *iframe)
 
 	asm ("movl %%cr2, %0" : "=r" (fault_addr));
 	//fault가 발생한 주소
-	printk("Page fault : %X(PID:%d)\n",fault_addr,cur_process->pid);
+	printk("Page fault : %X\n",fault_addr);
+	/*printk("Page fault : %X(PID:%d)\n",fault_addr,cur_process->pid);*/
 #ifdef SCREEN_SCROLL
 	refreshScreen();
 #endif

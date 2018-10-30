@@ -108,11 +108,13 @@ palloc_get_multiple (uint32_t page_type, size_t page_cnt)
 		else if (page_type == STACK__)
 			memset(pages - PAGE_SIZE*STACK_PAGES, 0, PAGE_SIZE*STACK_PAGES);
 	}
+#ifdef TEST
 	if (page_type == HEAP__)
 		printk("\tHEAP:%X(%dpage)\n",pages, page_cnt);
 	if (page_type == STACK__)
 		printk("\tSTACK:%X(%dpage)\n",pages, page_cnt);
 	printk("\t\talloc ra:%X\n",va_to_ra(pages));
+#endif
 		
 	return (uint32_t*)pages; 
 }
@@ -242,7 +244,6 @@ ra_to_va (uint32_t *ra){
 
 void palloc_pf_test(void)
 {
-	printk("Test start\n");
 	uint32_t *one_page1 = palloc_get_page(HEAP__);
 	uint32_t *one_page2 = palloc_get_page(HEAP__);
 	uint32_t *two_page1 = palloc_get_multiple(HEAP__,2);
