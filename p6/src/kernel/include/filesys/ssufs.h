@@ -62,6 +62,9 @@ int ssufs_writeblock(struct ssufs_superblock *sb, uint32_t blknum, char *buf);
 int ssufs_load_databitmapblock(struct ssufs_superblock *sb);
 int ssufs_load_inodebitmapblock(struct ssufs_superblock *sb);
 int ssufs_load_inodetable(struct ssufs_superblock *sb);
+int ssufs_sync_bitmapblock(struct ssufs_superblock *sb);
+int ssufs_sync_inodetable(struct ssufs_superblock *sb);
+
 
 int ssufs_sync(struct ssufs_superblock *sb);
 int ssufs_inode_write(struct ssufs_inode *inode, uint32_t offset, char *buf, uint32_t len);
