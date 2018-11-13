@@ -308,11 +308,6 @@ struct vnode *make_vnode_tree(struct ssufs_superblock *sb, struct vnode *mnt_roo
 	struct ssufs_inode *cur_inode;
 
 	rec_tree(sb, mnt_root);
-	
-
-
-
-
 
 	return mnt_root;
 }
@@ -397,26 +392,38 @@ int ssufs_mkdir(char *dirname){
 	struct dirent new_dirent;
 	struct vnode *new_vnode = vnode_alloc();
 	struct ssufs_inode *new_inode = inode_alloc(SSU_DIR_TYPE);
+	new_inode->i_nlink = 2;
+
 	//add self
 	new_dirent.d_ino = new_inode->i_no;
 	new_dirent.d_type = SSU_DIR_TYPE;
 	memcpy(new_dirent.d_name, ".", sizeof("."));
 	ssufs_inode_write(new_inode, 0, (char*)&new_dirent, sizeof(struct dirent));
+
 	//add parent
 	new_dirent.d_ino = ((struct ssufs_inode*)(cur_process->cwd->info))->i_no;
 	new_dirent.d_type = SSU_DIR_TYPE;
 	memcpy(new_dirent.d_name, "..", sizeof(".."));
 	ssufs_inode_write(new_inode, new_inode->i_size, (char*)&new_dirent, sizeof(struct dirent));
+
 	//add new inode to parent direct
+	new_dirent.d_ino = new_inode->i_no;
+	new_dirent.d_type = SSU_DIR_TYPE;
+	memcpy(new_dirent.d_name, dirname, strnlen(dirname, FILENAME_LEN)+1);
+	ssufs_inode_write(cur_process->cwd->info,
+			((struct ssufs_inode*)cur_process->cwd->info)->i_size,
+			(char*)&new_dirent, sizeof(struct dirent));
 
-
-	
-	/*
-	 *ssufs_sync_bitmapblock(new_inode->ssufs_sb);
-	 *ssufs_sync_inodetable(new_inode->ssufs_sb);
-	 */
-
+	//set vnode with inode
 	set_vnode(new_vnode, cur_process->cwd, new_inode);
+
+	//add to parent child list
+	list_push_back(&cur_process->cwd->childlist, &new_vnode->elem);
+
+	//sync
+	ssufs_sync_bitmapblock(new_inode->ssufs_sb);
+	ssufs_sync_inodetable(new_inode->ssufs_sb);
+
 	/*ssufs_inode_read();*/
 	return 0;
 }

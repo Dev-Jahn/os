@@ -315,7 +315,6 @@ void uname_proc(void* aux)
 void mkdir_proc(void* aux)
 {
 	char *dir_name = (char *)aux;
-
 	cur_process->cwd->v_op.mkdir(dir_name);
 }
 

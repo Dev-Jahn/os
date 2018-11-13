@@ -81,6 +81,7 @@ struct vnode *do_mount(char *volname, char *dirname){
 	switch(fs_info->filesystem){
 		case SSUFS:
 		mnt_vnode = init_ssufs(fs_info->name, fs_info->superblock_offset, mnt_vnode);
+		/*mnt_vnode->v_op.mkdir = ssufs_mkdir;*/
 		break;
 		case PROCFS:
 		mnt_vnode = init_procfs(mnt_vnode);
