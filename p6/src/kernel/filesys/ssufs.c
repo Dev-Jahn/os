@@ -297,12 +297,52 @@ struct ssufs_inode *inode_alloc(uint32_t type){
 
 /********************************************************* inode end ************************************************************/
 
+void rec_tree(struct ssufs_superblock *sb, struct vnode *root);
 struct vnode *make_vnode_tree(struct ssufs_superblock *sb, struct vnode *mnt_root)
 {
 	struct ssufs_inode *root_inode = &ssufs_inode_table[INODE_ROOT];
 	list_init(&mnt_root->childlist);
+	struct vnode *new_vnode;
+	struct vnode *parent_vnode;
+	struct dirent *parent_de;
+	struct ssufs_inode *cur_inode;
+
+	rec_tree(sb, mnt_root);
+	
+
+
+
+
 
 	return mnt_root;
+}
+
+void rec_tree(struct ssufs_superblock *sb, struct vnode *root)
+{
+	struct ssufs_inode *cwd = root->info;
+	struct vnode *child;
+	struct dirent *de;
+	int i, ndir;
+
+	ndir = num_direntry(cwd);
+	for (i=2; i<ndir; i++)
+	{
+		ssufs_inode_read(cwd, i*sizeof(struct dirent), (char*)de, sizeof(struct dirent));
+		if (!bitmap_test(sb->inodemap, de->d_ino))
+			continue;
+		if (de->d_type == SSU_REG_TYPE)
+		{
+			child = set_vnode(vnode_alloc(), root, &ssufs_inode_table[de->d_ino]);
+			list_push_back(&root->childlist,&child->elem);
+		}
+		else if (de->d_type == SSU_DIR_TYPE)
+		{
+			child = set_vnode(vnode_alloc(), root, &ssufs_inode_table[de->d_ino]);
+			list_push_back(&root->childlist,&child->elem);
+			rec_tree(sb, child);
+		}
+		else continue;	//exception
+	}
 }
 
 static int num_direntry(struct ssufs_inode *inode)
@@ -313,7 +353,7 @@ static int num_direntry(struct ssufs_inode *inode)
 	return inode->i_size / sizeof(struct dirent);
 }
 
-void set_vnode(struct vnode *vnode, struct vnode *parent_vnode, struct ssufs_inode *inode)
+struct vnode *set_vnode(struct vnode *vnode, struct vnode *parent_vnode, struct ssufs_inode *inode)
 {
 	struct dirent dirent;
 	struct ssufs_inode *parent_inode;
@@ -329,6 +369,7 @@ void set_vnode(struct vnode *vnode, struct vnode *parent_vnode, struct ssufs_ino
 	vnode->v_op.ls = NULL;
 
 	vnode->info = (void *)inode;
+	return vnode;
 }
 
 int get_curde(struct ssufs_inode *cwd, struct dirent * de)
@@ -337,7 +378,8 @@ int get_curde(struct ssufs_inode *cwd, struct dirent * de)
 	int i, ndir;
 
 	//get parent dir
-	ssufs_inode_read(cwd, 0, (char*)de, sizeof(struct dirent));
+	ssufs_inode_read(cwd, 1*sizeof(struct dirent), (char*)de, sizeof(struct dirent));
+	/*ssufs_inode_read(cwd, 0, (char*)de, sizeof(struct dirent));*/
 	pwd = &ssufs_inode_table[de->d_ino];
 	ndir = num_direntry(pwd);
 
@@ -352,6 +394,29 @@ int get_curde(struct ssufs_inode *cwd, struct dirent * de)
 
 //**************************************************     vnode operation      *****************************************************/
 int ssufs_mkdir(char *dirname){
+	struct dirent new_dirent;
+	struct vnode *new_vnode = vnode_alloc();
+	struct ssufs_inode *new_inode = inode_alloc(SSU_DIR_TYPE);
+	//add self
+	new_dirent.d_ino = new_inode->i_no;
+	new_dirent.d_type = SSU_DIR_TYPE;
+	memcpy(new_dirent.d_name, ".", sizeof("."));
+	ssufs_inode_write(new_inode, 0, (char*)&new_dirent, sizeof(struct dirent));
+	//add parent
+	new_dirent.d_ino = ((struct ssufs_inode*)(cur_process->cwd->info))->i_no;
+	new_dirent.d_type = SSU_DIR_TYPE;
+	memcpy(new_dirent.d_name, "..", sizeof(".."));
+	ssufs_inode_write(new_inode, new_inode->i_size, (char*)&new_dirent, sizeof(struct dirent));
+	//add new inode to parent direct
 
+
+	
+	/*
+	 *ssufs_sync_bitmapblock(new_inode->ssufs_sb);
+	 *ssufs_sync_inodetable(new_inode->ssufs_sb);
+	 */
+
+	set_vnode(new_vnode, cur_process->cwd, new_inode);
+	/*ssufs_inode_read();*/
 	return 0;
 }

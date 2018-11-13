@@ -72,9 +72,10 @@ int ssuf_inode_read(struct inode *inode, uint32_t offset, char *buf, uint32_t le
 struct ssufs_inode *inode_alloc(uint32_t type);
 
 struct vnode *make_vnode_tree(struct ssufs_superblock *sb, struct vnode *mnt_root);
-void set_vnode(struct vnode *vnode, struct vnode *parent_vnode, struct ssufs_inode *inode);
+struct vnode *set_vnode(struct vnode *vnode, struct vnode *parent_vnode, struct ssufs_inode *inode);
 int get_curde(struct ssufs_inode *cwd, struct dirent * de);
 int ssufs_mkdir(char *dirname);
+static int num_direntry(struct ssufs_inode *inode);
 
 
 #endif

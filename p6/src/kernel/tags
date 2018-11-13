@@ -55,6 +55,7 @@ ATA_SR_IDX	include/device/ata.h	28;"	d
 ATA_WAIT_BUSY	include/device/ata.h	50;"	d
 ATA_WAIT_IDLE	include/device/ata.h	51;"	d
 AUTHOR	arch/Main.c	/^const char* AUTHOR = "OSLAB";$/;"	v
+AUTHOR	build/Main.s	/^AUTHOR:$/;"	l
 Address	arch/interrupt.c	/^	unsigned long Address;$/;"	m	struct:_IDTR	file:
 BITMAP_ERROR	include/bitmap.h	34;"	d
 BITMASK	include/vaddr.h	15;"	d
@@ -198,9 +199,10 @@ LONG_MAX	include/limits.h	26;"	d
 LONG_MIN	include/limits.h	27;"	d
 LowOffset	arch/interrupt.c	/^	unsigned short LowOffset;$/;"	m	struct:_ID	file:
 MEM_SIZE	mem/mm.c	/^static unsigned long MEM_SIZE;$/;"	v	file:
-MIN	filesys/ssufs.c	10;"	d	file:
+MIN	filesys/ssufs.c	11;"	d	file:
 MINUS	stdio.c	/^        MINUS = 1 << 0,         \/* '-' *\/$/;"	e	enum:printf_conversion::__anon1	file:
 MODIFIER	arch/Main.c	/^const char* MODIFIER = "You";$/;"	v
+MODIFIER	build/Main.s	/^MODIFIER:$/;"	l
 MakeRelativePathsInFlagsAbsolute	.ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	f
 NASM	Makefile	/^NASM = nasm$/;"	m
 NOT_REACHED	include/debug.h	28;"	d
@@ -410,6 +412,7 @@ UNUSED	include/debug.h	7;"	d
 USHRT_MAX	include/limits.h	20;"	d
 UpdateKeyStat	device/kbd.c	/^void UpdateKeyStat(BYTE Scancode)$/;"	f
 VERSION	arch/Main.c	/^const char* VERSION = "0.1.06";$/;"	v
+VERSION	build/Main.s	/^VERSION:$/;"	l
 VIDIO_MEMORY	device/console.c	14;"	d	file:
 VOLNAME_LEN	filesys/fs.c	10;"	d	file:
 VOLNAME_LEN	include/filesys/ssufs.h	7;"	d
@@ -765,6 +768,7 @@ lock_try_acquire	synch.c	/^lock_try_acquire (struct lock *lock)$/;"	f
 ls	include/filesys/vnode.h	/^	int (*ls)();$/;"	m	struct:vnodeop
 ls_proc	proc/proc.c	/^void ls_proc(void){$/;"	f
 main_init	arch/Main.c	/^void main_init(void)$/;"	f
+main_init	build/Main.s	/^main_init:$/;"	l
 make_vnode_tree	filesys/ssufs.c	/^struct vnode *make_vnode_tree(struct ssufs_superblock *sb, struct vnode *mnt_root)$/;"	f
 max_length	stdio.c	/^    int max_length;     \/* Max length of output string. *\/$/;"	m	struct:vsnprintf_aux	file:
 mem	Makefile	/^mem = .\/mem$/;"	m
@@ -831,6 +835,7 @@ precision	stdio.c	/^    int precision;$/;"	m	struct:printf_conversion	file:
 prev	include/list.h	/^    struct list_elem *prev;     \/* Previous list element. *\/$/;"	m	struct:list_elem	typeref:struct:list_elem::list_elem
 printCharToSerial	device/console.c	/^void printCharToSerial(const char *pString)$/;"	f
 print_contributors	arch/Main.c	/^void print_contributors(void)$/;"	f
+print_contributors	build/Main.s	/^print_contributors:$/;"	l
 print_cwd	proc/proc.c	/^void print_cwd(struct vnode *vnode){$/;"	f
 print_hex	device/ata.c	/^ print_hex(char buf[], blk_sec_t sec_num, int len) {$/;"	f	file:
 print_human_readable_size	stdio.c	/^print_human_readable_size (uint64_t size) $/;"	f
@@ -877,6 +882,7 @@ r_list	proc/proc.c	/^struct list r_list;		\/\/ Run Porcess List$/;"	v	typeref:st
 read	include/device/block.h	/^  void (*read) (void *blk_dev, blk_sec_t, void *buf);$/;"	m	struct:blk_dev_ops
 read_cr0	arch/i386/crset.asm	/^read_cr0:$/;"	l
 read_cr3	arch/i386/crset.asm	/^read_cr3:$/;"	l
+rec_tree	filesys/ssufs.c	/^void rec_tree(struct ssufs_superblock *sb, struct vnode *root)$/;"	f
 refreshScreen	device/console.c	/^void refreshScreen(void)$/;"	f
 reg_handler	arch/interrupt.c	/^void reg_handler(unsigned short idx, intr_handler_func *handler) $/;"	f
 rootdir	include/proc/proc.h	/^	struct vnode *rootdir;$/;"	m	struct:process	typeref:struct:process::vnode
@@ -903,7 +909,7 @@ semaphore	include/synch.h	/^      struct semaphore semaphore; \/* Binary semapho
 semaphore	include/synch.h	/^struct semaphore $/;"	s
 set_cursor	device/console.c	/^void set_cursor(void)$/;"	f
 set_fallow	device/console.c	/^void set_fallow(void)$/;"	f
-set_vnode	filesys/ssufs.c	/^void set_vnode(struct vnode *vnode, struct vnode *parent_vnode, struct ssufs_inode *inode)$/;"	f
+set_vnode	filesys/ssufs.c	/^struct vnode *set_vnode(struct vnode *vnode, struct vnode *parent_vnode, struct ssufs_inode *inode)$/;"	f
 shell_proc	proc/proc.c	/^void shell_proc(void* aux)$/;"	f
 shutdown	arch/syscall.c	/^void shutdown(void)$/;"	f
 simple_lock	include/proc/proc.h	/^	int simple_lock;					\/\/ 부모 락$/;"	m	struct:process
@@ -931,6 +937,7 @@ ssufs_sync_inodetable	filesys/ssufs.c	/^int ssufs_sync_inodetable(struct ssufs_s
 ssufs_sync_superblock	filesys/ssufs.c	/^int ssufs_sync_superblock(struct ssufs_superblock *sb){$/;"	f
 ssufs_writeblock	filesys/ssufs.c	/^int ssufs_writeblock(struct ssufs_superblock *sb, uint32_t blknum, char *buf)$/;"	f
 ssuos_main	arch/Main.c	/^void ssuos_main(void)$/;"	f
+ssuos_main	build/Main.s	/^ssuos_main:$/;"	l
 ssuread	arch/syscall.c	/^int ssuread()$/;"	f
 stack	include/proc/proc.h	/^	void *stack;					\/\/stack for esp$/;"	m	struct:process
 state	include/proc/proc.h	/^	enum p_state state;				\/\/ process state$/;"	m	struct:process	typeref:enum:process::p_state

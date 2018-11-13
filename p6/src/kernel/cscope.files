@@ -47,6 +47,7 @@
 ./list.c
 ./bitmap.c
 ./ssulib.c
+./build/Main.s
 ./string.c
 ./arch/syscall.c
 ./arch/do_syscall.c
