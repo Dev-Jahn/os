@@ -342,7 +342,7 @@ void rec_tree(struct ssufs_superblock *sb, struct vnode *root)
 	}
 }
 
-static int num_direntry(struct ssufs_inode *inode)
+int num_direntry(struct ssufs_inode *inode)
 {
 	if(inode->i_size % sizeof(struct dirent) != 0)
 	/*if(inode->i_size % sizeof(struct dirent) != 0 || inode->i_type != SSU_DIR_TYPE)*/
