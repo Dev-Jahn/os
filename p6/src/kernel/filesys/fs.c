@@ -1,3 +1,4 @@
+#include <device/console.h>
 #include <filesys/fs.h>
 #include <filesys/vnode.h>
 #include <filesys/ssufs.h>
@@ -81,7 +82,7 @@ struct vnode *do_mount(char *volname, char *dirname){
 	switch(fs_info->filesystem){
 		case SSUFS:
 		mnt_vnode = init_ssufs(fs_info->name, fs_info->superblock_offset, mnt_vnode);
-		/*mnt_vnode->v_op.mkdir = ssufs_mkdir;*/
+		struct ssufs_inode *inode = mnt_vnode->info;
 		break;
 		case PROCFS:
 		mnt_vnode = init_procfs(mnt_vnode);

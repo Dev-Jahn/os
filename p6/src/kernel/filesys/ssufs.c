@@ -7,6 +7,8 @@
 #include <ssulib.h>
 #include <string.h>
 #include <bitmap.h>
+#include <mem/paging.h>
+#include <device/io.h>
 
 #define MIN(a, b)		(a<b?a:b)
 
@@ -36,7 +38,7 @@ struct vnode *init_ssufs(char *volname, uint32_t lba, struct vnode *mnt_root){
 	}else{
 
 	}
-
+	/*((struct ssufs_inode*)mnt_root->info)->i_type = SSU_DIR_TYPE;*/
 	//load or init bitmap block
 	ssufs_load_databitmapblock(&ssufs_sb);
 	ssufs_load_inodebitmapblock(&ssufs_sb);
@@ -298,6 +300,7 @@ struct ssufs_inode *inode_alloc(uint32_t type){
 /********************************************************* inode end ************************************************************/
 
 void rec_tree(struct ssufs_superblock *sb, struct vnode *root);
+
 struct vnode *make_vnode_tree(struct ssufs_superblock *sb, struct vnode *mnt_root)
 {
 	struct ssufs_inode *root_inode = &ssufs_inode_table[INODE_ROOT];
@@ -306,9 +309,8 @@ struct vnode *make_vnode_tree(struct ssufs_superblock *sb, struct vnode *mnt_roo
 	struct vnode *parent_vnode;
 	struct dirent *parent_de;
 	struct ssufs_inode *cur_inode;
-
+	set_vnode(mnt_root, mnt_root, root_inode);
 	rec_tree(sb, mnt_root);
-
 	return mnt_root;
 }
 
@@ -342,7 +344,8 @@ void rec_tree(struct ssufs_superblock *sb, struct vnode *root)
 
 static int num_direntry(struct ssufs_inode *inode)
 {
-	if(inode->i_size % sizeof(struct dirent) != 0 || inode->i_type != SSU_DIR_TYPE)
+	if(inode->i_size % sizeof(struct dirent) != 0)
+	/*if(inode->i_size % sizeof(struct dirent) != 0 || inode->i_type != SSU_DIR_TYPE)*/
 		return -1;
 
 	return inode->i_size / sizeof(struct dirent);
@@ -389,41 +392,35 @@ int get_curde(struct ssufs_inode *cwd, struct dirent * de)
 
 //**************************************************     vnode operation      *****************************************************/
 int ssufs_mkdir(char *dirname){
+
 	struct dirent new_dirent;
 	struct vnode *new_vnode = vnode_alloc();
 	struct ssufs_inode *new_inode = inode_alloc(SSU_DIR_TYPE);
 	new_inode->i_nlink = 2;
-
+	int ret;
 	//add self
 	new_dirent.d_ino = new_inode->i_no;
 	new_dirent.d_type = SSU_DIR_TYPE;
 	memcpy(new_dirent.d_name, ".", sizeof("."));
-	ssufs_inode_write(new_inode, 0, (char*)&new_dirent, sizeof(struct dirent));
+	ret = ssufs_inode_write(new_inode, 0, (char*)&new_dirent, sizeof(struct dirent));
 
 	//add parent
 	new_dirent.d_ino = ((struct ssufs_inode*)(cur_process->cwd->info))->i_no;
-	new_dirent.d_type = SSU_DIR_TYPE;
 	memcpy(new_dirent.d_name, "..", sizeof(".."));
-	ssufs_inode_write(new_inode, new_inode->i_size, (char*)&new_dirent, sizeof(struct dirent));
-
-	//add new inode to parent direct
+	ret = ssufs_inode_write(new_inode, new_inode->i_size, (char*)&new_dirent, sizeof(struct dirent));
+	
+	struct vnode *cwd = cur_process->cwd;
+	struct ssufs_inode *cwi = cwd->info;
+	//add new dirent to parent direct
 	new_dirent.d_ino = new_inode->i_no;
-	new_dirent.d_type = SSU_DIR_TYPE;
 	memcpy(new_dirent.d_name, dirname, strnlen(dirname, FILENAME_LEN)+1);
-	ssufs_inode_write(cur_process->cwd->info,
+	ret = ssufs_inode_write(cur_process->cwd->info,
 			((struct ssufs_inode*)cur_process->cwd->info)->i_size,
 			(char*)&new_dirent, sizeof(struct dirent));
 
 	//set vnode with inode
 	set_vnode(new_vnode, cur_process->cwd, new_inode);
-
 	//add to parent child list
 	list_push_back(&cur_process->cwd->childlist, &new_vnode->elem);
-
-	//sync
-	ssufs_sync_bitmapblock(new_inode->ssufs_sb);
-	ssufs_sync_inodetable(new_inode->ssufs_sb);
-
-	/*ssufs_inode_read();*/
 	return 0;
 }
