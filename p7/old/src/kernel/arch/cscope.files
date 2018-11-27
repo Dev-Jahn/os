@@ -1,0 +1,9 @@
+./syscall.c
+./do_syscall.c
+./i386/mem.asm
+./i386/switch.S
+./i386/intr-stubs.S
+./i386/crset.asm
+./i386/io.asm
+./interrupt.c
+./Main.c

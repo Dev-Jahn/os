@@ -1,0 +1,89 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ASSERT	interrupt.c	39;"	d	file:
+AUTHOR	Main.c	/^const char* AUTHOR = "OSLAB";$/;"	v
+Address	interrupt.c	/^	unsigned long Address;$/;"	m	struct:_IDTR	file:
+CODE_SEGMENT	interrupt.c	17;"	d	file:
+CodeSelector	interrupt.c	/^	unsigned short CodeSelector;$/;"	m	struct:_ID	file:
+FLAG_IF	interrupt.c	153;"	d	file:
+FLAG_MBS	interrupt.c	152;"	d	file:
+HighOffset	interrupt.c	/^	unsigned short HighOffset;$/;"	m	struct:_ID	file:
+LowOffset	interrupt.c	/^	unsigned short LowOffset;$/;"	m	struct:_ID	file:
+MODIFIER	Main.c	/^const char* MODIFIER = "You";$/;"	v
+REAL	i386/intr-stubs.S	/^#define REAL                                    \\$/;"	d
+REFRESH_FPS	interrupt.c	16;"	d	file:
+REGSYS	syscall.c	73;"	d	file:
+STUB	i386/intr-stubs.S	/^#define STUB(NUMBER, TYPE)                      \\$/;"	d
+SYSCALL_ARG_MAX	interrupt.c	254;"	d	file:
+Size	interrupt.c	/^	unsigned short Size;$/;"	m	struct:_IDTR	file:
+TIMER_MAX	interrupt.c	15;"	d	file:
+Type	interrupt.c	/^	unsigned short Type;$/;"	m	struct:_ID	file:
+VERSION	Main.c	/^const char* VERSION = "0.1.07";$/;"	v
+_ID	interrupt.c	/^typedef struct _ID$/;"	s	file:
+_ID	interrupt.c	/^} _ID;$/;"	t	typeref:struct:_ID	file:
+_IDTR	interrupt.c	/^typedef struct _IDTR$/;"	s	file:
+_IDTR	interrupt.c	/^} _IDTR;$/;"	t	typeref:struct:_IDTR	file:
+default_handler	interrupt.c	/^void default_handler(struct intr_frame *iframe)$/;"	f
+do_exit	do_syscall.c	/^void do_exit(int status)$/;"	f
+do_fork	do_syscall.c	/^pid_t do_fork(proc_func func, void* aux1, void* aux2)$/;"	f
+do_lseek	do_syscall.c	/^int do_lseek(int fd, int offset, int whence)$/;"	f
+do_open	do_syscall.c	/^int do_open(const char *pathname, int flags)$/;"	f
+do_read	do_syscall.c	/^int do_read(int fd, char *buf, int len)$/;"	f
+do_sched_on_return	interrupt.c	/^void do_sched_on_return(void)$/;"	f
+do_shutdown	do_syscall.c	/^void do_shutdown(void)$/;"	f
+do_ssuread	do_syscall.c	/^int do_ssuread(void)$/;"	f
+do_wait	do_syscall.c	/^pid_t do_wait(int *status)$/;"	f
+do_write	do_syscall.c	/^int do_write(int fd, const char *buf, int len)$/;"	f
+exit	syscall.c	/^void exit(int status)$/;"	f
+fork	syscall.c	/^pid_t fork(proc_func func, void* aux1, void* aux2)$/;"	f
+getMemSize	i386/mem.asm	/^getMemSize:		$/;"	l
+get_ticks	interrupt.c	/^unsigned long get_ticks(void)$/;"	f
+handlers	interrupt.c	/^intr_handler_func *handlers[INTR_MAX];	\/\/실제 인터럽트 핸들러 들$/;"	v
+idt	interrupt.c	/^_ID     *idt;$/;"	v
+in_external_intr	interrupt.c	/^static bool in_external_intr;   \/* Are we processing an external interrupt? *\/$/;"	v	file:
+inb	i386/io.asm	/^inb:$/;"	l
+init_intr	interrupt.c	/^int init_intr(void)$/;"	f
+init_syscall	syscall.c	/^void init_syscall(void)$/;"	f
+inl	i386/io.asm	/^inl:$/;"	l
+intr_common	interrupt.c	/^void intr_common(struct intr_frame *iframe)$/;"	f
+intr_context	interrupt.c	/^bool intr_context (void)$/;"	f
+intr_disable	interrupt.c	/^enum intr_level intr_disable (void) $/;"	f
+intr_enable	interrupt.c	/^enum intr_level intr_enable (void) $/;"	f
+intr_entry	i386/intr-stubs.S	/^intr_entry:$/;"	l
+intr_exit	i386/intr-stubs.S	/^intr_exit:$/;"	l
+intr_get_level	interrupt.c	/^enum intr_level intr_get_level (void) $/;"	f
+intr_set_level	interrupt.c	/^enum intr_level intr_set_level (enum intr_level level) $/;"	f
+intr_stubs	i386/intr-stubs.S	/^intr_stubs:$/;"	l
+iowait	i386/io.asm	/^iowait:$/;"	l
+lseek	syscall.c	/^int lseek(int fd, int offset, int whence)$/;"	f
+main_init	Main.c	/^void main_init(void)$/;"	f
+open	syscall.c	/^int open(const char *pathname, int flags)$/;"	f
+outb	i386/io.asm	/^outb:  $/;"	l
+outl	i386/io.asm	/^outl:$/;"	l
+print_contributors	Main.c	/^void print_contributors(void)$/;"	f
+read	syscall.c	/^int read(int fd, char *buf, size_t len)$/;"	f
+read_cr0	i386/crset.asm	/^read_cr0:$/;"	l
+read_cr3	i386/crset.asm	/^read_cr3:$/;"	l
+reg_handler	interrupt.c	/^void reg_handler(unsigned short idx, intr_handler_func *handler) $/;"	f
+sched_on_return	interrupt.c	/^bool sched_on_return;		\/\/인터럽트가 끝날 때 schedule 할 지 결정$/;"	v
+shutdown	syscall.c	/^void shutdown(void)$/;"	f
+ssuos_main	Main.c	/^void ssuos_main(void)$/;"	f
+ssuread	syscall.c	/^int ssuread()$/;"	f
+switch_process	i386/switch.S	/^switch_process:$/;"	l
+syscall0	syscall.c	11;"	d	file:
+syscall1	syscall.c	23;"	d	file:
+syscall2	syscall.c	37;"	d	file:
+syscall3	syscall.c	53;"	d	file:
+syscall_handler	interrupt.c	/^void syscall_handler(struct intr_frame *iframe)$/;"	f
+syscall_tbl	syscall.c	/^int syscall_tbl[SYS_NUM][2];$/;"	v
+ticks	interrupt.c	/^static unsigned long ticks;$/;"	v	file:
+timer_handler	interrupt.c	/^void timer_handler(struct intr_frame *iframe)$/;"	f
+wait	syscall.c	/^pid_t wait(int *status)$/;"	f
+write	syscall.c	/^int write(int fd, const char *buf, size_t len)$/;"	f
+write_cr0	i386/crset.asm	/^write_cr0:$/;"	l
+write_cr3	i386/crset.asm	/^write_cr3:$/;"	l
+zero	i386/intr-stubs.S	/^#define zero                                \\$/;"	d
