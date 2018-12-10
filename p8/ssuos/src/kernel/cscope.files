@@ -8,6 +8,7 @@
 ./arch/Main.c
 ./arch/syscall.c
 ./bitmap.c
+./build/Main.s
 ./device/ata.c
 ./device/block.c
 ./device/console.c

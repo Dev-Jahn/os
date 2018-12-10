@@ -17,6 +17,7 @@
 #define STACK_SIZE	512
 #define PROC_NUM_MAX 16
 
+extern int debug;
 struct list p_list;		// All Porcess List
 struct list r_list;		// Run Porcess List
 struct list s_list;		// Sleep Process List
@@ -25,6 +26,7 @@ struct list d_list;		// Deleted Process List
 struct process procs[PROC_NUM_MAX];
 struct process *cur_process;
 int pid_num_max;
+char tmp[8300];
 
 
 uint32_t process_stack_ofs;
@@ -336,14 +338,19 @@ void open_proc(void *aux)
 
 void write_proc(void *aux)
 {
+	debug = 1;
 	char *name = (char *)aux;
 	int fd;
 	fd = open(name,O_WRONLY);
-	char tmp[8300];
+	printk("after open:%d\n",cur_process->file[fd]->inode->sn_directblock[0]);
 	memset(tmp, 'a', 8300);
 	memcpy(tmp+8200, "Hello , ssuos world", 19);
 	*(tmp+8200+19) = 0;
+
+	printk("before write:%d\n",cur_process->file[fd]->inode->sn_directblock[0]);
+
 	write(fd,tmp,8300);
+	debug = 0;
 }
 
 void ls_proc(void *aux)
