@@ -129,7 +129,6 @@ int do_lseek(int fd, int offset, int whence)
 	{
 		if (ON_RE(whence))
 		{
-			printk("RE!\n");
 			file_read(cursor->inode, 0, buf-(tmp+offset), size);
 			file_write(cursor->inode, 0, buf, size-(tmp+offset));
 			*pos = 0;

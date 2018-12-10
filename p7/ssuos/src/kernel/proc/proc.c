@@ -475,6 +475,7 @@ void lseek_proc(void *aux , void *filename)
 			fd = open("opt_c_test", O_RDWR);
 			if (fd<0) return;
 			write(fd, "this is opt_c", 13);
+			printk("this is opt_c\n");
 			printk("cur_pos:%d\n", cur_process->file[fd]->pos);
 			printk("1 >>\n");
 			lseek(fd, 1, SEEK_CUR|opt);
