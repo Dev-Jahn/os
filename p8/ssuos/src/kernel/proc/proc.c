@@ -27,6 +27,7 @@ struct process procs[PROC_NUM_MAX];
 struct process *cur_process;
 int pid_num_max;
 char tmp[8300];
+char buf[8300];
 
 
 uint32_t process_stack_ofs;
@@ -342,12 +343,10 @@ void write_proc(void *aux)
 	char *name = (char *)aux;
 	int fd;
 	fd = open(name,O_WRONLY);
-	printk("after open:%d\n",cur_process->file[fd]->inode->sn_directblock[0]);
 	memset(tmp, 'a', 8300);
+
 	memcpy(tmp+8200, "Hello , ssuos world", 19);
 	*(tmp+8200+19) = 0;
-
-	printk("before write:%d\n",cur_process->file[fd]->inode->sn_directblock[0]);
 
 	write(fd,tmp,8300);
 	debug = 0;
@@ -360,15 +359,17 @@ void ls_proc(void *aux)
 
 void cat_proc(void *aux)
 {
-	//if you complete inode_write() & inode_read() , remove below '/*'& '*/' in this section.
-	/*char buf[8300];
+	debug = 1;
 	int fd;
 	fd = open((char *)aux,O_RDONLY);
 	if (fd < 0) return;
 	memset(buf , 0 , 8300);
 	read(fd, buf, 8300);
 	*(buf+8200+19) = 0;
-	printk("%s\n",buf+8200);*/
+	
+	printk("%s\n",buf+8200);
+
+	debug = 0;
 }
 
 

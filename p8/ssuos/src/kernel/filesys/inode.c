@@ -78,15 +78,44 @@ struct inode* inode_create(struct ssu_fs *fs, uint16_t type)
 
 int inode_write(struct inode *in, uint32_t offset, char * buf, int len)
 {
-
-	//modify the inode_write to activate indirect blocks.
 	int result=0;
 	struct ssu_fs * fs = in->sn_fs;
-	//uint32_t blkoff = offset / SSU_BLOCK_SIZE;
 	uint32_t lbn_start = offset / SSU_BLOCK_SIZE;
 	uint32_t lbn_end = (offset+len) / SSU_BLOCK_SIZE;
 	uint32_t res_off = offset % SSU_BLOCK_SIZE;
 	uint32_t blkcnt = lbn_end - lbn_start + 1;
+	
+	if(offset > in->sn_size)
+		return -1;
+
+	memset(tmpblock, 0, SSU_BLOCK_SIZE);
+
+	for (uint32_t lbn = lbn_start;lbn<=lbn_end;lbn++)
+	{
+		uint32_t pbn = lbn_to_pbn(in, lbn);
+		fs_readblock(fs, pbn, tmpblock);
+		//단일 블록 내
+		if (blkcnt == 1)
+		{
+			memcpy(tmpblock+res_off, buf, len);
+		}
+		//첫블록
+		else if (lbn == lbn_start)
+			memcpy(tmpblock+res_off, buf, SSU_BLOCK_SIZE-res_off);
+		//끝블록
+		else if (lbn == lbn_end)
+			memcpy(tmpblock, buf-res_off+SSU_BLOCK_SIZE*(blkcnt-1), offset+len-(blkcnt-1)*SSU_BLOCK_SIZE);
+		//중간
+		else
+			memcpy(tmpblock, buf-res_off+SSU_BLOCK_SIZE*(lbn-lbn_start), SSU_BLOCK_SIZE);
+		if (debug)
+			printk("(Block access) lbn(%d) pbn(%d)\n", lbn, pbn);
+		fs_writeblock(fs, pbn, tmpblock);
+	}
+	
+	if(in->sn_size < offset+len)
+		in->sn_size = offset+len;
+	sync_inode(fs, in);
 	if (debug)
 	{
 		printk("lbn_start: %d\n", lbn_start);
@@ -94,80 +123,53 @@ int inode_write(struct inode *in, uint32_t offset, char * buf, int len)
 		printk("pbn_start: %d\n", lbn_to_pbn(in,lbn_start));
 		printk("pbn_end:   %d\n", lbn_to_pbn(in,lbn_end));
 	}
-
-	if(offset > in->sn_size)
-		return -1;
-
-	for (uint32_t lbn = lbn_start;lbn<=lbn_end;lbn++)
-	{
-		uint32_t pbn = lbn_to_pbn(in, lbn);
-		/*printk("pbn:%d\n", pbn);*/
-		fs_readblock(fs, pbn, tmpblock);
-		//단일 블록 내
-		if (blkcnt == 1)
-			memcpy(tmpblock+res_off, buf, len);
-		//첫블록
-		else if (lbn == lbn_start)
-			memcpy(tmpblock+res_off, buf, len);
-		//끝블록
-		else if (lbn == lbn_end)
-			memcpy(tmpblock, buf-res_off+SSU_BLOCK_SIZE*(blkcnt-1), offset+len-(blkcnt-1)*SSU_BLOCK_SIZE);
-		//중간
-		else
-			memcpy(tmpblock, buf-res_off+SSU_BLOCK_SIZE*(lbn-lbn_start), SSU_BLOCK_SIZE);
-
-		fs_writeblock(fs, pbn, tmpblock);
-	}
-	
-/*
- *    memset(tmpblock, 0, SSU_BLOCK_SIZE);
- *    if(res_off != 0 || blkoff < in->sn_nlink)
- *    {
- *        fs_readblock(fs, in->sn_directblock[blkoff], tmpblock);
- *    }
- *    else
- *    {
- *        balloc(fs->fs_blkmap, &(in->sn_directblock[blkoff]));
- *        in->sn_nlink++;
- *        sync_bitmapblock(fs);
- *    }
- *
- *    memcpy(tmpblock + res_off, buf, len);
- *
- *    fs_writeblock(fs, in->sn_directblock[blkoff], tmpblock);
- *
- *
- */
-
-
-	
-	printk("direct:%d\n",in->sn_directblock[0]);
-	if(in->sn_size < offset+len)
-		in->sn_size = offset+len;
-	sync_inode(fs, in);
-	printk("before return:%d\n",in->sn_directblock[0]);
 	return result;
 }
 
 int inode_read(struct inode * in, uint32_t offset, char * buf, int len)
 {
-
 	//modify the inode_write to activate indirect blocks.
 	int result=0;
 	struct ssu_fs * fs = in->sn_fs;
-	uint32_t blkoff = offset / SSU_BLOCK_SIZE;
+	uint32_t lbn_start = offset / SSU_BLOCK_SIZE;
+	uint32_t lbn_end = (offset+len) / SSU_BLOCK_SIZE;
 	uint32_t res_off = offset % SSU_BLOCK_SIZE;
+	uint32_t blkcnt = lbn_end - lbn_start + 1;
 
 	if(offset > in->sn_size)
 		return -1;
 	
 	memset(tmpblock, 0, SSU_BLOCK_SIZE);
-	fs_readblock(fs, in->sn_directblock[blkoff], tmpblock);
 
-	memcpy(buf, tmpblock + res_off, len);
+	for (uint32_t lbn = lbn_start;lbn<=lbn_end;lbn++)
+	{
+		uint32_t pbn = lbn_to_pbn(in, lbn);
+		fs_readblock(fs, pbn, tmpblock);
+		//단일 블록 내
+		if (blkcnt == 1)
+			memcpy(buf, tmpblock+res_off, len);
+		//첫블록
+		else if (lbn == lbn_start)
+			memcpy(buf, tmpblock+res_off, SSU_BLOCK_SIZE-res_off);
+		//끝블록
+		else if (lbn == lbn_end)
+			memcpy(buf-res_off+SSU_BLOCK_SIZE*(blkcnt-1), tmpblock, offset+len-(blkcnt-1)*SSU_BLOCK_SIZE);
+		//중간
+		else
+			memcpy(buf-res_off+SSU_BLOCK_SIZE*(lbn-lbn_start), tmpblock, SSU_BLOCK_SIZE);
+		if (debug)
+			printk("(Block access) lbn(%d) pbn(%d)\n", lbn, pbn);
+	}
+
+	/*memcpy(buf, tmpblock + res_off, len);*/
+	if (debug)
+	{
+		printk("lbn_start: %d\n", lbn_start);
+		printk("lbn_end:   %d\n", lbn_end);
+		printk("pbn_start: %d\n", lbn_to_pbn(in,lbn_start));
+		printk("pbn_end:   %d\n", lbn_to_pbn(in,lbn_end));
+	}
 	return result;
-
-	//
 }
 
 int lbn_to_pbn(struct inode * in, uint32_t lbn )
@@ -175,6 +177,7 @@ int lbn_to_pbn(struct inode * in, uint32_t lbn )
 	struct ssu_fs * fs = in->sn_fs;
 	int pbn=0;
 	uint32_t indiroff = (lbn-2)/(SSU_BLOCK_SIZE/sizeof(uint32_t));
+	uint32_t diroff = (lbn-2)%(SSU_BLOCK_SIZE/sizeof(uint32_t));
 	if (lbn<=1)
 	{
 		if (in->sn_directblock[lbn] == 0)
@@ -197,7 +200,7 @@ int lbn_to_pbn(struct inode * in, uint32_t lbn )
 			fs_writeblock(fs, in->sn_indirectblock[indiroff], tmpblock);
 		}
 		fs_readblock(fs, in->sn_indirectblock[indiroff], tmpblock_indirect);
-		memcpy(&pbn, tmpblock_indirect, sizeof(int));
+		memcpy(&pbn, tmpblock_indirect+diroff*sizeof(int), sizeof(int));
 		if (pbn == 0)
 		{
 			pbn = balloc(fs->fs_blkmap, (uint32_t*)tmpblock_indirect);
@@ -207,6 +210,7 @@ int lbn_to_pbn(struct inode * in, uint32_t lbn )
 		}
 	}
 	sync_inode(fs, in);
+
 	return pbn;
 }
 
